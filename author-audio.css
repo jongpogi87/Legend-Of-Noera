@@ -1,0 +1,7 @@
+.author-divider{border:0;border-top:1px solid #b8ab88;margin:55px 0}
+.audio-files{display:grid;grid-template-columns:1fr 1fr;gap:5px 22px}
+.audio-downloads{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}
+.audio-download{display:block;padding:12px;background:#0b262c;color:white;text-decoration:none;font-size:13px}
+.audio-download:hover{background:#164a43}
+#audio-message{color:#476b59;font-weight:700}
+@media(max-width:650px){.audio-files,.audio-downloads{grid-template-columns:1fr}}
