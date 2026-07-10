@@ -17,8 +17,9 @@ const stopButton = document.querySelector("#stop");
 const voiceSelect = document.querySelector("#voice");
 const voiceNote = document.querySelector("#voice-note");
 
-let pages = [], pageIndex = 0, currentTitle = "", availableVoices = [];
+let pages = [], pageIndex = 0, currentTitle = "", currentChapterId = "", availableVoices = [];
 let speechRun = 0, speechChunks = [], speechIndex = 0, speechState = "idle";
+let studioAudio = null;
 
 function paginate(text) {
   const paragraphs = text.replace(/\f/g, "\n").split(/\n\s*\n/)
@@ -42,6 +43,7 @@ function chapterWord(number) {
 async function openChapter(id) {
   stopNarration();
   const chapter = chapters[id];
+  currentChapterId = id;
   currentTitle = chapter.title;
   chapterLabel.textContent = "CHAPTER " + chapterWord(Number(id));
   chapterTitle.textContent = currentTitle;
@@ -133,7 +135,7 @@ function speakCurrentChunk(run) {
   utterance.onerror = (event) => { if (!["canceled", "interrupted"].includes(event.error)) { speechState = "idle"; setAudioButtons(); } };
   speechSynthesis.speak(utterance);
 }
-function startNarration() {
+function startDeviceNarration() {
   speechRun += 1;
   speechSynthesis.cancel();
   speechChunks = makeSpeechChunks(currentTitle + ". " + pages[pageIndex]);
@@ -142,7 +144,50 @@ function startNarration() {
   setAudioButtons();
   speakCurrentChunk(speechRun);
 }
+
+async function startNarration() {
+  stopNarration();
+  const profile = voiceSelect.value;
+  const audioUrl = "audio/chapter-" + currentChapterId + "-" + profile + ".mp3?v=" + Date.now();
+  studioAudio = new Audio(audioUrl);
+  studioAudio.preload = "auto";
+  studioAudio.onended = () => {
+    speechState = "idle";
+    studioAudio = null;
+    setAudioButtons();
+  };
+  studioAudio.onerror = () => {
+    studioAudio = null;
+    if (voiceNote) voiceNote.textContent = "Studio narration has not been uploaded for this voice. Using the device voice instead.";
+    startDeviceNarration();
+  };
+  try {
+    speechState = "playing";
+    setAudioButtons();
+    await studioAudio.play();
+    if (voiceNote) voiceNote.textContent = "Playing studio narration: " + profile.replace("-", " — ");
+  } catch {
+    if (studioAudio) {
+      studioAudio.onerror = null;
+      studioAudio = null;
+      if (voiceNote) voiceNote.textContent = "Studio narration has not been uploaded for this voice. Using the device voice instead.";
+      startDeviceNarration();
+    }
+  }
+}
 function pauseOrResumeNarration() {
+  if (studioAudio) {
+    if (speechState === "playing") {
+      studioAudio.pause();
+      speechState = "paused";
+      setAudioButtons();
+    } else if (speechState === "paused") {
+      studioAudio.play();
+      speechState = "playing";
+      setAudioButtons();
+    }
+    return;
+  }
   if (speechState === "playing") {
     speechState = "paused"; speechRun += 1; speechSynthesis.cancel(); setAudioButtons();
   } else if (speechState === "paused") {
@@ -150,7 +195,17 @@ function pauseOrResumeNarration() {
   }
 }
 function stopNarration() {
-  speechRun += 1; speechState = "idle"; speechIndex = 0; speechSynthesis.cancel(); setAudioButtons();
+  speechRun += 1;
+  speechState = "idle";
+  speechIndex = 0;
+  speechSynthesis.cancel();
+  if (studioAudio) {
+    studioAudio.pause();
+    studioAudio.currentTime = 0;
+    studioAudio.onerror = null;
+    studioAudio = null;
+  }
+  setAudioButtons();
 }
 
 listenButton.addEventListener("click", startNarration);
