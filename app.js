@@ -15,10 +15,19 @@ const listenButton = document.querySelector("#listen");
 const pauseButton = document.querySelector("#pause");
 const stopButton = document.querySelector("#stop");
 const voiceSelect = document.querySelector("#voice");
+const speedSelect = document.querySelector("#speed");
+const autoNextCheckbox = document.querySelector("#auto-next");
 const voiceNote = document.querySelector("#voice-note");
 
-let pages = [], pageIndex = 0, currentTitle = "", currentChapterId = "", availableVoices = [];
-let speechRun = 0, speechChunks = [], speechIndex = 0, speechState = "idle";
+let pages = [];
+let pageIndex = 0;
+let currentTitle = "";
+let currentChapterId = "";
+let availableVoices = [];
+let speechRun = 0;
+let speechChunks = [];
+let speechIndex = 0;
+let speechState = "idle";
 let studioAudio = null;
 
 function paginate(text) {
@@ -40,14 +49,29 @@ function chapterWord(number) {
   return ({ 1: "ONE", 2: "TWO", 3: "THREE", 4: "FOUR", 5: "FIVE", 6: "SIX", 7: "SEVEN", 8: "EIGHT", 9: "NINE", 10: "TEN" })[number] || number;
 }
 
-async function openChapter(id) {
+function saveReaderSettings() {
+  localStorage.setItem("noeraVoice", voiceSelect.value);
+  localStorage.setItem("noeraSpeed", speedSelect.value);
+  localStorage.setItem("noeraAutoNext", autoNextCheckbox.checked ? "1" : "0");
+}
+
+function loadReaderSettings() {
+  const savedVoice = localStorage.getItem("noeraVoice");
+  const savedSpeed = localStorage.getItem("noeraSpeed");
+  if (savedVoice && [...voiceSelect.options].some((option) => option.value === savedVoice)) voiceSelect.value = savedVoice;
+  if (savedSpeed && [...speedSelect.options].some((option) => option.value === savedSpeed)) speedSelect.value = savedSpeed;
+  autoNextCheckbox.checked = localStorage.getItem("noeraAutoNext") === "1";
+}
+
+async function openChapter(id, autoStart = false) {
   stopNarration();
   const chapter = chapters[id];
-  currentChapterId = id;
+  if (!chapter) return;
+  currentChapterId = String(id);
   currentTitle = chapter.title;
   chapterLabel.textContent = "CHAPTER " + chapterWord(Number(id));
   chapterTitle.textContent = currentTitle;
-  reader.showModal();
+  if (!reader.open) reader.showModal();
   pageText.textContent = "Opening the manuscript…";
   try {
     const response = await fetch(chapter.file + "?v=" + Date.now(), { cache: "no-store" });
@@ -57,16 +81,21 @@ async function openChapter(id) {
     pages = ["The chapter could not be loaded. Please check your connection and try again."];
   }
   pageIndex = 0;
-  showPage();
+  renderPage();
+  if (autoStart) startNarration();
 }
 
-function showPage() {
-  stopNarration();
-  pageText.textContent = pages[pageIndex];
+function renderPage() {
+  pageText.textContent = pages[pageIndex] || "";
   pageCount.textContent = "PART " + (pageIndex + 1) + " OF " + pages.length;
   previousButton.disabled = pageIndex === 0;
   nextButton.disabled = pageIndex === pages.length - 1;
   pageText.scrollTop = 0;
+}
+
+function showPage() {
+  stopNarration();
+  renderPage();
 }
 
 function bindChapterButtons(scope = document) {
@@ -83,65 +112,105 @@ function refreshVoices() {
   availableVoices = speechSynthesis.getVoices().filter((voice) => /^en/i.test(voice.lang));
   updateVoiceNote();
 }
+
 function isMaleVoice(voice) {
   return /\b(male|man)\b|david|mark|daniel|james|george|guy|ryan|aaron|arthur|fred|lee|oliver|reed|thomas/i.test(voice.name);
 }
+
 function isFemaleVoice(voice) {
   return /\b(female|woman)\b|zira|samantha|victoria|karen|moira|aria|jenny|susan|hazel|ava|serena/i.test(voice.name);
 }
+
 function selectedDeviceVoice(profile) {
   const wantsMale = profile.startsWith("male");
   return availableVoices.find(wantsMale ? isMaleVoice : isFemaleVoice)
     || availableVoices[0] || speechSynthesis.getVoices()[0] || null;
 }
-function updateVoiceNote() {
+
+function updateVoiceNote(message = "") {
   if (!voiceNote) return;
+  if (message) { voiceNote.textContent = message; return; }
   const profile = voiceSelect.value;
   const selected = selectedDeviceVoice(profile);
   if (!selected) voiceNote.textContent = "No English narration voice is available on this device.";
   else if (profile.startsWith("male") && !availableVoices.some(isMaleVoice))
-    voiceNote.textContent = "No male device voice was found. A lower-pitched fallback will be used. Install an English male text-to-speech voice in your phone settings for a natural male narrator.";
-  else voiceNote.textContent = "Device voice: " + selected.name;
+    voiceNote.textContent = "No male device voice was found. Install an English male text-to-speech voice in your phone settings for a natural male narrator.";
+  else voiceNote.textContent = "Device voice: " + selected.name + " · Speed: " + speedSelect.value + "×";
 }
 
-function makeSpeechChunks(text) {
-  const sentences = text.match(/[^.!?]+[.!?]+[”’\"']?|[^.!?]+$/g) || [text];
+function makeSpeechChunks() {
   const chunks = [];
-  let current = "";
-  for (const sentence of sentences) {
-    const clean = sentence.trim();
-    if (!clean) continue;
-    if ((current + " " + clean).length > 240 && current) { chunks.push(current); current = clean; }
-    else current += (current ? " " : "") + clean;
+  for (let page = pageIndex; page < pages.length; page += 1) {
+    const text = (page === pageIndex ? currentTitle + ". " : "") + pages[page];
+    const sentences = text.match(/[^.!?]+[.!?]+[”’\"']?|[^.!?]+$/g) || [text];
+    let current = "";
+    for (const sentence of sentences) {
+      const clean = sentence.trim();
+      if (!clean) continue;
+      if ((current + " " + clean).length > 240 && current) {
+        chunks.push({ text: current, page });
+        current = clean;
+      } else current += (current ? " " : "") + clean;
+    }
+    if (current) chunks.push({ text: current, page });
   }
-  if (current) chunks.push(current);
   return chunks;
 }
+
 function setAudioButtons() {
   pauseButton.textContent = speechState === "paused" ? "Resume" : "Pause";
   pauseButton.disabled = speechState === "idle";
   stopButton.disabled = speechState === "idle";
   listenButton.textContent = speechState === "playing" ? "↻ Restart" : "▶ Listen";
 }
+
+function finishNarration() {
+  speechState = "idle";
+  speechIndex = 0;
+  studioAudio = null;
+  setAudioButtons();
+  const nextChapterId = String(Number(currentChapterId) + 1);
+  if (autoNextCheckbox.checked && chapters[nextChapterId]) openChapter(nextChapterId, true);
+  else updateVoiceNote("Narration finished.");
+}
+
 function speakCurrentChunk(run) {
   if (run !== speechRun || speechState !== "playing") return;
-  if (speechIndex >= speechChunks.length) { speechState = "idle"; speechIndex = 0; setAudioButtons(); return; }
+  if (speechIndex >= speechChunks.length) { finishNarration(); return; }
+  const chunk = speechChunks[speechIndex];
+  if (chunk.page !== pageIndex) {
+    pageIndex = chunk.page;
+    renderPage();
+  }
   const profile = voiceSelect.value;
-  const utterance = new SpeechSynthesisUtterance(speechChunks[speechIndex]);
+  const utterance = new SpeechSynthesisUtterance(chunk.text);
   utterance.voice = selectedDeviceVoice(profile);
-  utterance.rate = profile.includes("deep") ? .82 : profile.includes("clear") ? .96 : .89;
+  utterance.rate = Number(speedSelect.value);
   utterance.pitch = profile.includes("deep") ? .55 : profile.startsWith("male") ? .72 : profile.includes("clear") ? 1.08 : 1;
-  utterance.onend = () => { if (run === speechRun && speechState === "playing") { speechIndex += 1; speakCurrentChunk(run); } };
-  utterance.onerror = (event) => { if (!["canceled", "interrupted"].includes(event.error)) { speechState = "idle"; setAudioButtons(); } };
+  utterance.onend = () => {
+    if (run === speechRun && speechState === "playing") {
+      speechIndex += 1;
+      speakCurrentChunk(run);
+    }
+  };
+  utterance.onerror = (event) => {
+    if (!["canceled", "interrupted"].includes(event.error)) {
+      speechState = "idle";
+      setAudioButtons();
+      updateVoiceNote("Narration stopped because the device speech engine reported an error.");
+    }
+  };
   speechSynthesis.speak(utterance);
 }
+
 function startDeviceNarration() {
   speechRun += 1;
   speechSynthesis.cancel();
-  speechChunks = makeSpeechChunks(currentTitle + ". " + pages[pageIndex]);
+  speechChunks = makeSpeechChunks();
   speechIndex = 0;
   speechState = "playing";
   setAudioButtons();
+  updateVoiceNote("Reading continuously at " + speedSelect.value + "×. It will continue until paused or stopped.");
   speakCurrentChunk(speechRun);
 }
 
@@ -151,49 +220,52 @@ async function startNarration() {
   const audioUrl = "audio/chapter-" + currentChapterId + "-" + profile + ".mp3?v=" + Date.now();
   studioAudio = new Audio(audioUrl);
   studioAudio.preload = "auto";
-  studioAudio.onended = () => {
-    speechState = "idle";
-    studioAudio = null;
-    setAudioButtons();
-  };
+  studioAudio.playbackRate = Number(speedSelect.value);
+  studioAudio.onended = finishNarration;
   studioAudio.onerror = () => {
     studioAudio = null;
-    if (voiceNote) voiceNote.textContent = "Studio narration has not been uploaded for this voice. Using the device voice instead.";
+    updateVoiceNote("Studio narration has not been uploaded for this voice. Using the device voice instead.");
     startDeviceNarration();
   };
   try {
     speechState = "playing";
     setAudioButtons();
     await studioAudio.play();
-    if (voiceNote) voiceNote.textContent = "Playing studio narration: " + profile.replace("-", " — ");
+    updateVoiceNote("Playing studio narration at " + speedSelect.value + "×.");
   } catch {
     if (studioAudio) {
       studioAudio.onerror = null;
       studioAudio = null;
-      if (voiceNote) voiceNote.textContent = "Studio narration has not been uploaded for this voice. Using the device voice instead.";
+      updateVoiceNote("Studio narration has not been uploaded for this voice. Using the device voice instead.");
       startDeviceNarration();
     }
   }
 }
+
 function pauseOrResumeNarration() {
   if (studioAudio) {
     if (speechState === "playing") {
       studioAudio.pause();
       speechState = "paused";
-      setAudioButtons();
     } else if (speechState === "paused") {
       studioAudio.play();
       speechState = "playing";
-      setAudioButtons();
     }
+    setAudioButtons();
     return;
   }
   if (speechState === "playing") {
-    speechState = "paused"; speechRun += 1; speechSynthesis.cancel(); setAudioButtons();
+    speechState = "paused";
+    speechRun += 1;
+    speechSynthesis.cancel();
   } else if (speechState === "paused") {
-    speechState = "playing"; speechRun += 1; setAudioButtons(); speakCurrentChunk(speechRun);
+    speechState = "playing";
+    speechRun += 1;
+    speakCurrentChunk(speechRun);
   }
+  setAudioButtons();
 }
+
 function stopNarration() {
   speechRun += 1;
   speechState = "idle";
@@ -211,7 +283,18 @@ function stopNarration() {
 listenButton.addEventListener("click", startNarration);
 pauseButton.addEventListener("click", pauseOrResumeNarration);
 stopButton.addEventListener("click", stopNarration);
-voiceSelect.addEventListener("change", () => { updateVoiceNote(); if (speechState !== "idle") startNarration(); });
+voiceSelect.addEventListener("change", () => {
+  saveReaderSettings();
+  updateVoiceNote();
+  if (speechState !== "idle") startNarration();
+});
+speedSelect.addEventListener("change", () => {
+  saveReaderSettings();
+  if (studioAudio) studioAudio.playbackRate = Number(speedSelect.value);
+  else if (speechState !== "idle") startDeviceNarration();
+  updateVoiceNote();
+});
+autoNextCheckbox.addEventListener("change", saveReaderSettings);
 
 async function discoverUploadedChapters() {
   try {
@@ -246,6 +329,7 @@ async function discoverUploadedChapters() {
   } catch {}
 }
 
+loadReaderSettings();
 bindChapterButtons();
 refreshVoices();
 speechSynthesis.addEventListener?.("voiceschanged", refreshVoices);
