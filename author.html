@@ -59,7 +59,7 @@
         message.textContent = "Please provide the chapter number, title, and complete chapter text.";
         return;
       }
-      const contents = "CHAPTER " + number + ": " + title + "\n\n" + body + "\n";
+      const contents = "CHAPTER " + number + ": " + title + "\n\n" + body + "\n\nCopyright © 2026 Freddie P. Dela Rama Jr., writing as “Ausome Dad.”\nAll rights reserved.\n";
       const link = document.createElement("a");
       link.href = URL.createObjectURL(new Blob([contents], { type: "text/plain;charset=utf-8" }));
       link.download = "chapter-" + number + ".txt";
