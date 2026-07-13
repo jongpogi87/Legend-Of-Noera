@@ -4,25 +4,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#071a21">
+  <meta name="description" content="Private publishing tools for the author of Legend of Noera.">
   <title>Author Workspace — Legend of Noera</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="author.css">
-  <link rel="stylesheet" href="author-audio.css">
+  <link rel="stylesheet" href="styles.css?v=20260713-2">
+  <link rel="stylesheet" href="author.css?v=20260713-2">
+  <link rel="stylesheet" href="author-audio.css?v=20260713-2">
 </head>
 <body class="author-page">
-  <header><a href="index.html">◆ LEGEND OF NOERA</a><nav><a href="index.html">Public Website</a><a href="https://github.com/jongpogi87/Legend-Of-Noera">Repository</a></nav></header>
+  <header><a href="index.html">◆ LEGEND OF NOERA</a><nav><a href="index.html">Public Website</a><a href="comic.html">Comic Strip</a><a href="https://github.com/jongpogi87/Legend-Of-Noera">Repository</a></nav></header>
   <main class="author-shell">
     <section class="author-hero">
       <p class="eyebrow">OWNER WORKSPACE</p>
       <h1>Author Publishing Center</h1>
       <p>Prepare manuscripts and narrated audio here, then upload them through GitHub's protected repository pages. Only an account with repository permission can alter the public website.</p>
+      <div class="owner-badge">◆ Protected by your GitHub permissions</div>
     </section>
     <section class="author-panel">
       <p class="eyebrow">MANUSCRIPTS</p>
-      <div class="author-step"><b>1</b><div><h2>Prepare the chapter</h2><p>Enter the chapter number and title, then paste the complete approved chapter text.</p></div></div>
-      <label>Chapter number<input id="author-number" type="number" min="3" step="1" placeholder="3"></label>
+      <div class="author-step"><b>1</b><div><h2>Prepare the chapter</h2><p>Enter the chapter number and title, then paste a new or revised approved chapter.</p></div></div>
+      <label class="import-label">Import a Notepad draft <span>Optional · TXT or Markdown</span><input id="author-import" type="file" accept=".txt,.md,text/plain,text/markdown"></label>
+      <label>Chapter number<input id="author-number" type="number" min="1" step="1" placeholder="3"></label>
       <label>Chapter title<input id="author-title" type="text" placeholder="The Final Calling"></label>
       <label>Chapter text<textarea id="author-text" rows="18" placeholder="Paste the complete approved chapter here…"></textarea></label>
+      <p id="author-count" class="author-count">0 words · Draft is saved only on this device</p>
       <p id="author-message" role="status"></p>
       <button id="download-chapter" class="author-action" type="button">Prepare Chapter File</button>
       <div class="author-step"><b>2</b><div><h2>Upload the manuscript</h2><p>Upload the prepared TXT file to the main repository. The public reader will discover it automatically.</p></div></div>
@@ -43,6 +47,14 @@
       <div id="audio-downloads" class="audio-downloads"></div>
       <div class="author-step"><b>4</b><div><h2>Upload the audio</h2><p>Download the four renamed copies above, then upload all of them to the protected <strong>audio</strong> folder.</p></div></div>
       <a class="author-action upload-link" href="https://github.com/jongpogi87/Legend-Of-Noera/upload/main/audio" target="_blank" rel="noopener">Open Secure Audio Upload</a>
+      <div class="publishing-checklist">
+        <h2>Before you publish</h2>
+        <ul>
+          <li>Keep the prepared filename exactly as <code>chapter-number.txt</code>.</li>
+          <li>Upload chapter files to the main folder and audio files to the <code>audio</code> folder.</li>
+          <li>Wait one or two minutes, then reload the public website in Chrome.</li>
+        </ul>
+      </div>
       <p class="author-note">Visitors may see this page, but GitHub will not let them upload or change anything without write permission. Never share your GitHub password or an access token.</p>
     </section>
   </main>
@@ -51,11 +63,59 @@
     const titleInput = document.querySelector("#author-title");
     const textInput = document.querySelector("#author-text");
     const message = document.querySelector("#author-message");
+    const count = document.querySelector("#author-count");
+    const importInput = document.querySelector("#author-import");
+    const draftKey = "noeraAuthorDraft";
+
+    function updateCount() {
+      const words = textInput.value.trim() ? textInput.value.trim().split(/\s+/).length : 0;
+      count.textContent = words.toLocaleString() + " words · Draft is saved only on this device";
+    }
+
+    function saveDraft() {
+      try {
+        localStorage.setItem(draftKey, JSON.stringify({ number: numberInput.value, title: titleInput.value, text: textInput.value }));
+      } catch {}
+      updateCount();
+    }
+
+    try {
+      const saved = JSON.parse(localStorage.getItem(draftKey) || "null");
+      if (saved) {
+        numberInput.value = saved.number || "";
+        titleInput.value = saved.title || "";
+        textInput.value = saved.text || "";
+      }
+    } catch {}
+    updateCount();
+    [numberInput, titleInput, textInput].forEach((input) => input.addEventListener("input", saveDraft));
+
+    importInput.addEventListener("change", async () => {
+      const file = importInput.files[0];
+      if (!file) return;
+      try {
+        const imported = (await file.text()).replace(/^\uFEFF/, "");
+        const firstLine = imported.split(/\r?\n/).find((line) => line.trim()) || "";
+        const chapterMatch = firstLine.match(/chapter\s+(\d+)\s*[:\-]?\s*(.*)/i);
+        if (chapterMatch) {
+          numberInput.value = chapterMatch[1];
+          if (!titleInput.value && chapterMatch[2]) titleInput.value = chapterMatch[2].trim();
+          textInput.value = imported.replace(firstLine, "").trimStart();
+        } else {
+          textInput.value = imported;
+        }
+        saveDraft();
+        message.textContent = file.name + " was imported. Review it before preparing the chapter file.";
+      } catch {
+        message.textContent = "The draft could not be read. Please save it as a UTF-8 TXT file and try again.";
+      }
+    });
+
     document.querySelector("#download-chapter").addEventListener("click", () => {
       const number = Number(numberInput.value);
       const title = titleInput.value.trim();
       const body = textInput.value.trim();
-      if (!Number.isInteger(number) || number < 3 || !title || !body) {
+      if (!Number.isInteger(number) || number < 1 || !title || !body) {
         message.textContent = "Please provide the chapter number, title, and complete chapter text.";
         return;
       }
