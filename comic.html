@@ -7,8 +7,8 @@
   <meta name="description" content="Explore Legend of Noera: Chronicles, beginning with Season I — The Awakening.">
   <title>Legend of Noera: Chronicles — Season I</title>
   <link rel="stylesheet" href="styles.css?v=20260714-1">
-  <link rel="stylesheet" href="comic.css?v=20260714-season-1">
-  <script src="chronicles.js?v=20260714-1" defer></script>
+  <link rel="stylesheet" href="comic.css?v=20260714-refined-1">
+  <script src="chronicles.js?v=20260714-refined-1" defer></script>
 </head>
 <body class="comic-page chronicles-home">
   <a class="skip-link" href="#chronicles">Skip to the Chronicles</a>
@@ -24,6 +24,7 @@
 
   <main id="chronicles">
     <section class="chronicles-hero">
+      <div class="auret-glow" aria-hidden="true"></div>
       <div class="chronicles-mark" aria-hidden="true">❧</div>
       <p class="eyebrow">THE ILLUSTRATED STORIES</p>
       <h1>LEGEND OF NOERA <span>CHRONICLES</span></h1>
@@ -44,6 +45,20 @@
       </div>
     </section>
 
+    <section class="season-progress-section" aria-labelledby="season-progress-title">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">YOUR JOURNEY THROUGH SEASON I</p>
+        <h2 id="season-progress-title">The Awakening unfolds in five movements.</h2>
+      </div>
+      <ol class="season-progress" aria-label="Season I episode progress">
+        <li class="is-complete"><a href="episode-1.html"><span class="progress-node">✓</span><span><strong>Episode I</strong>The First Calling</span></a></li>
+        <li><span class="progress-node">2</span><span><strong>Episode II</strong>Coming Next</span></li>
+        <li><span class="progress-node">3</span><span><strong>Episode III</strong>In Development</span></li>
+        <li><span class="progress-node">4</span><span><strong>Episode IV</strong>To Be Revealed</span></li>
+        <li><span class="progress-node">5</span><span><strong>Episode V</strong>Season Finale</span></li>
+      </ol>
+    </section>
+
     <section class="episodes-section" aria-labelledby="episodes-title">
       <div class="section-heading">
         <p class="eyebrow">SEASON I EPISODES</p>
@@ -52,12 +67,12 @@
       </div>
 
       <article class="episode-card episode-card-featured">
-        <div class="episode-art">
+        <a class="episode-art" href="episode-1.html" aria-label="Open Episode I — The First Calling">
           <img src="comics/chronicles-episode-1-chapter-1-the-dream.svg" alt="Lady Zion's dream begins Episode I of Legend of Noera: Chronicles.">
-        </div>
+        </a>
         <div class="episode-card-copy">
           <p class="episode-kicker">EPISODE I · 8 CHAPTERS · COMPLETE</p>
-          <h3>The First Calling</h3>
+          <h3><a href="episode-1.html">The First Calling</a></h3>
           <p>Before Lady Zion understands the Auret, Zionara reaches her through a dream she cannot hold—yet can never fully forget. A quiet act of kindness, a forgotten drawing, and a golden leaf begin to reveal that two distant worlds are still bound together.</p>
           <ol class="chapter-list" aria-label="Episode I chapters">
             <li><a href="episode-1.html?chapter=1">The Dream</a></li>
@@ -69,7 +84,7 @@
             <li><a href="episode-1.html?chapter=7">Beyond the Stars</a></li>
             <li><a href="episode-1.html?chapter=8">When the Auret Sang</a></li>
           </ol>
-          <a class="episode-read" href="episode-1.html">Read Episode I <span>→</span></a>
+          <a class="episode-read" href="episode-1.html">Enter Episode I <span>→</span></a>
         </div>
       </article>
 
