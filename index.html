@@ -1,9 +1,175 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#071a21"><meta name="description" content="Official Legend of Noera website"><title>Legend of Noera</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="reader-fixes.css"></head><body>
-<header><a href="#home">◆ LEGEND OF NOERA</a><nav><a href="#story">Story</a><a href="#worlds">Worlds</a><a href="#saga">Saga</a><a href="comic.html">Comic Strip</a><a href="#read">Read Novel</a></nav></header>
-<main><section id="home" class="hero"><div class="auret">❧</div><div><p class="eyebrow">THE CALLING HAS BEGUN</p><h1>LEGEND<br><span>OF NOERA</span></h1><p class="lead">Between Earth and Zionara, a forgotten path is awakening—and one girl can still hear its call.</p><p><a class="button" href="#read">Begin Reading</a> <a class="ghost" href="#story">Discover the Story</a></p></div></section>
-<section id="story" class="light center"><p class="eyebrow">BETWEEN TWO WORLDS</p><h2>Some callings begin long before we hear them.</h2><p>Long ago, an Earth-born Steward came to Zionara and walked among its ancient halls. His search began with hope, passed through loss, and became a longing that would one day threaten the truths he once served.</p><p>Now, on Earth, Lady Zion—known as Lady Z—dreams of a world she cannot quite remember. Strange places appear in her drawings. A golden leaf rests where no leaf should be. Beyond the Veil, the Auret is calling her home.</p></section>
-<section id="worlds" class="dark center"><p class="eyebrow">THE WORLDS</p><h2>Separated by the Veil. Bound by the Auret.</h2><div class="cards"><article><b>01</b><h3>Earth</h3><p>Where Lady Z's quiet gifts awaken through dreams and drawings she does not understand.</p></article><article><b>02</b><h3>Zionara</h3><p>An ancient world of Stewards, Guardians, sanctuaries, and Gifts meant for faithful service.</p></article><article><b>03</b><h3>The Auret</h3><p>A living mystery carrying memory and calling across the boundary between worlds.</p></article></div></section>
-<section id="read" class="read center"><p class="eyebrow">THE PROLOGUE</p><h2>Read the Novel</h2><p>The story begins generations before Lady Z's final Calling.</p><div class="books"><article><b>CHAPTER ONE</b><h3>The Steward's Band</h3><p>A final trial at Aramor reveals the character of a gifted young Steward—and the burden he carries in silence.</p><button data-chapter="1">Read Chapter One</button></article><article><b>CHAPTER TWO</b><h3>A Different Path</h3><p>A choice leads beyond the Academy, toward the Eastern Frontier and a truth buried in stone.</p><button data-chapter="2">Read Chapter Two</button></article></div></section>
-<section id="saga" class="light center"><p class="eyebrow">THE MASTER SAGA</p><h2>Seven volumes. One path of restoration.</h2><div class="volumes"><p><b>I</b> The Awakening <small>Discovery</small></p><p><b>II</b> The Hidden World <small>Belonging</small></p><p><b>III</b> The Great Forgetting <small>Truth</small></p><p><b>IV</b> The Hidden Hero Academy <small>Formation</small></p><p><b>V</b> Neuronoypi <small>Unity</small></p><p><b>VI</b> The Path of Noera <small>Faithfulness</small></p><p><b>VII</b> The Great Awakening <small>Restoration</small></p></div></section></main>
-<dialog id="reader"><div class="reader-head"><div><small id="chapter-label"></small><h2 id="chapter-title"></h2></div><button id="close" type="button" aria-label="Close reader">×</button></div><div class="audio"><select id="voice" aria-label="Choose narrator"><option value="female-warm">Female — Warm</option><option value="female-clear">Female — Clear</option><option value="male-deep">Male — Deep</option><option value="male-gentle">Male — Gentle</option></select><button id="listen" type="button">▶ Listen</button><button id="pause" type="button">Pause</button><button id="stop" type="button">Stop</button><small id="voice-note"></small></div><article id="page-text"></article><div class="pager"><button id="prev" type="button">← Previous</button><span id="page-count"></span><button id="next" type="button">Next →</button></div></dialog>
-<footer>◆<h3>LEGEND OF NOERA</h3><p><a href="comic.html">Read the Comic Strip</a></p><small>Every Gift carries a purpose. Every purpose begins with truth.<br><br>© 2026 Freddie P. Dela Rama Jr., writing as “Ausome Dad.” All rights reserved.</small></footer><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#06191e">
+  <meta name="description" content="The official website of Legend of Noera, a fantasy saga by Ausome Dad.">
+  <title>Legend of Noera — Official Website</title>
+  <link rel="stylesheet" href="styles.css?v=20260713-2">
+  <link rel="stylesheet" href="reader-fixes.css?v=20260713-2">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to the story</a>
+
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Legend of Noera home"><span>◆</span> LEGEND OF NOERA</a>
+    <nav aria-label="Main navigation">
+      <a href="#story">Story</a>
+      <a href="#worlds">Worlds</a>
+      <a href="#saga">Saga</a>
+      <a href="comic.html">Comic</a>
+      <a class="nav-read" href="#read">Read Novel</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section id="home" class="hero">
+      <div class="veil veil-earth" aria-hidden="true"></div>
+      <div class="veil veil-zionara" aria-hidden="true"></div>
+      <div class="hero-content">
+        <div class="auret" aria-hidden="true"><span>❧</span></div>
+        <p class="eyebrow">THE CALLING HAS BEGUN</p>
+        <h1>LEGEND <span>OF NOERA</span></h1>
+        <p class="lead">Between Earth and Zionara, a forgotten path is awakening—and one girl can still hear its call.</p>
+        <div class="hero-actions">
+          <a class="button" href="#read">Begin Reading</a>
+          <a class="ghost" href="comic.html">Explore the Comic</a>
+        </div>
+        <p class="author-credit">A fantasy saga by <strong>Ausome Dad</strong></p>
+      </div>
+      <a class="scroll-cue" href="#story" aria-label="Continue to story">Discover the mystery <span>↓</span></a>
+    </section>
+
+    <section id="story" class="story-section light">
+      <div class="section-heading">
+        <p class="eyebrow">BETWEEN TWO WORLDS</p>
+        <h2>Some callings begin long before we hear them.</h2>
+      </div>
+      <div class="story-grid">
+        <p class="story-lead">Long ago, an Earth-born Steward came to Zionara and walked among its ancient halls. His search began with hope, passed through loss, and became a longing that would one day threaten the truths he once served.</p>
+        <div class="story-copy">
+          <p>Now, on Earth, Lady Zion—known as Lady Z—dreams of a world she cannot quite remember. Strange places appear in her drawings. A golden leaf rests where no leaf should be.</p>
+          <p>Beyond the Veil, the Auret is calling her home.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="worlds" class="worlds-section dark">
+      <div class="section-heading center">
+        <p class="eyebrow">THE WORLDS</p>
+        <h2>Separated by the Veil.<br>Bound by the Auret.</h2>
+      </div>
+      <div class="cards">
+        <article><b>01</b><h3>Earth</h3><p>Where Lady Z's quiet gifts awaken through dreams and drawings she does not understand.</p></article>
+        <article class="featured-card"><b>02</b><h3>Zionara</h3><p>An ancient world of Stewards, Guardians, sanctuaries, and Gifts meant for faithful service.</p></article>
+        <article><b>03</b><h3>The Auret</h3><p>A living mystery carrying memory and calling across the boundary between worlds.</p></article>
+      </div>
+    </section>
+
+    <section id="read" class="read-section">
+      <div class="section-heading center">
+        <p class="eyebrow">THE PROLOGUE</p>
+        <h2>Read the Novel</h2>
+        <p>The story begins generations before Lady Z's final Calling. Every chapter opens in a lightweight, page-by-page reader designed for mobile phones.</p>
+      </div>
+      <div class="books" aria-live="polite">
+        <article>
+          <div class="book-number">I</div>
+          <div><b>CHAPTER ONE</b><h3>The Steward's Band</h3><p>A final trial at Aramor reveals the character of a gifted young Steward—and the burden he carries in silence.</p></div>
+          <button data-chapter="1" type="button">Read Chapter One <span>→</span></button>
+        </article>
+        <article>
+          <div class="book-number">II</div>
+          <div><b>CHAPTER TWO</b><h3>A Different Path</h3><p>A choice leads beyond the Academy, toward the Eastern Frontier and a truth buried in stone.</p></div>
+          <button data-chapter="2" type="button">Read Chapter Two <span>→</span></button>
+        </article>
+      </div>
+      <p id="chapter-discovery-status" class="discovery-status" role="status">Checking for newly published chapters…</p>
+    </section>
+
+    <section class="comic-invite dark">
+      <div>
+        <p class="eyebrow">THE ILLUSTRATED JOURNEY</p>
+        <h2>Follow the Calling<br>one panel at a time.</h2>
+      </div>
+      <div>
+        <p>See Lady Zion's dreams, the mysterious symbol, and the first fragments of a world she cannot yet remember.</p>
+        <a class="button" href="comic.html">Read the Comic Strip</a>
+      </div>
+    </section>
+
+    <section id="saga" class="saga-section light">
+      <div class="section-heading center">
+        <p class="eyebrow">THE MASTER SAGA</p>
+        <h2>Seven volumes.<br>One path of restoration.</h2>
+      </div>
+      <div class="volumes">
+        <p><b>I</b><span>The Awakening</span><small>Discovery</small></p>
+        <p><b>II</b><span>The Hidden World</span><small>Belonging</small></p>
+        <p><b>III</b><span>The Great Forgetting</span><small>Truth</small></p>
+        <p><b>IV</b><span>The Hidden Hero Academy</span><small>Formation</small></p>
+        <p><b>V</b><span>Neuronoypi</span><small>Unity</small></p>
+        <p><b>VI</b><span>The Path of Noera</span><small>Faithfulness</small></p>
+        <p><b>VII</b><span>The Great Awakening</span><small>Restoration</small></p>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="reader" aria-labelledby="chapter-title">
+    <div class="reader-shell">
+      <div class="reader-head">
+        <div><small id="chapter-label">CHAPTER</small><h2 id="chapter-title">Opening manuscript</h2></div>
+        <button id="close" class="icon-button" type="button" aria-label="Close reader">×</button>
+      </div>
+
+      <div class="audio-panel" aria-label="Audio narration controls">
+        <div class="audio-field">
+          <label for="voice">Narrator</label>
+          <select id="voice">
+            <option value="female-warm">Female — Warm</option>
+            <option value="female-clear">Female — Clear</option>
+            <option value="male-deep">Male — Deep</option>
+            <option value="male-gentle">Male — Gentle</option>
+          </select>
+        </div>
+        <div class="audio-field speed-field">
+          <label for="speed">Speed</label>
+          <select id="speed">
+            <option value="0.8">0.8×</option>
+            <option value="0.9" selected>0.9×</option>
+            <option value="1">1×</option>
+            <option value="1.15">1.15×</option>
+          </select>
+        </div>
+        <div class="audio-buttons">
+          <button id="listen" type="button">▶ Listen</button>
+          <button id="pause" type="button">Pause</button>
+          <button id="stop" type="button">Stop</button>
+        </div>
+        <label class="auto-next"><input id="auto-next" type="checkbox"> Continue automatically</label>
+        <small id="voice-note" role="status">Choose a narrator, then press Listen.</small>
+      </div>
+
+      <article id="page-text" tabindex="0"><p>Opening the manuscript…</p></article>
+
+      <div class="pager">
+        <button id="prev" type="button">← Previous</button>
+        <span id="page-count" aria-live="polite">PART 1</span>
+        <button id="next" type="button">Next →</button>
+      </div>
+    </div>
+  </dialog>
+
+  <footer>
+    <div class="footer-mark">◆</div>
+    <h2>LEGEND OF NOERA</h2>
+    <p>Every Gift carries a purpose. Every purpose begins with truth.</p>
+    <div class="footer-links"><a href="#read">Read the Novel</a><a href="comic.html">Comic Strip</a><a href="author.html">Author Portal</a></div>
+    <small>© 2026 Freddie P. Dela Rama Jr., writing as “Ausome Dad.” All rights reserved.</small>
+  </footer>
+
+  <noscript><p class="noscript">JavaScript is required to open the chapter reader. Please enable it and reload the page.</p></noscript>
+  <script src="app.js?v=20260713-2" defer></script>
+</body>
+</html>
