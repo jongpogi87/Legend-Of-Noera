@@ -9,6 +9,22 @@
   <link rel="stylesheet" href="styles.css?v=20260714-1">
   <link rel="stylesheet" href="comic.css?v=20260714-season-1">
   <script src="chronicles.js?v=20260714-1" defer></script>
+  <style>
+    .mobile-panel-edition{display:none}
+    @media(max-width:640px){
+      .chapter-reader{padding:14px 10px 24px}
+      .chapter-heading{padding:4px 6px 8px}
+      .chapter-heading h2{font-size:42px}
+      .chapter-reader.has-mobile-panels .full-page-edition{display:none}
+      .mobile-panel-edition{display:grid;gap:24px;margin-top:10px}
+      .mobile-reader-note{margin:0 4px 2px;padding:13px 15px;border:1px solid rgba(214,184,108,.28);background:rgba(214,184,108,.06);color:#b9cbc7;font:12px/1.6 system-ui,sans-serif;letter-spacing:.04em;text-align:center}
+      .mobile-reader-note strong{display:block;color:#d6b86c;font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+      .comic-panel{width:100%;height:auto;display:block;overflow:hidden;border:1px solid rgba(214,184,108,.34);background:#000;box-shadow:0 14px 40px rgba(0,0,0,.42)}
+      .comic-panel image{width:1331px;height:1181px}
+      .mobile-panel-end{margin:5px 0 0;padding:28px 15px;text-align:center;border:1px dashed rgba(214,184,108,.32);color:#d6b86c;background:rgba(255,255,255,.025);font:800 11px system-ui,sans-serif;letter-spacing:.18em}
+      .chapter-actions{margin-top:18px}
+    }
+  </style>
 </head>
 <body class="comic-page episode-page">
   <a class="skip-link" href="#episode-reader">Skip to the episode</a>
@@ -47,9 +63,21 @@
     <p id="chapter-announcement" class="visually-hidden" aria-live="polite"></p>
 
     <section id="episode-reader" data-episode-reader>
-      <article class="chapter-reader">
+      <article class="chapter-reader has-mobile-panels">
         <div class="chapter-heading"><div><p class="chapter-number">EPISODE I · CHAPTER 1</p><h2>The Dream</h2></div><p>Lady Zion receives her clearest glimpse of Zionara—and awakens with only the feeling that someone, somewhere, is waiting for her.</p></div>
         <figure class="full-page-edition"><img src="comics/chronicles-episode-1-chapter-1-the-dream.svg" alt="Episode I, Chapter 1: The Dream."></figure>
+        <div class="mobile-panel-edition" aria-label="Phone-friendly edition of Chapter 1">
+          <p class="mobile-reader-note"><strong>Phone Edition</strong>Scroll down and read one panel at a time.</p>
+          <svg class="comic-panel" viewBox="6 47 307 559" role="img" aria-label="A voice calls Lady Zion through a starlit dream."><image href="comics/chronicles-episode-1-chapter-1-the-dream.svg"/></svg>
+          <svg class="comic-panel" viewBox="315 47 350 559" role="img" aria-label="Lady Zion stands before the luminous tree of Zionara."><image href="comics/chronicles-episode-1-chapter-1-the-dream.svg"/></svg>
+          <svg class="comic-panel" viewBox="667 47 331 559" role="img" aria-label="Brief fragments of Zionara appear and vanish."><image href="comics/chronicles-episode-1-chapter-1-the-dream.svg"/></svg>
+          <svg class="comic-panel" viewBox="1000 47 327 559" role="img" aria-label="A gentle ancient Guardian appears in golden light."><image href="comics/chronicles-episode-1-chapter-1-the-dream.svg"/></svg>
+          <svg class="comic-panel" viewBox="6 608 307 539" role="img" aria-label="The Guardian offers Lady Zion a luminous leaf."><image href="comics/chronicles-episode-1-chapter-1-the-dream.svg"/></svg>
+          <svg class="comic-panel" viewBox="315 608 350 539" role="img" aria-label="The dream dissolves as the voice asks her to remember."><image href="comics/chronicles-episode-1-chapter-1-the-dream.svg"/></svg>
+          <svg class="comic-panel" viewBox="667 608 331 539" role="img" aria-label="Lady Zion awakens when her alarm rings."><image href="comics/chronicles-episode-1-chapter-1-the-dream.svg"/></svg>
+          <svg class="comic-panel" viewBox="1000 608 327 539" role="img" aria-label="Lady Zion remembers only the feeling that someone is waiting."><image href="comics/chronicles-episode-1-chapter-1-the-dream.svg"/></svg>
+          <div class="mobile-panel-end">❧ &nbsp; END OF CHAPTER 1</div>
+        </div>
         <div class="chapter-actions"><a class="full-page" href="comics/chronicles-episode-1-chapter-1-the-dream.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a></div>
       </article>
 
