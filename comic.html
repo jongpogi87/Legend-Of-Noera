@@ -2,63 +2,129 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#071a21">
-  <meta name="description" content="Read the official Legend of Noera comic strip by Ausome Dad.">
-  <title>Comic Strip — Legend of Noera</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#050e12">
+  <meta name="description" content="Read Legend of Noera: Chronicles, the official illustrated stories of Lady Zion and the world beyond the Veil.">
+  <title>Legend of Noera: Chronicles</title>
+  <link rel="preload" href="comics/chronicles-episode-1-chapter-1-the-dream.svg" as="image" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=20260713-3">
-  <link rel="stylesheet" href="comic.css?v=20260713-2">
+  <link rel="stylesheet" href="comic.css?v=20260713-chronicles-1">
 </head>
 <body class="comic-page">
+  <a class="skip-link" href="#chronicles">Skip to the Chronicles</a>
+
   <header>
     <a href="index.html">◆ LEGEND OF NOERA</a>
-    <nav><a href="index.html">Home</a><a href="index.html#read">Read Novel</a><a href="comic.html" aria-current="page">Comic Strip</a></nav>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="index.html#read">Read Novel</a>
+      <a href="comic.html" aria-current="page">Chronicles</a>
+    </nav>
   </header>
 
-  <main>
-    <section class="comic-hero">
-      <p class="eyebrow">AN ILLUSTRATED JOURNEY</p>
-      <h1>Legend of Noera<br><span>Comic Strip</span></h1>
-      <p>Follow Lady Zion through the dreams, fragments, and ancient memories that quietly draw her toward Zionara.</p>
-      <a class="comic-start" href="#episodes">Begin Episode One ↓</a>
+  <main id="chronicles">
+    <section class="chronicles-hero">
+      <div class="chronicles-mark" aria-hidden="true">❧</div>
+      <p class="eyebrow">THE ILLUSTRATED STORIES</p>
+      <h1>LEGEND OF NOERA <span>CHRONICLES</span></h1>
+      <p>Short illustrated stories from Lady Zion's journey—organized into Episodes, unfolding one Chapter at a time.</p>
+      <a class="comic-start" href="#episode-one">Begin the First Calling <span>↓</span></a>
     </section>
 
-    <section id="episodes" class="episodes">
-      <article class="episode">
-        <div class="episode-heading">
-          <div><p class="episode-number">EPISODE 01</p><h2>The Calling</h2></div>
-          <p>A radiant tree. A forgotten symbol. A dream that refuses to disappear.</p>
+    <section class="chronicles-intro" aria-labelledby="how-it-works">
+      <p class="eyebrow">HOW THE CHRONICLES UNFOLD</p>
+      <h2 id="how-it-works">Every Episode tells a story.<br>Every Chapter opens another door.</h2>
+      <p>The Chronicles expand the world of <em>Legend of Noera</em> through connected illustrated chapters. Some follow the novel's central path; others reveal quiet moments and side stories beyond its pages.</p>
+    </section>
+
+    <section id="episode-one" class="episode-volume" aria-labelledby="episode-one-title">
+      <div class="episode-banner">
+        <div>
+          <p class="episode-kicker">EPISODE I</p>
+          <h2 id="episode-one-title">The First Calling</h2>
+          <p>Before Lady Zion understood the Auret, Zionara first reached her through a dream she could not hold—yet could never fully forget.</p>
         </div>
-        <picture class="comic-art">
-          <source media="(max-width: 720px)" srcset="comics/episode-1-the-calling-mobile.svg">
-          <img src="comics/episode-1-the-calling-refined.svg" alt="Legend of Noera Episode 1: The Calling — Lady Zion dreams of a luminous tree and an ancient symbol, then draws it after waking.">
-        </picture>
-        <a class="full-page full-desktop" href="comics/episode-1-the-calling-refined.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a>
-        <a class="full-page full-mobile" href="comics/episode-1-the-calling-mobile.svg" target="_blank" rel="noopener">Open Phone Edition</a>
+        <div class="episode-status"><span>1</span> Chapter available</div>
+      </div>
+
+      <nav class="chapter-list" aria-label="Episode I chapters">
+        <a class="chapter-chip active" href="#chapter-one" aria-current="true"><span>Chapter 1</span>The Dream</a>
+        <div class="chapter-coming"><span>Next Chapter</span>Coming soon</div>
+      </nav>
+
+      <article id="chapter-one" class="chapter-reader" aria-labelledby="chapter-one-title">
+        <div class="chapter-heading">
+          <div>
+            <p class="chapter-number">EPISODE I · CHAPTER 1</p>
+            <h2 id="chapter-one-title">The Dream</h2>
+          </div>
+          <p>Lady Zion receives her clearest glimpse of Zionara—and awakens with only the feeling that someone, somewhere, is waiting for her.</p>
+        </div>
+
+        <div class="edition-note desktop-note"><span>FULL-PAGE EDITION</span> Best viewed on a larger screen.</div>
+        <figure class="full-page-edition">
+          <img src="comics/chronicles-episode-1-chapter-1-the-dream.svg" alt="Legend of Noera Chronicles, Episode I The First Calling, Chapter 1 The Dream — eight illustrated panels of Lady Zion's final dream before the Calling.">
+        </figure>
+
+        <div class="phone-edition" aria-label="Phone-friendly panel edition">
+          <div class="edition-note"><span>PHONE EDITION</span> Read one panel at a time.</div>
+
+          <svg class="phone-panel" viewBox="6 47 307 559" role="img" aria-labelledby="panel-1-title">
+            <title id="panel-1-title">Panel 1: A voice calls Lady Zion through a starlit dream.</title>
+            <image href="comics/chronicles-episode-1-chapter-1-the-dream.svg" width="1331" height="1181"/>
+          </svg>
+          <svg class="phone-panel" viewBox="315 47 350 559" role="img" aria-labelledby="panel-2-title">
+            <title id="panel-2-title">Panel 2: Lady Zion stands before the luminous tree of Zionara.</title>
+            <image href="comics/chronicles-episode-1-chapter-1-the-dream.svg" width="1331" height="1181"/>
+          </svg>
+          <svg class="phone-panel" viewBox="667 47 331 559" role="img" aria-labelledby="panel-3-title">
+            <title id="panel-3-title">Panel 3: Brief fragments of Zionara appear and vanish.</title>
+            <image href="comics/chronicles-episode-1-chapter-1-the-dream.svg" width="1331" height="1181"/>
+          </svg>
+          <svg class="phone-panel" viewBox="1000 47 327 559" role="img" aria-labelledby="panel-4-title">
+            <title id="panel-4-title">Panel 4: A gentle ancient Guardian appears in golden light.</title>
+            <image href="comics/chronicles-episode-1-chapter-1-the-dream.svg" width="1331" height="1181"/>
+          </svg>
+          <svg class="phone-panel" viewBox="6 608 307 539" role="img" aria-labelledby="panel-5-title">
+            <title id="panel-5-title">Panel 5: The Guardian offers Lady Zion a luminous leaf.</title>
+            <image href="comics/chronicles-episode-1-chapter-1-the-dream.svg" width="1331" height="1181"/>
+          </svg>
+          <svg class="phone-panel" viewBox="315 608 350 539" role="img" aria-labelledby="panel-6-title">
+            <title id="panel-6-title">Panel 6: The dream dissolves as the voice asks her to remember.</title>
+            <image href="comics/chronicles-episode-1-chapter-1-the-dream.svg" width="1331" height="1181"/>
+          </svg>
+          <svg class="phone-panel" viewBox="667 608 331 539" role="img" aria-labelledby="panel-7-title">
+            <title id="panel-7-title">Panel 7: Lady Zion awakens when her alarm rings.</title>
+            <image href="comics/chronicles-episode-1-chapter-1-the-dream.svg" width="1331" height="1181"/>
+          </svg>
+          <svg class="phone-panel" viewBox="1000 608 327 539" role="img" aria-labelledby="panel-8-title">
+            <title id="panel-8-title">Panel 8: Lady Zion remembers only the feeling that someone is waiting.</title>
+            <image href="comics/chronicles-episode-1-chapter-1-the-dream.svg" width="1331" height="1181"/>
+          </svg>
+
+          <div class="phone-chapter-end"><span>❧</span> END OF CHAPTER 1</div>
+        </div>
+
+        <div class="chapter-actions">
+          <a class="full-page" href="comics/chronicles-episode-1-chapter-1-the-dream.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a>
+          <a class="secondary-action" href="#episode-one">Back to Episode I</a>
+        </div>
       </article>
 
-      <div class="episode-bridge"><span>❧</span><p>The dream faded. The memory remained.</p></div>
-
-      <article class="episode">
-        <div class="episode-heading">
-          <div><p class="episode-number">EPISODE 02</p><h2>The Notebook</h2></div>
-          <p>Lady Zion searches for answers while the mysterious symbol continues to call.</p>
-        </div>
-        <a class="comic-art" href="comics/episode-2-the-notebook.svg" target="_blank" rel="noopener" aria-label="Open Episode 2 The Notebook in full resolution">
-          <img src="comics/episode-2-the-notebook.svg" loading="lazy" alt="Legend of Noera Episode 2: The Notebook — Lady Zion remembers fragments of Zionara and repeatedly sketches the mysterious symbol.">
-        </a>
-        <a class="full-page" href="comics/episode-2-the-notebook.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a>
-      </article>
-
-      <div class="continue-card">
-        <p class="eyebrow">THE JOURNEY CONTINUES</p>
-        <h2>More episodes are coming.</h2>
-        <p>Each new comic page will be added here as Lady Zion follows the Calling beyond the familiar world.</p>
-        <a href="index.html#read">Read the Novel</a>
+      <div class="next-chapter-card">
+        <p class="eyebrow">THE FIRST CALLING CONTINUES</p>
+        <h2>Chapter 2 is coming.</h2>
+        <p>The next illustrated chapter will appear here when it is ready.</p>
       </div>
     </section>
   </main>
 
-  <footer>◆<h3>LEGEND OF NOERA</h3><p><a href="index.html">Return to the Main Website</a></p><small>© 2026 Freddie P. Dela Rama Jr., writing as “Ausome Dad.” All rights reserved.</small></footer>
+  <footer>
+    <div class="footer-mark">◆</div>
+    <h2>LEGEND OF NOERA: CHRONICLES</h2>
+    <p>Every Gift carries a purpose. Every purpose begins with truth.</p>
+    <div class="footer-links"><a href="index.html">Main Website</a><a href="index.html#read">Read the Novel</a><a href="#episode-one">Episode I</a></div>
+    <small>© 2026 Freddie P. Dela Rama Jr., writing as “Ausome Dad.” All rights reserved.</small>
+  </footer>
 </body>
 </html>
