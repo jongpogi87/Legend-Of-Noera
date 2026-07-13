@@ -9,7 +9,8 @@
   <link rel="preload" href="comics/chronicles-episode-1-chapter-1-the-dream.svg" as="image" type="image/svg+xml">
   <link rel="preload" href="comics/chronicles-episode-1-chapter-2-the-first-day.svg" as="image" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=20260713-3">
-  <link rel="stylesheet" href="comic.css?v=20260713-chronicles-2">
+  <link rel="stylesheet" href="comic.css?v=20260713-reader-3">
+  <script src="comic.js?v=20260713-reader-1" defer></script>
 </head>
 <body class="comic-page">
   <a class="skip-link" href="#chronicles">Skip to the Chronicles</a>
@@ -48,16 +49,32 @@
         <div class="episode-status"><span>8</span> Chapters · Episode complete</div>
       </div>
 
-      <nav class="chapter-list" aria-label="Episode I chapters">
-        <a class="chapter-chip active" href="#chapter-one"><span>Chapter 1</span>The Dream</a>
-        <a class="chapter-chip active" href="#chapter-two"><span>Chapter 2</span>The First Day</a>
-        <a class="chapter-chip active" href="#chapter-three"><span>Chapter 3</span>The New Classroom</a>
-        <a class="chapter-chip active" href="#chapter-four"><span>Chapter 4</span>The Quiet Boy</a>
-        <a class="chapter-chip active" href="#chapter-five"><span>Chapter 5</span>The Forgotten Drawing</a>
-        <a class="chapter-chip active" href="#chapter-six"><span>Chapter 6</span>The Golden Leaf</a>
-        <a class="chapter-chip active" href="#chapter-seven"><span>Chapter 7</span>Beyond the Stars</a>
-        <a class="chapter-chip active" href="#chapter-eight"><span>Chapter 8</span>When the Auret Sang</a>
-      </nav>
+      <div id="chapter-navigator" class="chapter-navigator" aria-label="Episode I chapter navigator" hidden>
+        <button id="chapter-previous" class="chapter-nav-button chapter-previous" type="button" aria-label="Read the previous chapter">
+          <span aria-hidden="true">←</span> Previous
+        </button>
+
+        <label class="chapter-picker" for="chapter-select">
+          <span class="chapter-picker-label">Now reading <strong id="chapter-position">Chapter 1 of 8</strong></span>
+          <select id="chapter-select" aria-describedby="chapter-picker-help">
+            <option value="chapter-one">Chapter 1 — The Dream</option>
+            <option value="chapter-two">Chapter 2 — The First Day</option>
+            <option value="chapter-three">Chapter 3 — The New Classroom</option>
+            <option value="chapter-four">Chapter 4 — The Quiet Boy</option>
+            <option value="chapter-five">Chapter 5 — The Forgotten Drawing</option>
+            <option value="chapter-six">Chapter 6 — The Golden Leaf</option>
+            <option value="chapter-seven">Chapter 7 — Beyond the Stars</option>
+            <option value="chapter-eight">Chapter 8 — When the Auret Sang</option>
+          </select>
+          <span class="chapter-progress" aria-hidden="true"><span id="chapter-progress-fill"></span></span>
+        </label>
+
+        <button id="chapter-next" class="chapter-nav-button chapter-next" type="button" aria-label="Read the next chapter">
+          Next <span aria-hidden="true">→</span>
+        </button>
+      </div>
+      <p id="chapter-picker-help" class="visually-hidden">Choose a chapter or use Previous and Next. Only one chapter is shown at a time.</p>
+      <p id="chapter-announcement" class="visually-hidden" aria-live="polite"></p>
 
       <article id="chapter-one" class="chapter-reader" aria-labelledby="chapter-one-title">
         <div class="chapter-heading">
@@ -563,7 +580,7 @@
         </div>
       </article>
 
-      <div class="next-chapter-card">
+      <div id="episode-complete-card" class="next-chapter-card">
         <p class="eyebrow">END OF EPISODE I</p>
         <h2>The First Calling is complete.</h2>
         <p>Lady Zion's journey has begun. The next Episode will open here when its first chapter is ready.</p>
