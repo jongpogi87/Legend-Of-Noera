@@ -32,27 +32,24 @@ nav a:hover::after, nav a:focus-visible::after { inset-inline: 0; }
 nav .nav-read { padding: 10px 14px; color: var(--ink); background: var(--gold); }
 nav .nav-read::after { display: none; }
 
-.hero { position: relative; min-height: 100svh; isolation: isolate; display: grid; place-items: center; overflow: hidden; padding: 120px 22px 90px; color: #fff; text-align: center; background: linear-gradient(118deg, #06191e 0 42%, #17353a 52%, #0a2028 100%); }
-.hero::before { content: ""; position: absolute; z-index: -2; inset: 0; background: radial-gradient(circle at 50% 34%, rgba(243, 220, 146, .22), transparent 12%), radial-gradient(circle at 50% 52%, rgba(108, 229, 174, .18), transparent 28%), linear-gradient(90deg, rgba(3, 15, 21, .58), transparent 38% 62%, rgba(3, 15, 21, .46)); }
-.hero::after { content: ""; position: absolute; z-index: -1; top: -14%; left: 50%; width: 2px; height: 128%; transform: rotate(8deg); background: linear-gradient(transparent, var(--gold-bright) 25% 72%, transparent); box-shadow: 0 0 55px 16px rgba(221, 255, 211, .19); }
-.veil { position: absolute; z-index: -2; inset-block: 0; width: 53%; opacity: .58; }
-.veil-earth { left: 0; background: radial-gradient(ellipse at 20% 90%, rgba(63, 104, 115, .52), transparent 38%), linear-gradient(150deg, transparent 45%, rgba(15, 34, 45, .72)); clip-path: polygon(0 0, 96% 0, 74% 100%, 0 100%); }
-.veil-zionara { right: 0; background: radial-gradient(ellipse at 88% 72%, rgba(193, 150, 82, .4), transparent 36%), radial-gradient(ellipse at 65% 16%, rgba(90, 174, 127, .28), transparent 26%); clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%); }
-.hero-content { width: min(880px, 100%); }
-.auret { width: 92px; height: 92px; display: grid; place-items: center; margin: 0 auto 8px; border: 1px solid rgba(243, 220, 146, .5); border-radius: 50%; color: var(--gold-bright); font-size: 57px; box-shadow: 0 0 55px rgba(187, 255, 210, .18), inset 0 0 25px rgba(243, 220, 146, .08); }
+.hero { position: relative; min-height: 100svh; isolation: isolate; display: grid; align-items: center; overflow: hidden; padding: 120px clamp(22px, 7vw, 110px) 90px; color: #fff; text-align: left; background-color: #06191e; background-image: linear-gradient(90deg, rgba(2, 12, 17, .93) 0%, rgba(2, 12, 17, .76) 28%, rgba(2, 12, 17, .26) 56%, rgba(2, 12, 17, .05) 75%), linear-gradient(0deg, rgba(2, 12, 17, .72), transparent 36%), url("assets/hero-auret-calling-v2.svg"); background-size: cover; background-position: center; }
+.hero::before { content: ""; position: absolute; z-index: -1; inset: 0; background: radial-gradient(circle at 53% 69%, rgba(243, 220, 146, .12), transparent 20%); pointer-events: none; }
+.hero::after { content: ""; position: absolute; z-index: -1; inset: 0; box-shadow: inset 0 0 140px rgba(0, 8, 12, .38); pointer-events: none; }
+.hero-content { width: min(670px, 48vw); justify-self: start; }
+.auret { width: 64px; height: 64px; display: grid; place-items: center; margin: 0 0 18px; border: 1px solid rgba(243, 220, 146, .5); border-radius: 50%; color: var(--gold-bright); font-size: 41px; background: rgba(2, 14, 18, .35); box-shadow: 0 0 38px rgba(187, 255, 210, .16), inset 0 0 22px rgba(243, 220, 146, .08); }
 .auret span { transform: translateY(-3px); text-shadow: 0 0 26px rgba(213, 255, 210, .7); }
 .eyebrow { margin: 0 0 16px; color: var(--gold) !important; font-size: 10px !important; font-weight: 900 !important; letter-spacing: 4px; text-transform: uppercase; }
-.hero h1 { margin: 18px auto 25px; font: 500 clamp(70px, 12vw, 145px)/.74 Georgia, "Times New Roman", serif; letter-spacing: -.055em; text-shadow: 0 10px 45px rgba(0, 0, 0, .42); }
+.hero h1 { margin: 18px 0 25px; font: 500 clamp(68px, 8.5vw, 122px)/.76 Georgia, "Times New Roman", serif; letter-spacing: -.055em; text-shadow: 0 10px 45px rgba(0, 0, 0, .72); }
 .hero h1 span { display: block; margin-top: .34em; color: var(--gold-bright); font-size: .34em; letter-spacing: .25em; }
-.lead { max-width: 700px; margin: 0 auto; color: #d7e3df; font: italic clamp(18px, 2.1vw, 23px)/1.65 Georgia, serif; }
-.hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 33px 0 21px; }
+.lead { max-width: 600px; margin: 0; color: #d7e3df; font: italic clamp(18px, 2.1vw, 23px)/1.65 Georgia, serif; text-shadow: 0 3px 18px #000; }
+.hero-actions { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 12px; margin: 33px 0 21px; }
 .button, .ghost, .books button { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; padding: 13px 20px; border: 1px solid var(--gold); text-decoration: none; text-transform: uppercase; letter-spacing: 1.4px; font-size: 11px; font-weight: 900; cursor: pointer; }
 .button, .books button { background: var(--gold); color: var(--ink); }
 .button:hover, .books button:hover { background: var(--gold-bright); }
 .ghost { color: #fff; border-color: rgba(255, 255, 255, .42); background: rgba(3, 16, 20, .24); }
 .author-credit { color: #91aaa7; font-size: 12px; letter-spacing: 1.1px; }
 .author-credit strong { color: #d7e3df; }
-.scroll-cue { position: absolute; bottom: 25px; color: #9db2ae; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 9px; }
+.scroll-cue { position: absolute; left: clamp(22px, 7vw, 110px); bottom: 25px; color: #9db2ae; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 9px; }
 .scroll-cue span { display: block; margin-top: 7px; color: var(--gold); font-size: 16px; }
 
 .light, .story-section, .saga-section { background: var(--cream); }
@@ -115,7 +112,8 @@ footer small { display: block; color: #7d9490; line-height: 1.6; }
   header nav::-webkit-scrollbar { display: none; }
   header nav a { font-size: 10px; }
   nav .nav-read { padding: 7px 10px; }
-  .hero { padding-top: 150px; }
+  .hero { padding-top: 150px; background-position: 52% center; }
+  .hero-content { width: min(610px, 58vw); }
   .story-grid, .comic-invite { grid-template-columns: 1fr; }
   .story-copy, .comic-invite > div:last-child { padding: 26px 0 0; border: 0; border-top: 1px solid var(--gold); }
   .cards { grid-template-columns: 1fr; }
@@ -125,11 +123,14 @@ footer small { display: block; color: #7d9490; line-height: 1.6; }
 }
 
 @media (max-width: 560px) {
-  .hero { min-height: 760px; }
+  .hero { min-height: 780px; padding-inline: 20px; text-align: center; background-image: linear-gradient(180deg, rgba(2, 12, 17, .82) 0%, rgba(2, 12, 17, .58) 39%, rgba(2, 12, 17, .08) 66%, rgba(2, 12, 17, .78) 100%), url("assets/hero-auret-calling-v2.svg"); background-position: 51% center; }
+  .hero-content { width: 100%; align-self: start; margin-top: 22px; }
   .hero h1 { font-size: clamp(64px, 22vw, 94px); }
   .hero h1 span { font-size: .3em; letter-spacing: .18em; }
-  .auret { width: 76px; height: 76px; font-size: 48px; }
+  .auret { width: 58px; height: 58px; margin: 0 auto 14px; font-size: 37px; }
+  .lead { margin-inline: auto; }
   .hero-actions { align-items: stretch; flex-direction: column; padding-inline: 12px; }
+  .scroll-cue { left: 50%; transform: translateX(-50%); }
   .button, .ghost { width: 100%; }
   .story-section, .worlds-section, .read-section, .saga-section { padding-inline: 20px; }
   .books article { min-height: 360px; padding: 30px 24px; }
