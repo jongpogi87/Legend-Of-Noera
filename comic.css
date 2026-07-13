@@ -203,6 +203,10 @@
   box-shadow: 0 26px 90px rgba(0, 0, 0, .48);
 }
 
+.chapter-reader + .chapter-reader {
+  margin-top: 70px;
+}
+
 .chapter-heading {
   display: grid;
   grid-template-columns: 1fr minmax(280px, 480px);
