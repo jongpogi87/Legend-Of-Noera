@@ -154,44 +154,140 @@
   font: 24px Georgia, serif;
 }
 
-.chapter-list {
+.chapter-navigator {
   max-width: 1240px;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(130px, 165px) minmax(290px, 1fr) minmax(130px, 165px);
   gap: 12px;
+  align-items: stretch;
   margin: 0 auto 34px;
-  overflow-x: auto;
-  padding-bottom: 5px;
+  padding: 12px;
+  border: 1px solid rgba(214, 184, 108, .28);
+  background: rgba(3, 11, 14, .72);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, .24);
 }
 
-.chapter-chip,
-.chapter-coming {
-  min-width: 200px;
-  padding: 15px 18px;
-  border: 1px solid rgba(214, 184, 108, .2);
-  color: #fff;
-  background: rgba(255, 255, 255, .035);
-  text-decoration: none;
-  font: 20px Georgia, serif;
+.chapter-nav-button {
+  min-height: 70px;
+  padding: 13px 18px;
+  border: 1px solid rgba(214, 184, 108, .32);
+  color: #f7f0dc;
+  background: rgba(214, 184, 108, .07);
+  font: 800 11px system-ui, sans-serif;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color .2s ease, border-color .2s ease, background .2s ease, transform .2s ease;
 }
 
-.chapter-chip span,
-.chapter-coming span {
-  display: block;
-  margin-bottom: 5px;
+.chapter-nav-button span {
+  color: #d6b86c;
+  font-size: 17px;
+}
+
+.chapter-nav-button:hover:not(:disabled),
+.chapter-nav-button:focus-visible {
+  color: #071a21;
+  border-color: #d6b86c;
+  background: #d6b86c;
+  transform: translateY(-1px);
+}
+
+.chapter-nav-button:hover:not(:disabled) span,
+.chapter-nav-button:focus-visible span {
+  color: inherit;
+}
+
+.chapter-nav-button:disabled {
+  color: #607571;
+  border-color: rgba(255, 255, 255, .08);
+  background: rgba(255, 255, 255, .02);
+  cursor: not-allowed;
+}
+
+.chapter-picker {
+  position: relative;
+  min-width: 0;
+  display: grid;
+  gap: 7px;
+  padding: 10px 16px 12px;
+  border: 1px solid rgba(214, 184, 108, .18);
+  background: rgba(255, 255, 255, .025);
+}
+
+.chapter-picker-label {
   color: #91aaa6;
   font: 800 9px system-ui, sans-serif;
   letter-spacing: 1.5px;
   text-transform: uppercase;
 }
 
-.chapter-chip.active {
-  border-color: #d6b86c;
-  background: rgba(214, 184, 108, .1);
+.chapter-picker-label strong {
+  color: #d6b86c;
+  font-weight: 900;
 }
 
-.chapter-coming {
-  color: #718783;
-  border-style: dashed;
+.chapter-picker select {
+  width: 100%;
+  min-height: 34px;
+  padding: 0 38px 0 0;
+  border: 0;
+  border-radius: 0;
+  color: #fff;
+  background: transparent;
+  font: 24px/1.2 Georgia, serif;
+  cursor: pointer;
+}
+
+.chapter-picker select:focus-visible {
+  outline: 2px solid #d6b86c;
+  outline-offset: 4px;
+}
+
+.chapter-picker option {
+  color: #f7f0dc;
+  background: #0b171b;
+}
+
+.chapter-progress {
+  height: 2px;
+  display: block;
+  overflow: hidden;
+  background: rgba(255, 255, 255, .09);
+}
+
+.chapter-progress span {
+  width: 12.5%;
+  height: 100%;
+  display: block;
+  background: linear-gradient(90deg, #8fc9b8, #d6b86c);
+  transition: width .3s ease;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.js-chapter-mode .chapter-reader[hidden],
+.js-chapter-mode .next-chapter-card[hidden] {
+  display: none;
+}
+
+.js-chapter-mode .chapter-reader:not([hidden]) {
+  animation: chapter-reveal .35s ease both;
+}
+
+@keyframes chapter-reveal {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .chapter-reader {
@@ -329,6 +425,38 @@
     padding: 20px 10px 26px;
   }
 
+  .chapter-navigator {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "picker picker"
+      "previous next";
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .chapter-picker {
+    grid-area: picker;
+    padding: 12px 12px 14px;
+  }
+
+  .chapter-picker select {
+    min-height: 42px;
+    font-size: clamp(18px, 5.4vw, 23px);
+  }
+
+  .chapter-previous {
+    grid-area: previous;
+  }
+
+  .chapter-next {
+    grid-area: next;
+  }
+
+  .chapter-nav-button {
+    min-height: 52px;
+    padding-inline: 10px;
+  }
+
   .desktop-note,
   .full-page-edition {
     display: none;
@@ -383,5 +511,20 @@
 
   .chapter-heading > p {
     font-size: 15px;
+  }
+
+  .episode-status {
+    white-space: normal;
+    line-height: 1.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chapter-nav-button,
+  .chapter-progress span,
+  .js-chapter-mode .chapter-reader:not([hidden]) {
+    animation: none;
+    scroll-behavior: auto;
+    transition: none;
   }
 }
