@@ -4,15 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#050e12">
-  <meta name="description" content="Read Legend of Noera: Chronicles, the official illustrated stories of Lady Zion and the world beyond the Veil.">
-  <title>Legend of Noera: Chronicles</title>
-  <link rel="preload" href="comics/chronicles-episode-1-chapter-1-the-dream.svg" as="image" type="image/svg+xml">
-  <link rel="preload" href="comics/chronicles-episode-1-chapter-2-the-first-day.svg" as="image" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260713-3">
-  <link rel="stylesheet" href="comic.css?v=20260713-reader-3">
-  <script src="comic.js?v=20260713-reader-1" defer></script>
+  <meta name="description" content="Explore Legend of Noera: Chronicles, beginning with Season I — The Awakening.">
+  <title>Legend of Noera: Chronicles — Season I</title>
+  <link rel="stylesheet" href="styles.css?v=20260714-1">
+  <link rel="stylesheet" href="comic.css?v=20260714-season-1">
+  <script src="chronicles.js?v=20260714-1" defer></script>
 </head>
-<body class="comic-page">
+<body class="comic-page chronicles-home">
   <a class="skip-link" href="#chronicles">Skip to the Chronicles</a>
 
   <header>
@@ -29,561 +27,55 @@
       <div class="chronicles-mark" aria-hidden="true">❧</div>
       <p class="eyebrow">THE ILLUSTRATED STORIES</p>
       <h1>LEGEND OF NOERA <span>CHRONICLES</span></h1>
-      <p>Short illustrated stories from Lady Zion's journey—organized into Episodes, unfolding one Chapter at a time.</p>
-      <a class="comic-start" href="#episode-one">Begin the First Calling <span>↓</span></a>
+      <p>Connected illustrated stories from Lady Zion's journey across Earth, Zionara, and the Living Bond between them.</p>
+      <a class="comic-start" href="#season-one">Enter Season I <span>↓</span></a>
     </section>
 
-    <section class="chronicles-intro" aria-labelledby="how-it-works">
-      <p class="eyebrow">HOW THE CHRONICLES UNFOLD</p>
-      <h2 id="how-it-works">Every Episode tells a story.<br>Every Chapter opens another door.</h2>
-      <p>The Chronicles expand the world of <em>Legend of Noera</em> through connected illustrated chapters. Some follow the novel's central path; others reveal quiet moments and side stories beyond its pages.</p>
+    <section id="season-one" class="season-section" aria-labelledby="season-one-title">
+      <div class="season-number" aria-hidden="true">01</div>
+      <div class="season-copy">
+        <p class="season-kicker">SEASON I</p>
+        <h2 id="season-one-title">The Awakening</h2>
+        <p class="season-lead">Some journeys begin with a prophecy. Others begin with power. Lady Zion's begins with something far quieter: she simply sees the world differently.</p>
+        <div class="season-introduction">
+          <p>While others overlook the lonely, the forgotten, and the unnoticed, Lady Zion quietly recognizes them. She cannot explain why strange dreams linger in her heart or why unfamiliar places appear in her notebook. She only knows that ordinary life is slowly becoming extraordinary.</p>
+          <p>Far beyond Earth's skies, an ancient world waits in faithful hope. The Living Bond known as the Auret has never ceased calling the Earth-born. But for the first time in centuries, its Calling carries a song.</p>
+        </div>
+      </div>
     </section>
 
-    <section id="episode-one" class="episode-volume" aria-labelledby="episode-one-title">
-      <div class="episode-banner">
-        <div>
-          <p class="episode-kicker">EPISODE I</p>
-          <h2 id="episode-one-title">The First Calling</h2>
-          <p>Before Lady Zion understood the Auret, Zionara first reached her through a dream she could not hold—yet could never fully forget.</p>
-        </div>
-        <div class="episode-status"><span>8</span> Chapters · Episode complete</div>
+    <section class="episodes-section" aria-labelledby="episodes-title">
+      <div class="section-heading">
+        <p class="eyebrow">SEASON I EPISODES</p>
+        <h2 id="episodes-title">The story begins quietly.</h2>
+        <p>Each Episode follows another movement in Lady Zion's awakening. Episode I is complete and ready to read.</p>
       </div>
 
-      <div id="chapter-navigator" class="chapter-navigator" aria-label="Episode I chapter navigator" hidden>
-        <button id="chapter-previous" class="chapter-nav-button chapter-previous" type="button" aria-label="Read the previous chapter">
-          <span aria-hidden="true">←</span> Previous
-        </button>
-
-        <label class="chapter-picker" for="chapter-select">
-          <span class="chapter-picker-label">Now reading <strong id="chapter-position">Chapter 1 of 8</strong></span>
-          <select id="chapter-select" aria-describedby="chapter-picker-help">
-            <option value="chapter-one">Chapter 1 — The Dream</option>
-            <option value="chapter-two">Chapter 2 — The First Day</option>
-            <option value="chapter-three">Chapter 3 — The New Classroom</option>
-            <option value="chapter-four">Chapter 4 — The Quiet Boy</option>
-            <option value="chapter-five">Chapter 5 — The Forgotten Drawing</option>
-            <option value="chapter-six">Chapter 6 — The Golden Leaf</option>
-            <option value="chapter-seven">Chapter 7 — Beyond the Stars</option>
-            <option value="chapter-eight">Chapter 8 — When the Auret Sang</option>
-          </select>
-          <span class="chapter-progress" aria-hidden="true"><span id="chapter-progress-fill"></span></span>
-        </label>
-
-        <button id="chapter-next" class="chapter-nav-button chapter-next" type="button" aria-label="Read the next chapter">
-          Next <span aria-hidden="true">→</span>
-        </button>
-      </div>
-      <p id="chapter-picker-help" class="visually-hidden">Choose a chapter or use Previous and Next. Only one chapter is shown at a time.</p>
-      <p id="chapter-announcement" class="visually-hidden" aria-live="polite"></p>
-
-      <article id="chapter-one" class="chapter-reader" aria-labelledby="chapter-one-title">
-        <div class="chapter-heading">
-          <div>
-            <p class="chapter-number">EPISODE I · CHAPTER 1</p>
-            <h2 id="chapter-one-title">The Dream</h2>
-          </div>
-          <p>Lady Zion receives her clearest glimpse of Zionara—and awakens with only the feeling that someone, somewhere, is waiting for her.</p>
+      <article class="episode-card episode-card-featured">
+        <div class="episode-art">
+          <img src="comics/chronicles-episode-1-chapter-1-the-dream.svg" alt="Lady Zion's dream begins Episode I of Legend of Noera: Chronicles.">
         </div>
-
-        <div class="edition-note desktop-note"><span>FULL-PAGE EDITION</span> Best viewed on a larger screen.</div>
-        <figure class="full-page-edition">
-          <img src="comics/chronicles-episode-1-chapter-1-the-dream.svg" alt="Legend of Noera Chronicles, Episode I The First Calling, Chapter 1 The Dream — eight illustrated panels of Lady Zion's final dream before the Calling.">
-        </figure>
-
-        <div class="phone-edition" aria-label="Phone-friendly panel edition">
-          <div class="edition-note"><span>PHONE EDITION</span> Read one panel at a time.</div>
-
-          <svg class="phone-panel" viewBox="6 47 307 559" role="img" aria-labelledby="panel-1-title">
-            <title id="panel-1-title">Panel 1: A voice calls Lady Zion through a starlit dream.</title>
-            <image href="comics/chronicles-episode-1-chapter-1-the-dream.svg" width="1331" height="1181"/>
-          </svg>
-          <svg class="phone-panel" viewBox="315 47 350 559" role="img" aria-labelledby="panel-2-title">
-            <title id="panel-2-title">Panel 2: Lady Zion stands before the luminous tree of Zionara.</title>
-            <image href="comics/chronicles-episode-1-chapter-1-the-dream.svg" width="1331" height="1181"/>
-          </svg>
-          <svg class="phone-panel" viewBox="667 47 331 559" role="img" aria-labelledby="panel-3-title">
-            <title id="panel-3-title">Panel 3: Brief fragments of Zionara appear and vanish.</title>
-            <image href="comics/chronicles-episode-1-chapter-1-the-dream.svg" width="1331" height="1181"/>
-          </svg>
-          <svg class="phone-panel" viewBox="1000 47 327 559" role="img" aria-labelledby="panel-4-title">
-            <title id="panel-4-title">Panel 4: A gentle ancient Guardian appears in golden light.</title>
-            <image href="comics/chronicles-episode-1-chapter-1-the-dream.svg" width="1331" height="1181"/>
-          </svg>
-          <svg class="phone-panel" viewBox="6 608 307 539" role="img" aria-labelledby="panel-5-title">
-            <title id="panel-5-title">Panel 5: The Guardian offers Lady Zion a luminous leaf.</title>
-            <image href="comics/chronicles-episode-1-chapter-1-the-dream.svg" width="1331" height="1181"/>
-          </svg>
-          <svg class="phone-panel" viewBox="315 608 350 539" role="img" aria-labelledby="panel-6-title">
-            <title id="panel-6-title">Panel 6: The dream dissolves as the voice asks her to remember.</title>
-            <image href="comics/chronicles-episode-1-chapter-1-the-dream.svg" width="1331" height="1181"/>
-          </svg>
-          <svg class="phone-panel" viewBox="667 608 331 539" role="img" aria-labelledby="panel-7-title">
-            <title id="panel-7-title">Panel 7: Lady Zion awakens when her alarm rings.</title>
-            <image href="comics/chronicles-episode-1-chapter-1-the-dream.svg" width="1331" height="1181"/>
-          </svg>
-          <svg class="phone-panel" viewBox="1000 608 327 539" role="img" aria-labelledby="panel-8-title">
-            <title id="panel-8-title">Panel 8: Lady Zion remembers only the feeling that someone is waiting.</title>
-            <image href="comics/chronicles-episode-1-chapter-1-the-dream.svg" width="1331" height="1181"/>
-          </svg>
-
-          <div class="phone-chapter-end"><span>❧</span> END OF CHAPTER 1</div>
-        </div>
-
-        <div class="chapter-actions">
-          <a class="full-page" href="comics/chronicles-episode-1-chapter-1-the-dream.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a>
-          <a class="secondary-action" href="#chapter-two">Continue to Chapter 2</a>
+        <div class="episode-card-copy">
+          <p class="episode-kicker">EPISODE I · 8 CHAPTERS · COMPLETE</p>
+          <h3>The First Calling</h3>
+          <p>Before Lady Zion understands the Auret, Zionara reaches her through a dream she cannot hold—yet can never fully forget. A quiet act of kindness, a forgotten drawing, and a golden leaf begin to reveal that two distant worlds are still bound together.</p>
+          <ol class="chapter-list" aria-label="Episode I chapters">
+            <li><a href="episode-1.html?chapter=1">The Dream</a></li>
+            <li><a href="episode-1.html?chapter=2">The First Day</a></li>
+            <li><a href="episode-1.html?chapter=3">The New Classroom</a></li>
+            <li><a href="episode-1.html?chapter=4">The Quiet Boy</a></li>
+            <li><a href="episode-1.html?chapter=5">The Forgotten Drawing</a></li>
+            <li><a href="episode-1.html?chapter=6">The Golden Leaf</a></li>
+            <li><a href="episode-1.html?chapter=7">Beyond the Stars</a></li>
+            <li><a href="episode-1.html?chapter=8">When the Auret Sang</a></li>
+          </ol>
+          <a class="episode-read" href="episode-1.html">Read Episode I <span>→</span></a>
         </div>
       </article>
 
-      <article id="chapter-two" class="chapter-reader" aria-labelledby="chapter-two-title">
-        <div class="chapter-heading">
-          <div>
-            <p class="chapter-number">EPISODE I · CHAPTER 2</p>
-            <h2 id="chapter-two-title">The First Day</h2>
-          </div>
-          <p>On her first day of high school, eleven-year-old Lady Zion steadies herself for Grade 7—where an ordinary act of kindness quietly reveals the heart of who she is.</p>
-        </div>
-
-        <div class="edition-note desktop-note"><span>FULL-PAGE EDITION</span> Best viewed on a larger screen.</div>
-        <figure class="full-page-edition">
-          <img src="comics/chronicles-episode-1-chapter-2-the-first-day.svg" loading="lazy" alt="Legend of Noera Chronicles, Episode I The First Calling, Chapter 2 The First Day — nine illustrated panels following Lady Zion from breakfast to her classroom door.">
-        </figure>
-
-        <div class="phone-edition" aria-label="Phone-friendly panel edition">
-          <div class="edition-note"><span>PHONE EDITION</span> Read one panel at a time.</div>
-
-          <svg class="phone-panel" viewBox="6 50 394 424" role="img" aria-labelledby="chapter-2-panel-1-title">
-            <title id="chapter-2-panel-1-title">Panel 1: Lady Zion's mother encourages her over breakfast.</title>
-            <image href="comics/chronicles-episode-1-chapter-2-the-first-day.svg" width="1216" height="1294"/>
-          </svg>
-          <svg class="phone-panel" viewBox="402 50 373 424" role="img" aria-labelledby="chapter-2-panel-2-title">
-            <title id="chapter-2-panel-2-title">Panel 2: Lady Zion packs her notebook and golden leaf.</title>
-            <image href="comics/chronicles-episode-1-chapter-2-the-first-day.svg" width="1216" height="1294"/>
-          </svg>
-          <svg class="phone-panel" viewBox="777 50 433 424" role="img" aria-labelledby="chapter-2-panel-3-title">
-            <title id="chapter-2-panel-3-title">Panel 3: Lady Zion walks to school in the cool morning breeze.</title>
-            <image href="comics/chronicles-episode-1-chapter-2-the-first-day.svg" width="1216" height="1294"/>
-          </svg>
-          <svg class="phone-panel" viewBox="6 477 394 371" role="img" aria-labelledby="chapter-2-panel-4-title">
-            <title id="chapter-2-panel-4-title">Panel 4: Lady Zion notices quiet details that others miss.</title>
-            <image href="comics/chronicles-episode-1-chapter-2-the-first-day.svg" width="1216" height="1294"/>
-          </svg>
-          <svg class="phone-panel" viewBox="402 477 373 371" role="img" aria-labelledby="chapter-2-panel-5-title">
-            <title id="chapter-2-panel-5-title">Panel 5: Lady Zion helps an elderly woman with her heavy bag.</title>
-            <image href="comics/chronicles-episode-1-chapter-2-the-first-day.svg" width="1216" height="1294"/>
-          </svg>
-          <svg class="phone-panel" viewBox="777 477 433 371" role="img" aria-labelledby="chapter-2-panel-6-title">
-            <title id="chapter-2-panel-6-title">Panel 6: The elderly woman thanks Lady Zion for her kindness.</title>
-            <image href="comics/chronicles-episode-1-chapter-2-the-first-day.svg" width="1216" height="1294"/>
-          </svg>
-          <svg class="phone-panel" viewBox="6 850 394 399" role="img" aria-labelledby="chapter-2-panel-7-title">
-            <title id="chapter-2-panel-7-title">Panel 7: Realizing she is late, Lady Zion runs toward school.</title>
-            <image href="comics/chronicles-episode-1-chapter-2-the-first-day.svg" width="1216" height="1294"/>
-          </svg>
-          <svg class="phone-panel" viewBox="402 850 398 399" role="img" aria-labelledby="chapter-2-panel-8-title">
-            <title id="chapter-2-panel-8-title">Panel 8: Lady Zion reaches the closed classroom door.</title>
-            <image href="comics/chronicles-episode-1-chapter-2-the-first-day.svg" width="1216" height="1294"/>
-          </svg>
-          <svg class="phone-panel" viewBox="802 850 408 399" role="img" aria-labelledby="chapter-2-panel-9-title">
-            <title id="chapter-2-panel-9-title">Panel 9: Lady Zion gathers her courage and opens the door.</title>
-            <image href="comics/chronicles-episode-1-chapter-2-the-first-day.svg" width="1216" height="1294"/>
-          </svg>
-
-          <div class="phone-chapter-end"><span>❧</span> END OF CHAPTER 2</div>
-        </div>
-
-        <div class="chapter-actions">
-          <a class="full-page" href="comics/chronicles-episode-1-chapter-2-the-first-day.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a>
-          <a class="secondary-action" href="#chapter-three">Continue to Chapter 3</a>
-        </div>
-      </article>
-
-      <article id="chapter-three" class="chapter-reader" aria-labelledby="chapter-three-title">
-        <div class="chapter-heading">
-          <div>
-            <p class="chapter-number">EPISODE I · CHAPTER 3</p>
-            <h2 id="chapter-three-title">The New Classroom</h2>
-          </div>
-          <p>Lady Zion steps into Grade 7–Hope, finds the courage to introduce herself, and notices one quiet classmate whom everyone else has learned not to see.</p>
-        </div>
-
-        <div class="edition-note desktop-note"><span>FULL-PAGE EDITION</span> Best viewed on a larger screen.</div>
-        <figure class="full-page-edition">
-          <img src="comics/chronicles-episode-1-chapter-3-the-new-classroom.svg" loading="lazy" alt="Legend of Noera Chronicles, Episode I The First Calling, Chapter 3 The New Classroom — nine illustrated panels following Lady Zion's introduction to Grade 7–Hope and her first glimpse of a quiet boy.">
-        </figure>
-
-        <div class="phone-edition" aria-label="Phone-friendly panel edition">
-          <div class="edition-note"><span>PHONE EDITION</span> Read one panel at a time.</div>
-
-          <svg class="phone-panel" viewBox="5 59 460 347" role="img" aria-labelledby="chapter-3-panel-1-title">
-            <title id="chapter-3-panel-1-title">Panel 1: Lady Zion opens the classroom door as everyone looks up.</title>
-            <image href="comics/chronicles-episode-1-chapter-3-the-new-classroom.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="467 59 487 347" role="img" aria-labelledby="chapter-3-panel-2-title">
-            <title id="chapter-3-panel-2-title">Panel 2: The teacher welcomes a new classmate to Grade 7–Hope.</title>
-            <image href="comics/chronicles-episode-1-chapter-3-the-new-classroom.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="957 59 439 347" role="img" aria-labelledby="chapter-3-panel-3-title">
-            <title id="chapter-3-panel-3-title">Panel 3: Lady Zion gathers herself before introducing her name.</title>
-            <image href="comics/chronicles-episode-1-chapter-3-the-new-classroom.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="5 409 460 327" role="img" aria-labelledby="chapter-3-panel-4-title">
-            <title id="chapter-3-panel-4-title">Panel 4: Lady Zion softly introduces herself to the class.</title>
-            <image href="comics/chronicles-episode-1-chapter-3-the-new-classroom.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="467 409 487 327" role="img" aria-labelledby="chapter-3-panel-5-title">
-            <title id="chapter-3-panel-5-title">Panel 5: Her classmates welcome her with smiles, whispers, and curiosity.</title>
-            <image href="comics/chronicles-episode-1-chapter-3-the-new-classroom.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="957 409 439 327" role="img" aria-labelledby="chapter-3-panel-6-title">
-            <title id="chapter-3-panel-6-title">Panel 6: Lady Zion quietly takes in the unfamiliar faces and voices.</title>
-            <image href="comics/chronicles-episode-1-chapter-3-the-new-classroom.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="5 739 460 346" role="img" aria-labelledby="chapter-3-panel-7-title">
-            <title id="chapter-3-panel-7-title">Panel 7: Curious students whisper about Lady Zion's drawing book.</title>
-            <image href="comics/chronicles-episode-1-chapter-3-the-new-classroom.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="467 739 487 346" role="img" aria-labelledby="chapter-3-panel-8-title">
-            <title id="chapter-3-panel-8-title">Panel 8: A quiet boy sits alone at the far corner of the classroom.</title>
-            <image href="comics/chronicles-episode-1-chapter-3-the-new-classroom.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="957 739 439 346" role="img" aria-labelledby="chapter-3-panel-9-title">
-            <title id="chapter-3-panel-9-title">Panel 9: Lady Zion and the quiet boy meet each other's eyes.</title>
-            <image href="comics/chronicles-episode-1-chapter-3-the-new-classroom.svg" width="1402" height="1122"/>
-          </svg>
-
-          <div class="phone-chapter-end"><span>❧</span> END OF CHAPTER 3</div>
-        </div>
-
-        <div class="chapter-actions">
-          <a class="full-page" href="comics/chronicles-episode-1-chapter-3-the-new-classroom.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a>
-          <a class="secondary-action" href="#chapter-four">Continue to Chapter 4</a>
-        </div>
-      </article>
-
-      <article id="chapter-four" class="chapter-reader" aria-labelledby="chapter-four-title">
-        <div class="chapter-heading">
-          <div>
-            <p class="chapter-number">EPISODE I · CHAPTER 4</p>
-            <h2 id="chapter-four-title">The Quiet Boy</h2>
-          </div>
-          <p>Lady Zion notices Ethan, an overlooked classmate whose drawings protect a private world—and offers the small kindness of truly seeing him.</p>
-        </div>
-
-        <div class="edition-note desktop-note"><span>FULL-PAGE EDITION</span> Best viewed on a larger screen.</div>
-        <figure class="full-page-edition">
-          <img src="comics/chronicles-episode-1-chapter-4-the-quiet-boy.svg" loading="lazy" alt="Legend of Noera Chronicles, Episode I The First Calling, Chapter 4 The Quiet Boy — nine illustrated panels introducing Ethan and Lady Zion's first kind greeting.">
-        </figure>
-
-        <div class="phone-edition" aria-label="Phone-friendly panel edition">
-          <div class="edition-note"><span>PHONE EDITION</span> Read one panel at a time.</div>
-
-          <svg class="phone-panel" viewBox="5 59 471 367" role="img" aria-labelledby="chapter-4-panel-1-title">
-            <title id="chapter-4-panel-1-title">Panel 1: Ethan sits alone, often unseen by his classmates.</title>
-            <image href="comics/chronicles-episode-1-chapter-4-the-quiet-boy.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="478 59 444 367" role="img" aria-labelledby="chapter-4-panel-2-title">
-            <title id="chapter-4-panel-2-title">Panel 2: Ethan draws dragons, ruins, and moving clouds when the world feels too loud.</title>
-            <image href="comics/chronicles-episode-1-chapter-4-the-quiet-boy.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="923 59 473 367" role="img" aria-labelledby="chapter-4-panel-3-title">
-            <title id="chapter-4-panel-3-title">Panel 3: Other students laugh at Ethan's drawings and overlook him.</title>
-            <image href="comics/chronicles-episode-1-chapter-4-the-quiet-boy.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="5 427 471 323" role="img" aria-labelledby="chapter-4-panel-4-title">
-            <title id="chapter-4-panel-4-title">Panel 4: Ethan stays quiet because he has grown used to being alone.</title>
-            <image href="comics/chronicles-episode-1-chapter-4-the-quiet-boy.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="478 427 444 323" role="img" aria-labelledby="chapter-4-panel-5-title">
-            <title id="chapter-4-panel-5-title">Panel 5: Ethan hopes that silence will keep others from noticing him.</title>
-            <image href="comics/chronicles-episode-1-chapter-4-the-quiet-boy.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="923 427 473 323" role="img" aria-labelledby="chapter-4-panel-6-title">
-            <title id="chapter-4-panel-6-title">Panel 6: Lady Zion sits beside Ethan because she truly sees him.</title>
-            <image href="comics/chronicles-episode-1-chapter-4-the-quiet-boy.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="5 751 471 306" role="img" aria-labelledby="chapter-4-panel-7-title">
-            <title id="chapter-4-panel-7-title">Panel 7: Lady Zion gently introduces herself to Ethan.</title>
-            <image href="comics/chronicles-episode-1-chapter-4-the-quiet-boy.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="478 751 444 306" role="img" aria-labelledby="chapter-4-panel-8-title">
-            <title id="chapter-4-panel-8-title">Panel 8: Her greeting feels like a window opening in Ethan's dark room.</title>
-            <image href="comics/chronicles-episode-1-chapter-4-the-quiet-boy.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="923 751 473 306" role="img" aria-labelledby="chapter-4-panel-9-title">
-            <title id="chapter-4-panel-9-title">Panel 9: For the first time in a long while, Ethan feels he may not have to be invisible.</title>
-            <image href="comics/chronicles-episode-1-chapter-4-the-quiet-boy.svg" width="1402" height="1122"/>
-          </svg>
-
-          <div class="phone-chapter-end"><span>❧</span> END OF CHAPTER 4</div>
-        </div>
-
-        <div class="chapter-actions">
-          <a class="full-page" href="comics/chronicles-episode-1-chapter-4-the-quiet-boy.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a>
-          <a class="secondary-action" href="#chapter-five">Continue to Chapter 5</a>
-        </div>
-      </article>
-
-      <article id="chapter-five" class="chapter-reader" aria-labelledby="chapter-five-title">
-        <div class="chapter-heading">
-          <div>
-            <p class="chapter-number">EPISODE I · CHAPTER 5</p>
-            <h2 id="chapter-five-title">The Forgotten Drawing</h2>
-          </div>
-          <p>Back home, Lady Zion draws a world she cannot remember—and discovers a golden leaf hidden inside the notebook as an early sign of the Auret's growing call.</p>
-        </div>
-
-        <div class="edition-note desktop-note"><span>FULL-PAGE EDITION</span> Best viewed on a larger screen.</div>
-        <figure class="full-page-edition">
-          <img src="comics/chronicles-episode-1-chapter-5-the-forgotten-drawing.svg" loading="lazy" alt="Legend of Noera Chronicles, Episode I The First Calling, Chapter 5 The Forgotten Drawing — nine illustrated panels of Lady Zion unconsciously drawing Zionara and finding a golden leaf.">
-        </figure>
-
-        <div class="phone-edition" aria-label="Phone-friendly panel edition">
-          <div class="edition-note"><span>PHONE EDITION</span> Read one panel at a time.</div>
-
-          <svg class="phone-panel" viewBox="5 50 471 348" role="img" aria-labelledby="chapter-5-panel-1-title">
-            <title id="chapter-5-panel-1-title">Panel 1: Lady Zion walks home after her first day of school.</title>
-            <image href="comics/chronicles-episode-1-chapter-5-the-forgotten-drawing.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="478 50 444 348" role="img" aria-labelledby="chapter-5-panel-2-title">
-            <title id="chapter-5-panel-2-title">Panel 2: She returns home, though her heart still feels the dream.</title>
-            <image href="comics/chronicles-episode-1-chapter-5-the-forgotten-drawing.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="923 50 473 348" role="img" aria-labelledby="chapter-5-panel-3-title">
-            <title id="chapter-5-panel-3-title">Panel 3: Lady Zion opens her notebook and begins drawing without thinking.</title>
-            <image href="comics/chronicles-episode-1-chapter-5-the-forgotten-drawing.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="5 399 471 330" role="img" aria-labelledby="chapter-5-panel-4-title">
-            <title id="chapter-5-panel-4-title">Panel 4: Lines become trees, mountains, a bridge, stone circles, and a mysterious symbol.</title>
-            <image href="comics/chronicles-episode-1-chapter-5-the-forgotten-drawing.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="478 399 444 330" role="img" aria-labelledby="chapter-5-panel-5-title">
-            <title id="chapter-5-panel-5-title">Panel 5: The finished landscape looks real and strangely familiar.</title>
-            <image href="comics/chronicles-episode-1-chapter-5-the-forgotten-drawing.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="923 399 473 330" role="img" aria-labelledby="chapter-5-panel-6-title">
-            <title id="chapter-5-panel-6-title">Panel 6: Lady Zion senses that the drawing is important.</title>
-            <image href="comics/chronicles-episode-1-chapter-5-the-forgotten-drawing.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="5 729 471 336" role="img" aria-labelledby="chapter-5-panel-7-title">
-            <title id="chapter-5-panel-7-title">Panel 7: A golden leaf falls from between the notebook's pages.</title>
-            <image href="comics/chronicles-episode-1-chapter-5-the-forgotten-drawing.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="478 729 444 336" role="img" aria-labelledby="chapter-5-panel-8-title">
-            <title id="chapter-5-panel-8-title">Panel 8: Lady Zion gently lifts the seemingly ordinary leaf.</title>
-            <image href="comics/chronicles-episode-1-chapter-5-the-forgotten-drawing.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="923 729 473 336" role="img" aria-labelledby="chapter-5-panel-9-title">
-            <title id="chapter-5-panel-9-title">Panel 9: Lady Zion returns the leaf to the notebook and keeps it secret.</title>
-            <image href="comics/chronicles-episode-1-chapter-5-the-forgotten-drawing.svg" width="1402" height="1122"/>
-          </svg>
-
-          <div class="phone-chapter-end"><span>❧</span> END OF CHAPTER 5</div>
-        </div>
-
-        <div class="chapter-actions">
-          <a class="full-page" href="comics/chronicles-episode-1-chapter-5-the-forgotten-drawing.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a>
-          <a class="secondary-action" href="#chapter-six">Continue to Chapter 6</a>
-        </div>
-      </article>
-
-      <article id="chapter-six" class="chapter-reader" aria-labelledby="chapter-six-title">
-        <div class="chapter-heading">
-          <div>
-            <p class="chapter-number">EPISODE I · CHAPTER 6</p>
-            <h2 id="chapter-six-title">The Golden Leaf</h2>
-          </div>
-          <p>Later that evening, the leaf responds to the mysterious symbol and lets Lady Zion feel, for one brief moment, the invisible bond between two distant worlds.</p>
-        </div>
-
-        <div class="edition-note desktop-note"><span>FULL-PAGE EDITION</span> Best viewed on a larger screen.</div>
-        <figure class="full-page-edition">
-          <img src="comics/chronicles-episode-1-chapter-6-the-golden-leaf-refined.svg" loading="lazy" alt="Legend of Noera Chronicles, Episode I The First Calling, Chapter 6 The Golden Leaf — nine illustrated panels showing the leaf responding to Lady Zion's mysterious symbol.">
-        </figure>
-
-        <div class="phone-edition" aria-label="Phone-friendly panel edition">
-          <div class="edition-note"><span>PHONE EDITION</span> Read one panel at a time.</div>
-
-          <svg class="phone-panel" viewBox="4 54 470 318" role="img" aria-labelledby="chapter-6-panel-1-title">
-            <title id="chapter-6-panel-1-title">Panel 1: Later that evening, Lady Zion finds the leaf exactly where she left it.</title>
-            <image href="comics/chronicles-episode-1-chapter-6-the-golden-leaf-refined.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="477 54 430 318" role="img" aria-labelledby="chapter-6-panel-2-title">
-            <title id="chapter-6-panel-2-title">Panel 2: The leaf begins to grow warm when she opens the notebook.</title>
-            <image href="comics/chronicles-episode-1-chapter-6-the-golden-leaf-refined.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="910 54 489 318" role="img" aria-labelledby="chapter-6-panel-3-title">
-            <title id="chapter-6-panel-3-title">Panel 3: A faint light answers when she moves the leaf near the symbol.</title>
-            <image href="comics/chronicles-episode-1-chapter-6-the-golden-leaf-refined.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="4 373 470 331" role="img" aria-labelledby="chapter-6-panel-4-title">
-            <title id="chapter-6-panel-4-title">Panel 4: The leaf and symbol have different patterns that somehow belong together.</title>
-            <image href="comics/chronicles-episode-1-chapter-6-the-golden-leaf-refined.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="477 373 430 331" role="img" aria-labelledby="chapter-6-panel-5-title">
-            <title id="chapter-6-panel-5-title">Panel 5: Lady Zion feels a wind from somewhere impossibly far away.</title>
-            <image href="comics/chronicles-episode-1-chapter-6-the-golden-leaf-refined.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="910 373 489 331" role="img" aria-labelledby="chapter-6-panel-6-title">
-            <title id="chapter-6-panel-6-title">Panel 6: Without words, two distant places seem to touch.</title>
-            <image href="comics/chronicles-episode-1-chapter-6-the-golden-leaf-refined.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="4 705 470 329" role="img" aria-labelledby="chapter-6-panel-7-title">
-            <title id="chapter-6-panel-7-title">Panel 7: The light fades, but the feeling remains.</title>
-            <image href="comics/chronicles-episode-1-chapter-6-the-golden-leaf-refined.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="477 705 430 329" role="img" aria-labelledby="chapter-6-panel-8-title">
-            <title id="chapter-6-panel-8-title">Panel 8: Lady Zion whispers that the leaf may be trying to tell her something.</title>
-            <image href="comics/chronicles-episode-1-chapter-6-the-golden-leaf-refined.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="910 705 489 329" role="img" aria-labelledby="chapter-6-panel-9-title">
-            <title id="chapter-6-panel-9-title">Panel 9: Lady Zion sleeps while someone far away is already waiting.</title>
-            <image href="comics/chronicles-episode-1-chapter-6-the-golden-leaf-refined.svg" width="1402" height="1122"/>
-          </svg>
-
-          <div class="phone-chapter-end"><span>❧</span> END OF CHAPTER 6</div>
-        </div>
-
-        <div class="chapter-actions">
-          <a class="full-page" href="comics/chronicles-episode-1-chapter-6-the-golden-leaf-refined.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a>
-          <a class="secondary-action" href="#chapter-seven">Continue to Chapter 7</a>
-        </div>
-      </article>
-
-      <article id="chapter-seven" class="chapter-reader" aria-labelledby="chapter-seven-title">
-        <div class="chapter-heading">
-          <div>
-            <p class="chapter-number">EPISODE I · CHAPTER 7</p>
-            <h2 id="chapter-seven-title">Beyond the Stars</h2>
-          </div>
-          <p>Across the Living Bond, the matching symbol awakens within an ancient sanctuary—and an Elder Steward recognizes the sign he has awaited.</p>
-        </div>
-
-        <div class="edition-note desktop-note"><span>FULL-PAGE EDITION</span> Best viewed on a larger screen.</div>
-        <figure class="full-page-edition">
-          <img src="comics/chronicles-episode-1-chapter-7-beyond-the-stars.svg" loading="lazy" alt="Legend of Noera Chronicles, Episode I The First Calling, Chapter 7 Beyond the Stars — nine illustrated panels revealing a sanctuary on Zionara and an Elder Steward witnessing its symbol glow.">
-        </figure>
-
-        <div class="phone-edition" aria-label="Phone-friendly panel edition">
-          <div class="edition-note"><span>PHONE EDITION</span> Read one panel at a time.</div>
-
-          <svg class="phone-panel" viewBox="5 56 473 348" role="img" aria-labelledby="chapter-7-panel-1-title">
-            <title id="chapter-7-panel-1-title">Panel 1: Far beyond Earth, an ancient sanctuary rests beneath Zionara's night.</title>
-            <image href="comics/chronicles-episode-1-chapter-7-beyond-the-stars.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="484 56 435 348" role="img" aria-labelledby="chapter-7-panel-2-title">
-            <title id="chapter-7-panel-2-title">Panel 2: The sanctuary's weathered stones and pillars have endured a thousand years.</title>
-            <image href="comics/chronicles-episode-1-chapter-7-beyond-the-stars.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="925 56 469 348" role="img" aria-labelledby="chapter-7-panel-3-title">
-            <title id="chapter-7-panel-3-title">Panel 3: Luminous leaves drift from the great sanctuary tree.</title>
-            <image href="comics/chronicles-episode-1-chapter-7-beyond-the-stars.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="5 406 473 310" role="img" aria-labelledby="chapter-7-panel-4-title">
-            <title id="chapter-7-panel-4-title">Panel 4: A single stone altar stands at the sanctuary's heart.</title>
-            <image href="comics/chronicles-episode-1-chapter-7-beyond-the-stars.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="484 406 435 310" role="img" aria-labelledby="chapter-7-panel-5-title">
-            <title id="chapter-7-panel-5-title">Panel 5: The same symbol hidden in Lady Zion's notebook is carved upon the altar.</title>
-            <image href="comics/chronicles-episode-1-chapter-7-beyond-the-stars.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="925 406 469 310" role="img" aria-labelledby="chapter-7-panel-6-title">
-            <title id="chapter-7-panel-6-title">Panel 6: Without warning, the sanctuary symbol begins to glow.</title>
-            <image href="comics/chronicles-episode-1-chapter-7-beyond-the-stars.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="5 718 473 326" role="img" aria-labelledby="chapter-7-panel-7-title">
-            <title id="chapter-7-panel-7-title">Panel 7: An ancient light returns and waits like a sign.</title>
-            <image href="comics/chronicles-episode-1-chapter-7-beyond-the-stars.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="484 718 435 326" role="img" aria-labelledby="chapter-7-panel-8-title">
-            <title id="chapter-7-panel-8-title">Panel 8: High above the sanctuary, an Elder Steward opens his eyes.</title>
-            <image href="comics/chronicles-episode-1-chapter-7-beyond-the-stars.svg" width="1402" height="1122"/>
-          </svg>
-          <svg class="phone-panel" viewBox="925 718 469 326" role="img" aria-labelledby="chapter-7-panel-9-title">
-            <title id="chapter-7-panel-9-title">Panel 9: The Elder Steward smiles toward the altar without speaking.</title>
-            <image href="comics/chronicles-episode-1-chapter-7-beyond-the-stars.svg" width="1402" height="1122"/>
-          </svg>
-
-          <div class="phone-chapter-end"><span>❧</span> END OF CHAPTER 7</div>
-        </div>
-
-        <div class="chapter-actions">
-          <a class="full-page" href="comics/chronicles-episode-1-chapter-7-beyond-the-stars.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a>
-          <a class="secondary-action" href="#chapter-eight">Continue to Chapter 8</a>
-        </div>
-      </article>
-
-      <article id="chapter-eight" class="chapter-reader" aria-labelledby="chapter-eight-title">
-        <div class="chapter-heading">
-          <div>
-            <p class="chapter-number">EPISODE I · CHAPTER 8</p>
-            <h2 id="chapter-eight-title">When the Auret Sang</h2>
-          </div>
-          <p>The Elder Steward listens as the invisible Living Bond changes—and, across the worlds, Lady Zion begins walking toward a harmony she has never truly forgotten.</p>
-        </div>
-
-        <div class="edition-note desktop-note"><span>FULL-PAGE EDITION</span> Best viewed on a larger screen.</div>
-        <figure class="full-page-edition">
-          <img src="comics/chronicles-episode-1-chapter-8-when-the-auret-sang.svg" loading="lazy" alt="Legend of Noera Chronicles, Episode I The First Calling, Chapter 8 When the Auret Sang — nine illustrated panels concluding the episode as the Auret carries hope between Earth and Zionara.">
-        </figure>
-
-        <div class="phone-edition" aria-label="Phone-friendly panel edition">
-          <div class="edition-note"><span>PHONE EDITION</span> Read one panel at a time.</div>
-
-          <svg class="phone-panel" viewBox="11 40 567 340" role="img" aria-labelledby="chapter-8-panel-1-title">
-            <title id="chapter-8-panel-1-title">Panel 1: The Ancient Sanctuary rests quietly beneath Zionara's night sky.</title>
-            <image href="comics/chronicles-episode-1-chapter-8-when-the-auret-sang.svg" width="1024" height="1536"/>
-          </svg>
-          <svg class="phone-panel" viewBox="579 40 434 340" role="img" aria-labelledby="chapter-8-panel-2-title">
-            <title id="chapter-8-panel-2-title">Panel 2: The Elder Steward kneels, touches the symbol, and listens.</title>
-            <image href="comics/chronicles-episode-1-chapter-8-when-the-auret-sang.svg" width="1024" height="1536"/>
-          </svg>
-          <svg class="phone-panel" viewBox="11 382 406 375" role="img" aria-labelledby="chapter-8-panel-3-title">
-            <title id="chapter-8-panel-3-title">Panel 3: The invisible Auret lives within the harmony uniting Earth and Zionara.</title>
-            <image href="comics/chronicles-episode-1-chapter-8-when-the-auret-sang.svg" width="1024" height="1536"/>
-          </svg>
-          <svg class="phone-panel" viewBox="419 382 594 375" role="img" aria-labelledby="chapter-8-panel-4-title">
-            <title id="chapter-8-panel-4-title">Panel 4: The Living Bond shines between Earth and Zionara.</title>
-            <image href="comics/chronicles-episode-1-chapter-8-when-the-auret-sang.svg" width="1024" height="1536"/>
-          </svg>
-          <svg class="phone-panel" viewBox="11 759 333 254" role="img" aria-labelledby="chapter-8-panel-5-title">
-            <title id="chapter-8-panel-5-title">Panel 5: Though weakened, the Living Bond has never been broken.</title>
-            <image href="comics/chronicles-episode-1-chapter-8-when-the-auret-sang.svg" width="1024" height="1536"/>
-          </svg>
-          <svg class="phone-panel" viewBox="345 759 326 254" role="img" aria-labelledby="chapter-8-panel-6-title">
-            <title id="chapter-8-panel-6-title">Panel 6: The Steward recognizes that tonight's Calling is different.</title>
-            <image href="comics/chronicles-episode-1-chapter-8-when-the-auret-sang.svg" width="1024" height="1536"/>
-          </svg>
-          <svg class="phone-panel" viewBox="673 759 340 254" role="img" aria-labelledby="chapter-8-panel-7-title">
-            <title id="chapter-8-panel-7-title">Panel 7: He raises his eyes as the harmony changes.</title>
-            <image href="comics/chronicles-episode-1-chapter-8-when-the-auret-sang.svg" width="1024" height="1536"/>
-          </svg>
-          <svg class="phone-panel" viewBox="11 1015 418 259" role="img" aria-labelledby="chapter-8-panel-8-title">
-            <title id="chapter-8-panel-8-title">Panel 8: Looking across Zionara, the Elder Steward declares that the Auret is singing.</title>
-            <image href="comics/chronicles-episode-1-chapter-8-when-the-auret-sang.svg" width="1024" height="1536"/>
-          </svg>
-          <svg class="phone-panel" viewBox="431 1015 582 259" role="img" aria-labelledby="chapter-8-panel-9-title">
-            <title id="chapter-8-panel-9-title">Panel 9: Lady Zion sleeps as she begins moving toward the harmony beyond memory.</title>
-            <image href="comics/chronicles-episode-1-chapter-8-when-the-auret-sang.svg" width="1024" height="1536"/>
-          </svg>
-          <svg class="phone-panel" viewBox="11 1276 1002 249" role="img" aria-labelledby="chapter-8-finale-title">
-            <title id="chapter-8-finale-title">Episode I finale: For the first time in a thousand years, the Auret sings with hope. The Calling has begun.</title>
-            <image href="comics/chronicles-episode-1-chapter-8-when-the-auret-sang.svg" width="1024" height="1536"/>
-          </svg>
-
-          <div class="phone-chapter-end"><span>❧</span> END OF EPISODE I</div>
-        </div>
-
-        <div class="chapter-actions">
-          <a class="full-page" href="comics/chronicles-episode-1-chapter-8-when-the-auret-sang.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a>
-          <a class="secondary-action" href="#episode-one">Back to Episode I</a>
-        </div>
-      </article>
-
-      <div id="episode-complete-card" class="next-chapter-card">
-        <p class="eyebrow">END OF EPISODE I</p>
-        <h2>The First Calling is complete.</h2>
-        <p>Lady Zion's journey has begun. The next Episode will open here when its first chapter is ready.</p>
+      <div class="coming-episodes" aria-label="Future episodes">
+        <article><p>EPISODE II</p><h3>Coming Next</h3><span>The awakening continues.</span></article>
+        <article><p>EPISODE III</p><h3>In Development</h3><span>More of Season I will unfold here.</span></article>
       </div>
     </section>
   </main>
@@ -592,7 +84,7 @@
     <div class="footer-mark">◆</div>
     <h2>LEGEND OF NOERA: CHRONICLES</h2>
     <p>Every Gift carries a purpose. Every purpose begins with truth.</p>
-    <div class="footer-links"><a href="index.html">Main Website</a><a href="index.html#read">Read the Novel</a><a href="#episode-one">Episode I</a></div>
+    <div class="footer-links"><a href="index.html">Main Website</a><a href="index.html#read">Read the Novel</a><a href="#season-one">Season I</a></div>
     <small>© 2026 Freddie P. Dela Rama Jr., writing as “Ausome Dad.” All rights reserved.</small>
   </footer>
 </body>
