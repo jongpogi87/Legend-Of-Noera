@@ -1,0 +1,17 @@
+.episode-placeholder{position:relative;min-height:580px;display:flex!important;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:clamp(42px,7vw,86px)!important;border:1px solid rgba(214,184,108,.28);box-shadow:0 24px 80px rgba(0,0,0,.42)}
+.episode-placeholder .chapter-number{margin:0 0 10px}
+.episode-placeholder h2{position:relative;margin:8px auto 18px!important;color:#fff6e3;font:500 clamp(48px,7vw,82px)/.96 Georgia,serif!important;letter-spacing:-.025em}
+.episode-placeholder>p:not(.chapter-number){position:relative;max-width:720px;margin:0 auto!important;color:#c2d0cc;font:18px/1.75 Georgia,serif!important}
+.episode-placeholder.is-interlude-card{border-style:dashed}
+.episode-status-card{position:relative;width:min(100%,620px);margin:52px auto 0!important;padding:34px 26px!important;text-align:center;border:1px dashed rgba(214,184,108,.4)!important;background:rgba(2,10,13,.28)!important}
+.episode-status-card .chapter-status-label{display:block!important;margin:0 0 10px;color:#9dafaa!important;font:800 9px/1.4 system-ui,sans-serif!important;letter-spacing:.2em;text-transform:uppercase}
+.episode-status-card strong{display:block!important;margin:0 0 10px!important;color:#f5df9b!important;font:500 clamp(24px,3vw,30px)/1.2 Georgia,serif!important;text-transform:none}
+.episode-status-card p{max-width:520px!important;margin:0 auto!important;color:#aebfba!important;font:14px/1.7 system-ui,sans-serif!important}
+.episode-end-nav{max-width:1240px;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px!important;align-items:stretch;margin:28px auto 0!important}
+.episode-end-nav .secondary-action{width:100%;min-height:62px;display:flex;align-items:center;justify-content:center;text-align:center}
+.episode-end-nav .is-disabled{opacity:.35;pointer-events:none}
+.episode-cover-meta{align-items:stretch}
+.episode-cover-meta span{display:flex;min-height:68px;flex-direction:column;justify-content:center;text-align:left}
+.episode-cover-actions{margin-top:4px}
+.episode-cover-actions .episode-read,.episode-cover-actions .secondary-action{min-width:190px}
+@media(max-width:700px){.episode-placeholder{min-height:520px;padding:34px 20px!important}.episode-placeholder h2{font-size:46px!important}.episode-status-card{margin-top:38px!important;padding:28px 18px!important}.episode-end-nav{grid-template-columns:1fr!important}.episode-cover-actions .episode-read,.episode-cover-actions .secondary-action{width:100%;min-width:0}.episode-cover-meta span{text-align:center}}
