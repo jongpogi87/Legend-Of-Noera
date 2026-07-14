@@ -134,9 +134,9 @@
     const forward = document.createElement('a');
     forward.className = 'chapter-end-button chapter-end-next';
     if (isLastChapter) {
-      forward.href = '#episode-complete-card';
+      forward.href = 'episode-2.html';
       forward.classList.add('is-complete');
-      forward.innerHTML = '<span><small>Completed</small>Episode Complete</span><span aria-hidden="true">✓</span>';
+      forward.innerHTML = '<span><small>Continue the Journey</small>Episode II</span><span aria-hidden="true">→</span>';
     } else {
       forward.href = `episode-1.html?chapter=${index + 2}`;
       forward.innerHTML = '<span><small>Continue Reading</small>Next Chapter</span><span aria-hidden="true">→</span>';
