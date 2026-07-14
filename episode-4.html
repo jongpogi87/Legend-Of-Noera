@@ -8,7 +8,7 @@
   <title>The Calling — Legend of Noera: Chronicles</title>
   <link rel="stylesheet" href="styles.css?v=20260714-1">
   <link rel="stylesheet" href="comic.css?v=20260714-landing-3">
-  <link rel="stylesheet" href="chronicles-refined.css?v=20260714-episode4-1">
+  <link rel="stylesheet" href="chronicles-refined.css?v=20260714-episode4-2">
   <link rel="stylesheet" href="episode-4.css?v=20260714-1">
 </head>
 <body class="comic-page episode-page calling-page">
@@ -67,6 +67,18 @@
         <article class="chapter-reader calling-placeholder" data-title="Guardian" hidden><p class="chapter-number">EPISODE IV · CHAPTER 7</p><h2>Guardian</h2><p>Lady Zion chooses whom she will protect when strength alone is not enough.</p></article>
         <article class="chapter-reader calling-placeholder" data-title="The First Resonance" hidden><p class="chapter-number">EPISODE IV · CHAPTER 8</p><h2>The First Resonance</h2><p>Faithful courage awakens a harmony deeper than power and reveals the first sign of true Resonance.</p></article>
       </section>
+
+      <section id="episode-four-complete-card" class="episode-finish" hidden>
+        <p class="eyebrow">END OF EPISODE IV</p>
+        <div class="episode-completion-status" role="status">
+          <span class="episode-completion-mark" aria-hidden="true">✓</span>
+          <div class="episode-completion-copy"><span>Reading Status</span><strong>Episode IV Complete</strong></div>
+        </div>
+        <h2>You have completed The Calling.</h2>
+        <p>Lady Zion has heard the Living Bond and chosen how she will answer.</p>
+        <a class="secondary-action" href="comic.html#season-one">Return to Season I</a>
+      </section>
+
       <nav class="episode-four-end-nav" aria-label="Episode navigation"><a class="secondary-action" href="episode-3.html">← Episode III</a><a class="secondary-action" href="comic.html#season-one">Season I</a><span class="secondary-action is-disabled" aria-disabled="true">Episode V →</span></nav>
     </section>
   </main>
@@ -75,10 +87,10 @@
 
   <script>
   (() => {
-    const cover=document.querySelector('#episode-four-cover'),reader=document.querySelector('#episode-four-reader'),begin=document.querySelector('#episode-four-begin'),select=document.querySelector('#episode-four-select'),previous=document.querySelector('#episode-four-previous'),next=document.querySelector('#episode-four-next'),announcement=document.querySelector('#episode-four-announcement'),entries=[...document.querySelectorAll('[data-episode-four-reader] .chapter-reader')];
+    const cover=document.querySelector('#episode-four-cover'),reader=document.querySelector('#episode-four-reader'),begin=document.querySelector('#episode-four-begin'),select=document.querySelector('#episode-four-select'),previous=document.querySelector('#episode-four-previous'),next=document.querySelector('#episode-four-next'),announcement=document.querySelector('#episode-four-announcement'),finish=document.querySelector('#episode-four-complete-card'),entries=[...document.querySelectorAll('[data-episode-four-reader] .chapter-reader')];
     if(!reader||!select||!entries.length)return;
     const requested=()=>{const value=Number(new URLSearchParams(location.search).get('chapter'));return Number.isInteger(value)&&value>=1&&value<=entries.length?value-1:0};
-    const show=(index,update=true,scroll=true)=>{const safe=Math.max(0,Math.min(index,entries.length-1));reader.hidden=false;cover?.classList.add('is-condensed');entries.forEach((entry,i)=>entry.hidden=i!==safe);select.value=String(safe+1);previous.disabled=safe===0;next.disabled=safe===entries.length-1;const title=entries[safe].dataset.title||`Part ${safe+1}`;announcement.textContent=`Now reading ${title}`;document.title=`${title} — Episode IV: The Calling`;if(update){const url=new URL(location.href);url.searchParams.set('chapter',String(safe+1));history.replaceState({chapter:safe+1},'',url)}if(scroll)window.scrollTo({top:reader.offsetTop-82,behavior:'smooth'})};
+    const show=(index,update=true,scroll=true)=>{const safe=Math.max(0,Math.min(index,entries.length-1));reader.hidden=false;cover?.classList.add('is-condensed');entries.forEach((entry,i)=>entry.hidden=i!==safe);select.value=String(safe+1);previous.disabled=safe===0;next.disabled=safe===entries.length-1;if(finish)finish.hidden=safe!==entries.length-1;const title=entries[safe].dataset.title||`Part ${safe+1}`;announcement.textContent=`Now reading ${title}`;document.title=`${title} — Episode IV: The Calling`;if(update){const url=new URL(location.href);url.searchParams.set('chapter',String(safe+1));history.replaceState({chapter:safe+1},'',url)}if(scroll)window.scrollTo({top:reader.offsetTop-82,behavior:'smooth'})};
     entries.forEach((entry,index)=>{const notice=document.createElement('div');notice.className='calling-artwork-notice';notice.innerHTML='<span>❧</span><strong>Chapter artwork is being prepared.</strong><p>This page is ready for its illustrated panels.</p>';entry.appendChild(notice);const nav=document.createElement('nav');nav.className='chapter-end-navigation';nav.innerHTML=`<button class="chapter-end-button chapter-end-back" type="button" ${index===0?'disabled':''}><span aria-hidden="true">←</span><span><small>Previous</small>Back</span></button><div class="chapter-end-marker"><span>❧</span><strong>Part ${index+1} of ${entries.length}</strong></div><button class="chapter-end-button chapter-end-next" type="button" ${index===entries.length-1?'disabled':''}><span><small>Continue</small>Next</span><span aria-hidden="true">→</span></button>`;nav.querySelector('.chapter-end-back')?.addEventListener('click',()=>show(index-1));nav.querySelector('.chapter-end-next')?.addEventListener('click',()=>show(index+1));entry.appendChild(nav)});
     begin?.addEventListener('click',()=>show(0));select.addEventListener('change',()=>show(Number(select.value)-1));previous.addEventListener('click',()=>show(Number(select.value)-2));next.addEventListener('click',()=>show(Number(select.value)));addEventListener('popstate',()=>show(requested(),false));if(new URLSearchParams(location.search).has('chapter'))show(requested(),false,false);
   })();
