@@ -1,112 +1,31 @@
 name: Publish Episode Refinements
 
 on:
-  workflow_dispatch:
   push:
     paths:
-      - '.github/workflows/add-episode-navigation.yml'
+      - scripts/refine_episodes.py
+      - .github/workflows/add-episode-navigation.yml
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  refine-episodes:
+  publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out repository
+        uses: actions/checkout@v4
 
-      - name: Update episode wording and status cards
-        shell: bash
-        run: |
-          python3 <<'PY'
-          from pathlib import Path
+      - name: Apply episode refinements
+        run: python scripts/refine_episodes.py
 
-          settings = {
-              2: {
-                  "status": "Coming Soon",
-                  "message": "The story has already been written. Its illustrated comic adaptation is next in the Chronicles.",
-              },
-              3: {
-                  "status": "In Development",
-                  "message": "The storyboards and visual direction for this chapter are currently taking shape.",
-              },
-              4: {
-                  "status": "In Production",
-                  "message": "This chapter is moving through production as its scenes and panels are carefully prepared.",
-              },
-              5: {
-                  "status": "Season Finale",
-                  "message": "The closing movement of Season I is being carefully developed for its illustrated release.",
-              },
-          }
-
-          old_notices = (
-              "notice.innerHTML = '<span>❧</span><strong>Chapter artwork is being prepared.</strong><p>This page is ready for its illustrated panels.</p>';",
-              "notice.innerHTML='<span>❧</span><strong>Chapter artwork is being prepared.</strong><p>This page is ready for its illustrated panels.</p>';",
-          )
-
-          for episode, info in settings.items():
-              path = Path(f"episode-{episode}.html")
-              text = path.read_text(encoding="utf-8")
-              text = text.replace("Choose a Chapter", "Journey Through This Episode")
-              text = text.replace("Begin Reading", "Begin the Journey")
-              text = text.replace(
-                  '<span><strong>Coming</strong> Chapter Art</span>',
-                  f'<span><strong>{info["status"]}</strong> Status</span>',
-              )
-              text = text.replace(
-                  '<span><strong>In Development</strong> Chapter Art</span>',
-                  f'<span><strong>{info["status"]}</strong> Status</span>',
-              )
-              text = text.replace(
-                  '<span><strong>In Production</strong> Chapter Art</span>',
-                  f'<span><strong>{info["status"]}</strong> Status</span>',
-              )
-              text = text.replace(
-                  '<span><strong>Season Finale</strong> Chapter Art</span>',
-                  f'<span><strong>{info["status"]}</strong> Status</span>',
-              )
-
-              replacement = (
-                  'notice.innerHTML = `<span class="chapter-status-label">Chapter Status</span>'
-                  f'<strong>{info["status"]}</strong><p>{info["message"]}</p>`;'
-              )
-              for old_notice in old_notices:
-                  text = text.replace(old_notice, replacement)
-
-              text = text.replace(
-                  '<span class="secondary-action is-disabled" aria-disabled="true">Episode III →</span>',
-                  '<a class="secondary-action" href="episode-3.html">Episode III →</a>',
-              )
-              text = text.replace(
-                  '<span class="secondary-action is-disabled" aria-disabled="true">Episode IV →</span>',
-                  '<a class="secondary-action" href="episode-4.html">Episode IV →</a>',
-              )
-              text = text.replace(
-                  '<span class="secondary-action is-disabled" aria-disabled="true">Episode V →</span>',
-                  '<a class="secondary-action" href="episode-5.html">Episode V →</a>',
-              )
-              path.write_text(text, encoding="utf-8")
-
-          episode_one = Path("episode-1.html")
-          text = episode_one.read_text(encoding="utf-8")
-          text = text.replace("Choose a Chapter", "Journey Through This Episode")
-          text = text.replace("Begin Reading", "Begin the Journey")
-          episode_one.write_text(text, encoding="utf-8")
-
-          css_path = Path("chronicles-refined.css")
-          css = css_path.read_text(encoding="utf-8")
-          addition = """
-.chapter-status-label{display:block!important;margin-bottom:8px;color:#8fa6a2!important;font:800 9px system-ui,sans-serif!important;letter-spacing:.2em;text-transform:uppercase}
-"""
-          if ".chapter-status-label{" not in css:
-              css_path.write_text(css + addition, encoding="utf-8")
-          PY
-
-      - name: Commit published refinements
+      - name: Commit refined pages
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add episode-1.html episode-2.html episode-3.html episode-4.html episode-5.html chronicles-refined.css
-          git diff --cached --quiet || git commit -m "Publish episode journey labels and status cards"
-          git push
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish episode journey and status refinements"
+            git push
+          fi
