@@ -7,6 +7,8 @@
 }
 
 .episode-chapter-list ol {
+  width: 100%;
+  box-sizing: border-box;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr));
   gap: 10px;
 }
