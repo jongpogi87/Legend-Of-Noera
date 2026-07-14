@@ -8,7 +8,7 @@
   <title>The Sanctuary — Legend of Noera: Chronicles</title>
   <link rel="stylesheet" href="styles.css?v=20260714-1">
   <link rel="stylesheet" href="comic.css?v=20260714-landing-3">
-  <link rel="stylesheet" href="chronicles-refined.css?v=20260714-episode2-1">
+  <link rel="stylesheet" href="chronicles-refined.css?v=20260714-episode2-5">
   <link rel="stylesheet" href="episode-2.css?v=20260714-1">
 </head>
 <body class="comic-page episode-page sanctuary-page">
@@ -128,6 +128,17 @@
         </article>
       </section>
 
+      <section id="episode-two-complete-card" class="episode-finish" hidden>
+        <p class="eyebrow">END OF EPISODE II</p>
+        <div class="episode-completion-status" role="status">
+          <span class="episode-completion-mark" aria-hidden="true">✓</span>
+          <div class="episode-completion-copy"><span>Reading Status</span><strong>Episode II Complete</strong></div>
+        </div>
+        <h2>You have completed The Sanctuary.</h2>
+        <p>Lady Zion's journey through Zionara has only begun.</p>
+        <a class="secondary-action" href="comic.html#season-one">Return to Season I</a>
+      </section>
+
       <nav class="episode-two-end-nav" aria-label="Episode navigation">
         <a class="secondary-action" href="episode-1.html">← Episode I</a>
         <a class="secondary-action" href="comic.html#season-one">Season I</a>
@@ -153,6 +164,7 @@
     const previous = document.querySelector('#episode-two-previous');
     const next = document.querySelector('#episode-two-next');
     const announcement = document.querySelector('#episode-two-announcement');
+    const finish = document.querySelector('#episode-two-complete-card');
     const entries = [...document.querySelectorAll('[data-episode-two-reader] .chapter-reader')];
     if (!reader || !select || !entries.length) return;
 
@@ -169,6 +181,7 @@
       select.value = String(safe + 1);
       previous.disabled = safe === 0;
       next.disabled = safe === entries.length - 1;
+      if (finish) finish.hidden = safe !== entries.length - 1;
       const title = entries[safe].dataset.title || `Part ${safe + 1}`;
       announcement.textContent = `Now reading ${title}`;
       document.title = `${title} — Episode II: The Sanctuary`;
