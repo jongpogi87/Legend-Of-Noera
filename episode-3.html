@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#5d8799">
+  <meta name="theme-color" content="#071b21">
   <meta name="description" content="Explore Episode III — Two Lives from Legend of Noera: Chronicles.">
   <title>Two Lives — Legend of Noera: Chronicles</title>
   <link rel="stylesheet" href="styles.css?v=20260714-1">
   <link rel="stylesheet" href="comic.css?v=20260714-landing-3">
   <link rel="stylesheet" href="chronicles-refined.css?v=20260714-episode3-2">
-  <link rel="stylesheet" href="episode-3.css?v=20260714-1">
+  <link rel="stylesheet" href="episode-3.css?v=20260714-2">
   <link rel="stylesheet" href="episode-unified.css?v=20260714-1">
   <link rel="stylesheet" href="episode-navigation.css?v=20260714-6">
 </head>
@@ -38,20 +38,20 @@
         <p class="season-kicker">SEASON I — THE AWAKENING</p>
         <p class="episode-cover-number">EPISODE III</p>
         <h1 id="episode-three-title">Two Lives</h1>
-        <blockquote>“One heart. Two worlds.”</blockquote>
+        <blockquote>“One heart learns the rhythm of two worlds.”</blockquote>
         <div class="episode-cover-synopsis">
-          <p>By day, Lady Zion is an ordinary student on Earth. By night, she walks the paths of Zionara.</p>
-          <p>As time flows differently between the Twin Worlds, she slowly learns that each life is shaping the other in ways she cannot yet understand.</p>
-          <p>The more she grows in one world... the more she changes in the other.</p>
+          <p>On Earth, Lady Zion returns to classrooms, routines, and a life that appears unchanged. In Zionara, days unfold beneath unfamiliar skies.</p>
+          <p>The Twin Worlds do not keep the same time. What she learns in one begins to reshape how she sees the other.</p>
+          <p>She is no longer choosing between two lives. She is becoming whole through both.</p>
         </div>
         <div class="episode-cover-meta" aria-label="Episode information">
           <span><strong>8</strong> Chapters</span>
           <span><strong>3</strong> Interludes</span>
-          <span><strong>In Development</strong> Status</span>
+          <span><strong>11</strong> Story Moments</span>
         </div>
 
         <nav class="episode-chapter-list two-lives-chapter-list" aria-label="Episode III chapters and interludes">
-          <p>Journey Through This Episode</p>
+          <p>Echoes Across the Twin Worlds</p>
           <ol>
             <li><a href="episode-3.html?chapter=1"><span>01</span>Yesterday</a></li>
             <li><a href="episode-3.html?chapter=2"><span>02</span>One Week</a></li>
@@ -68,7 +68,7 @@
         </nav>
 
         <div class="episode-cover-actions">
-          <button id="episode-three-begin" class="episode-read" type="button">Begin the Journey <span>↓</span></button>
+          <button id="episode-three-begin" class="episode-read" type="button">Walk Between Worlds <span aria-hidden="true">↓</span></button>
           <a class="secondary-action" href="comic.html#season-one">Back to Season I</a>
         </div>
       </div>
@@ -115,9 +115,12 @@
           <span class="episode-completion-mark" aria-hidden="true">✓</span>
           <div class="episode-completion-copy"><span>Reading Status</span><strong>Episode III Complete</strong></div>
         </div>
-        <h2>You have completed Two Lives.</h2>
-        <p>Lady Zion now carries the truth of two worlds within her.</p>
-        <a class="secondary-action" href="comic.html#season-one">Return to Season I</a>
+        <h2>Two worlds now move within one heart.</h2>
+        <p>Lady Zion carries the lessons of Earth and Zionara forward into her calling.</p>
+        <div class="episode-cover-actions episode-finish-actions">
+          <a class="episode-read" href="episode-4.html">Continue to Episode IV <span aria-hidden="true">→</span></a>
+          <a class="secondary-action" href="comic.html#season-one">Return to Season I</a>
+        </div>
       </section>
 
       <nav class="episode-end-nav episode-three-end-nav" aria-label="Episode navigation">
@@ -177,13 +180,16 @@
     entries.forEach((entry, index) => {
       const notice = document.createElement('div');
       notice.className = 'episode-status-card two-lives-artwork-notice';
-      notice.innerHTML = '<span class="chapter-status-label">Chapter Status</span><strong>In Development</strong><p>The storyboards and visual direction for this chapter are currently taking shape.</p>';
+      notice.innerHTML = '<span class="chapter-status-label">Illustrated Edition</span><strong>Visual Development</strong><p>This story moment is ready. Its storyboards and twin-world visual language are now taking shape.</p>';
       entry.appendChild(notice);
       const nav = document.createElement('nav');
       nav.className = 'chapter-end-navigation';
-      nav.innerHTML = `<button class="chapter-end-button chapter-end-back" type="button" ${index === 0 ? 'disabled' : ''}><span aria-hidden="true">←</span><span><small>Previous</small>Back</span></button><div class="chapter-end-marker"><span>❧</span><strong>Part ${index + 1} of ${entries.length}</strong></div><button class="chapter-end-button chapter-end-next" type="button" ${index === entries.length - 1 ? 'disabled' : ''}><span><small>Continue</small>Next</span><span aria-hidden="true">→</span></button>`;
+      const forward = index === entries.length - 1
+        ? '<a class="chapter-end-button chapter-end-next is-complete" href="episode-4.html"><span><small>Continue the Journey</small>Episode IV</span><span aria-hidden="true">→</span></a>'
+        : '<button class="chapter-end-button chapter-end-next" type="button"><span><small>Continue</small>Next</span><span aria-hidden="true">→</span></button>';
+      nav.innerHTML = `<button class="chapter-end-button chapter-end-back" type="button" ${index === 0 ? 'disabled' : ''}><span aria-hidden="true">←</span><span><small>Previous</small>Back</span></button><div class="chapter-end-marker"><span>❧</span><strong>Part ${index + 1} of ${entries.length}</strong></div>${forward}`;
       nav.querySelector('.chapter-end-back')?.addEventListener('click', () => show(index - 1));
-      nav.querySelector('.chapter-end-next')?.addEventListener('click', () => show(index + 1));
+      if (index < entries.length - 1) nav.querySelector('.chapter-end-next')?.addEventListener('click', () => show(index + 1));
       entry.appendChild(nav);
     });
 
