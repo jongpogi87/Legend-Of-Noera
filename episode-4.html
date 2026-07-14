@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#07121a">
+  <meta name="theme-color" content="#050f16">
   <meta name="description" content="Explore Episode IV — The Calling from Legend of Noera: Chronicles.">
   <title>The Calling — Legend of Noera: Chronicles</title>
   <link rel="stylesheet" href="styles.css?v=20260714-1">
   <link rel="stylesheet" href="comic.css?v=20260714-landing-3">
   <link rel="stylesheet" href="chronicles-refined.css?v=20260714-episode4-2">
-  <link rel="stylesheet" href="episode-4.css?v=20260714-1">
+  <link rel="stylesheet" href="episode-4.css?v=20260714-2">
   <link rel="stylesheet" href="episode-unified.css?v=20260714-1">
   <link rel="stylesheet" href="episode-navigation.css?v=20260714-6">
 </head>
@@ -27,14 +27,15 @@
         <p class="season-kicker">SEASON I — THE AWAKENING</p>
         <p class="episode-cover-number">EPISODE IV</p>
         <h1 id="episode-four-title">The Calling</h1>
-        <blockquote>“Courage reveals the Steward within.”</blockquote>
+        <blockquote>“The call is not courage. Answering it is.”</blockquote>
         <div class="episode-cover-synopsis">
-          <p>Beyond the safety of the Sanctuary lies a world filled with forgotten ruins, ancient dangers, and choices that reveal the true measure of courage.</p>
-          <p>Lady Zion’s first mission will test more than her strength. It will reveal the kind of Steward she is becoming.</p>
+          <p>Beyond the Sanctuary, the road winds through silent ruins and places where old warnings still breathe.</p>
+          <p>Lady Zion’s first mission will test more than strength. Fear, loyalty, and a watching darkness will force her to decide what kind of Steward she intends to become.</p>
+          <p>The Living Bond does not command. It calls.</p>
         </div>
-        <div class="episode-cover-meta" aria-label="Episode information"><span><strong>8</strong> Chapters</span><span><strong>3</strong> Interludes</span><span><strong>In Production</strong> Status</span></div>
+        <div class="episode-cover-meta" aria-label="Episode information"><span><strong>8</strong> Chapters</span><span><strong>3</strong> Interludes</span><span><strong>11</strong> Story Moments</span></div>
         <nav class="episode-chapter-list calling-chapter-list" aria-label="Episode IV chapters and interludes">
-          <p>Journey Through This Episode</p>
+          <p>Follow the Road Beyond</p>
           <ol>
             <li><a href="episode-4.html?chapter=1"><span>01</span>Beyond</a></li>
             <li><a href="episode-4.html?chapter=2"><span>02</span>The Road</a></li>
@@ -49,7 +50,7 @@
             <li><a href="episode-4.html?chapter=11"><span>08</span>The First Resonance</a></li>
           </ol>
         </nav>
-        <div class="episode-cover-actions"><button id="episode-four-begin" class="episode-read" type="button">Begin the Journey <span>↓</span></button><a class="secondary-action" href="comic.html#season-one">Back to Season I</a></div>
+        <div class="episode-cover-actions"><button id="episode-four-begin" class="episode-read" type="button">Answer the Calling <span aria-hidden="true">↓</span></button><a class="secondary-action" href="comic.html#season-one">Back to Season I</a></div>
       </div>
     </section>
 
@@ -76,9 +77,12 @@
           <span class="episode-completion-mark" aria-hidden="true">✓</span>
           <div class="episode-completion-copy"><span>Reading Status</span><strong>Episode IV Complete</strong></div>
         </div>
-        <h2>You have completed The Calling.</h2>
-        <p>Lady Zion has heard the Living Bond and chosen how she will answer.</p>
-        <a class="secondary-action" href="comic.html#season-one">Return to Season I</a>
+        <h2>The first Resonance has answered.</h2>
+        <p>Lady Zion chose courage while turning back was still possible. The path now leads toward her first step.</p>
+        <div class="episode-cover-actions episode-finish-actions">
+          <a class="episode-read" href="episode-5.html">Continue to Episode V <span aria-hidden="true">→</span></a>
+          <a class="secondary-action" href="comic.html#season-one">Return to Season I</a>
+        </div>
       </section>
 
       <nav class="episode-end-nav episode-four-end-nav" aria-label="Episode navigation"><a class="secondary-action" href="episode-3.html">← Episode III</a><a class="secondary-action" href="comic.html#season-one">Season I</a><a class="secondary-action" href="episode-5.html">Episode V →</a></nav>
@@ -93,7 +97,7 @@
     if(!reader||!select||!entries.length)return;
     const requested=()=>{const value=Number(new URLSearchParams(location.search).get('chapter'));return Number.isInteger(value)&&value>=1&&value<=entries.length?value-1:0};
     const show=(index,update=true,scroll=true)=>{const safe=Math.max(0,Math.min(index,entries.length-1));reader.hidden=false;cover?.classList.add('is-condensed');entries.forEach((entry,i)=>entry.hidden=i!==safe);select.value=String(safe+1);previous.disabled=safe===0;next.disabled=safe===entries.length-1;if(finish)finish.hidden=safe!==entries.length-1;const title=entries[safe].dataset.title||`Part ${safe+1}`;announcement.textContent=`Now reading ${title}`;document.title=`${title} — Episode IV: The Calling`;if(update){const url=new URL(location.href);url.searchParams.set('chapter',String(safe+1));history.replaceState({chapter:safe+1},'',url)}if(scroll)window.scrollTo({top:reader.offsetTop-82,behavior:'smooth'})};
-    entries.forEach((entry,index)=>{const notice=document.createElement('div');notice.className='episode-status-card calling-artwork-notice';notice.innerHTML = '<span class="chapter-status-label">Chapter Status</span><strong>In Production</strong><p>This chapter is moving through production as its scenes and panels are carefully prepared.</p>';entry.appendChild(notice);const nav=document.createElement('nav');nav.className='chapter-end-navigation';nav.innerHTML=`<button class="chapter-end-button chapter-end-back" type="button" ${index===0?'disabled':''}><span aria-hidden="true">←</span><span><small>Previous</small>Back</span></button><div class="chapter-end-marker"><span>❧</span><strong>Part ${index+1} of ${entries.length}</strong></div><button class="chapter-end-button chapter-end-next" type="button" ${index===entries.length-1?'disabled':''}><span><small>Continue</small>Next</span><span aria-hidden="true">→</span></button>`;nav.querySelector('.chapter-end-back')?.addEventListener('click',()=>show(index-1));nav.querySelector('.chapter-end-next')?.addEventListener('click',()=>show(index+1));entry.appendChild(nav)});
+    entries.forEach((entry,index)=>{const notice=document.createElement('div');notice.className='episode-status-card calling-artwork-notice';notice.innerHTML = '<span class="chapter-status-label">Illustrated Edition</span><strong>Panel Production</strong><p>This story moment is entering panel production, where its tension, ruins, and first Resonance are being shaped.</p>';entry.appendChild(notice);const nav=document.createElement('nav');nav.className='chapter-end-navigation';const forward=index===entries.length-1?'<a class="chapter-end-button chapter-end-next is-complete" href="episode-5.html"><span><small>Continue the Journey</small>Episode V</span><span aria-hidden="true">→</span></a>':'<button class="chapter-end-button chapter-end-next" type="button"><span><small>Continue</small>Next</span><span aria-hidden="true">→</span></button>';nav.innerHTML=`<button class="chapter-end-button chapter-end-back" type="button" ${index===0?'disabled':''}><span aria-hidden="true">←</span><span><small>Previous</small>Back</span></button><div class="chapter-end-marker"><span>❧</span><strong>Part ${index+1} of ${entries.length}</strong></div>${forward}`;nav.querySelector('.chapter-end-back')?.addEventListener('click',()=>show(index-1));if(index<entries.length-1)nav.querySelector('.chapter-end-next')?.addEventListener('click',()=>show(index+1));entry.appendChild(nav)});
     begin?.addEventListener('click',()=>show(0));select.addEventListener('change',()=>show(Number(select.value)-1));previous.addEventListener('click',()=>show(Number(select.value)-2));next.addEventListener('click',()=>show(Number(select.value)));addEventListener('popstate',()=>show(requested(),false));if(new URLSearchParams(location.search).has('chapter'))show(requested(),false,false);
   })();
   </script>
