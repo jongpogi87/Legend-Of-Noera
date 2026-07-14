@@ -1,4 +1,9 @@
 (() => {
+  const refinedStyles = document.createElement('link');
+  refinedStyles.rel = 'stylesheet';
+  refinedStyles.href = 'chronicles-refined.css?v=20260714-1';
+  document.head.appendChild(refinedStyles);
+
   const reader = document.querySelector('[data-episode-reader]');
   if (!reader) return;
 
