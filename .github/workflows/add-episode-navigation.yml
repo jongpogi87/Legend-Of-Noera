@@ -1,4 +1,4 @@
-name: Refine Episode Pages
+name: Refine Episode Experience
 
 on:
   workflow_dispatch:
@@ -14,125 +14,148 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Refine episode navigation and production status cards
+      - name: Refine episode pages
         run: |
           python <<'PY'
           from pathlib import Path
 
           episodes = {
-              1: {"prev": None, "next": (2, "The Sanctuary")},
-              2: {"prev": (1, "The Girl Who Saw Differently"), "next": (3, "Two Lives")},
-              3: {"prev": (2, "The Sanctuary"), "next": (4, "The Calling")},
-              4: {"prev": (3, "Two Lives"), "next": (5, "The First Step")},
-              5: {"prev": (4, "The Calling"), "next": None},
+              1: {
+                  "prev": None,
+                  "next": (2, "The Sanctuary"),
+                  "time": "15–20 Minutes",
+                  "status": "Complete Episode",
+              },
+              2: {
+                  "prev": (1, "The Girl Who Saw Differently"),
+                  "next": (3, "Two Lives"),
+                  "time": "20–25 Minutes",
+                  "status": "Coming Soon",
+                  "notice_class": "sanctuary-artwork-notice",
+                  "notice": '<span class="chapter-status-label">Chapter Status</span><strong>Coming Soon</strong><p>The story has already been written. Its illustrated comic adaptation is next in the Chronicles.</p>',
+              },
+              3: {
+                  "prev": (2, "The Sanctuary"),
+                  "next": (4, "The Calling"),
+                  "time": "20–25 Minutes",
+                  "status": "In Development",
+                  "notice_class": "two-lives-artwork-notice",
+                  "notice": '<span class="chapter-status-label">Chapter Status</span><strong>In Development</strong><p>The storyboards and visual direction for this chapter are currently taking shape.</p>',
+              },
+              4: {
+                  "prev": (3, "Two Lives"),
+                  "next": (5, "The First Step"),
+                  "time": "20–25 Minutes",
+                  "status": "In Production",
+                  "notice_class": "calling-artwork-notice",
+                  "notice": '<span class="chapter-status-label">Chapter Status</span><strong>In Production</strong><p>This chapter is moving through production as its scenes and panels are carefully prepared.</p>',
+              },
+              5: {
+                  "prev": (4, "The Calling"),
+                  "next": None,
+                  "time": "20–25 Minutes",
+                  "status": "Season Finale",
+                  "notice_class": "first-step-artwork-notice",
+                  "notice": '<span class="chapter-status-label">Chapter Status</span><strong>Season Finale</strong><p>The closing movement of Season I is being carefully developed for its illustrated release.</p>',
+              },
           }
 
-          action_ids = {
-              1: 'begin-reading',
-              2: 'episode-two-begin',
-              3: 'episode-three-begin',
-              4: 'episode-four-begin',
-              5: 'episode-five-begin',
-          }
-
-          status_cards = {
-              2: (
-                  'COMING SOON',
-                  'The story has already been written. Its illustrated comic adaptation is next in the Chronicles.'
-              ),
-              3: (
-                  'IN DEVELOPMENT',
-                  'The storyboards and visual direction for this chapter are currently taking shape.'
-              ),
-              4: (
-                  'IN PRODUCTION',
-                  'This chapter is moving through production as its scenes and panels are carefully prepared.'
-              ),
-              5: (
-                  'SEASON FINALE',
-                  'The closing movement of Season I is being carefully developed for its illustrated release.'
-              ),
+          begin_ids = {
+              1: "begin-reading",
+              2: "episode-two-begin",
+              3: "episode-three-begin",
+              4: "episode-four-begin",
+              5: "episode-five-begin",
           }
 
           def nav_html(number):
               info = episodes[number]
-              prev = info['prev']
-              nxt = info['next']
-              left = (f'<a class="episode-switch episode-switch-prev" href="episode-{prev[0]}.html">'
-                      f'<small>Previous Episode</small><strong>← Episode {prev[0]}</strong><span>{prev[1]}</span></a>') if prev else (
-                      '<a class="episode-switch episode-switch-prev" href="comic.html#season-one">'
-                      '<small>Previous</small><strong>← Season I</strong><span>The Awakening</span></a>')
-              right = (f'<a class="episode-switch episode-switch-next" href="episode-{nxt[0]}.html">'
-                       f'<small>Next Episode</small><strong>Episode {nxt[0]} →</strong><span>{nxt[1]}</span></a>') if nxt else (
-                       '<a class="episode-switch episode-switch-next" href="comic.html#season-one">'
-                       '<small>Season Complete</small><strong>Season I ✓</strong><span>Return to The Awakening</span></a>')
-              return ('\n        <nav class="episode-series-navigation" aria-label="Season I episode navigation">\n'
-                      f'          {left}\n'
-                      '          <a class="episode-switch episode-switch-season" href="comic.html#season-one"><small>Chronicles</small><strong>Season I</strong><span>The Awakening</span></a>\n'
-                      f'          {right}\n'
-                      '        </nav>')
+              prev = info["prev"]
+              nxt = info["next"]
+              left = (
+                  f'<a class="episode-switch episode-switch-prev" href="episode-{prev[0]}.html">'
+                  f'<small>Previous Episode</small><strong>← Episode {prev[0]}</strong><span>{prev[1]}</span></a>'
+              ) if prev else (
+                  '<a class="episode-switch episode-switch-prev" href="comic.html#season-one">'
+                  '<small>Previous</small><strong>← Season I</strong><span>The Awakening</span></a>'
+              )
+              right = (
+                  f'<a class="episode-switch episode-switch-next" href="episode-{nxt[0]}.html">'
+                  f'<small>Next Episode</small><strong>Episode {nxt[0]} →</strong><span>{nxt[1]}</span></a>'
+              ) if nxt else (
+                  '<a class="episode-switch episode-switch-next" href="comic.html#season-one">'
+                  '<small>Season Complete</small><strong>Season I ✓</strong><span>Return to The Awakening</span></a>'
+              )
+              return (
+                  '\n        <nav class="episode-series-navigation" aria-label="Season I episode navigation">\n'
+                  f'          {left}\n'
+                  '          <a class="episode-switch episode-switch-season" href="comic.html#season-one"><small>Chronicles</small><strong>Season I</strong><span>The Awakening</span></a>\n'
+                  f'          {right}\n'
+                  '        </nav>'
+              )
 
           changed = False
-          for number in range(1, 6):
-              path = Path(f'episode-{number}.html')
-              text = path.read_text(encoding='utf-8')
+          for number, info in episodes.items():
+              path = Path(f"episode-{number}.html")
+              text = path.read_text(encoding="utf-8")
               original = text
 
-              if 'episode-series-navigation' not in text:
-                  begin_id = action_ids[number]
-                  marker = f'<button id="{begin_id}"'
+              text = text.replace("Choose a Chapter", "Journey Through This Episode")
+              text = text.replace("Begin Reading", "Begin the Journey")
+
+              if number > 1:
+                  old_statuses = [
+                      '<span><strong>Coming</strong> Chapter Art</span>',
+                      '<span><strong>In Development</strong> Chapter Art</span>',
+                      '<span><strong>In Production</strong> Chapter Art</span>',
+                      '<span><strong>Season Finale</strong> Chapter Art</span>',
+                  ]
+                  for old in old_statuses:
+                      text = text.replace(old, f'<span><strong>{info["status"]}</strong> Status</span>')
+
+                  old_notices = [
+                      "notice.innerHTML = '<span>❧</span><strong>Chapter artwork is being prepared.</strong><p>This page is ready for its illustrated panels.</p>';",
+                      "notice.innerHTML='<span>❧</span><strong>Chapter artwork is being prepared.</strong><p>This page is ready for its illustrated panels.</p>';",
+                  ]
+                  new_notice = f"notice.innerHTML = '{info['notice']}';"
+                  for old in old_notices:
+                      text = text.replace(old, new_notice)
+
+              if "episode-series-navigation" not in text:
+                  marker = f'<button id="{begin_ids[number]}"'
                   pos = text.find(marker)
-                  if pos == -1:
-                      raise RuntimeError(f'Begin button not found in {path}')
                   actions_start = text.rfind('<div class="episode-cover-actions">', 0, pos)
                   actions_end = text.find('</div>', pos)
-                  if actions_start == -1 or actions_end == -1:
-                      raise RuntimeError(f'Cover actions not found in {path}')
-                  actions_end += len('</div>')
-                  text = text[:actions_end] + nav_html(number) + text[actions_end:]
+                  if actions_start != -1 and actions_end != -1:
+                      actions_end += len('</div>')
+                      text = text[:actions_end] + nav_html(number) + text[actions_end:]
 
-              replacements = {
-                  '<span class="secondary-action is-disabled" aria-disabled="true">Episode III →</span>': '<a class="secondary-action" href="episode-3.html">Episode III →</a>',
-                  '<span class="secondary-action is-disabled" aria-disabled="true">Episode IV →</span>': '<a class="secondary-action" href="episode-4.html">Episode IV →</a>',
-                  '<span class="secondary-action is-disabled" aria-disabled="true">Episode V →</span>': '<a class="secondary-action" href="episode-5.html">Episode V →</a>',
-              }
-              for old, new in replacements.items():
-                  text = text.replace(old, new)
-
-              if number in status_cards:
-                  label, message = status_cards[number]
-                  old_notice = "<span>❧</span><strong>Chapter artwork is being prepared.</strong><p>This page is ready for its illustrated panels.</p>"
-                  new_notice = f'<span>❧</span><small>CHAPTER STATUS</small><strong>{label}</strong><p>{message}</p>'
-                  text = text.replace(old_notice, new_notice)
-                  text = text.replace('<span><strong>Coming</strong> Chapter Art</span>', f'<span><strong>{label.title()}</strong> Chapter Status</span>')
+              text = text.replace('<span class="secondary-action is-disabled" aria-disabled="true">Episode III →</span>', '<a class="secondary-action" href="episode-3.html">Episode III →</a>')
+              text = text.replace('<span class="secondary-action is-disabled" aria-disabled="true">Episode IV →</span>', '<a class="secondary-action" href="episode-4.html">Episode IV →</a>')
+              text = text.replace('<span class="secondary-action is-disabled" aria-disabled="true">Episode V →</span>', '<a class="secondary-action" href="episode-5.html">Episode V →</a>')
 
               if text != original:
-                  path.write_text(text, encoding='utf-8')
+                  path.write_text(text, encoding="utf-8")
                   changed = True
 
-          css = Path('chronicles-refined.css')
-          style = css.read_text(encoding='utf-8')
-          additions = '''
-.episode-series-navigation{position:relative;z-index:8;max-width:820px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:24px 0 0}.episode-switch{min-height:78px;display:flex;flex-direction:column;justify-content:center;padding:12px 15px;border:1px solid rgba(214,184,108,.3);background:rgba(3,12,15,.65);color:#f5f1e6;text-decoration:none;transition:border-color .2s ease,background .2s ease,transform .2s ease}.episode-switch:link,.episode-switch:visited{color:#f5f1e6;text-decoration:none}.episode-switch small{color:#8fa6a2;font:800 8px system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase}.episode-switch strong{margin:4px 0;color:#efd98f;font:600 14px Georgia,serif}.episode-switch span{color:#b7c8c4;font:12px/1.3 Georgia,serif}.episode-switch:hover,.episode-switch:focus-visible{border-color:#d6b86c;background:rgba(214,184,108,.11);transform:translateY(-1px)}.episode-switch-season{text-align:center}.episode-switch-next{text-align:right}
-.sanctuary-artwork-notice small,.two-lives-artwork-notice small,.calling-artwork-notice small,.first-step-artwork-notice small{display:block;margin:8px 0 3px;color:#879e99;font:800 9px system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase}.sanctuary-artwork-notice strong,.two-lives-artwork-notice strong,.calling-artwork-notice strong,.first-step-artwork-notice strong{letter-spacing:.04em}
+          css = Path("chronicles-refined.css")
+          style = css.read_text(encoding="utf-8")
+          addition = '''
+.episode-series-navigation{position:relative;z-index:8;max-width:820px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:24px 0 0}.episode-switch{min-height:78px;display:flex;flex-direction:column;justify-content:center;padding:12px 15px;border:1px solid rgba(214,184,108,.3);background:rgba(3,12,15,.65);color:#f5f1e6;text-decoration:none;transition:border-color .2s ease,background .2s ease,transform .2s ease}.episode-switch:link,.episode-switch:visited{color:#f5f1e6;text-decoration:none}.episode-switch small{color:#8fa6a2;font:800 8px system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase}.episode-switch strong{margin:4px 0;color:#efd98f;font:600 14px Georgia,serif}.episode-switch span{color:#b7c8c4;font:12px/1.3 Georgia,serif}.episode-switch:hover,.episode-switch:focus-visible{border-color:#d6b86c;background:rgba(214,184,108,.11);transform:translateY(-1px)}.episode-switch-season{text-align:center}.episode-switch-next{text-align:right}.chapter-status-label{display:block!important;margin-bottom:8px;color:#8fa6a2!important;font:800 9px system-ui,sans-serif!important;letter-spacing:.2em;text-transform:uppercase}.episode-chapter-list>p{letter-spacing:.18em}
 @media(max-width:640px){.episode-series-navigation{grid-template-columns:1fr;margin-top:20px}.episode-switch,.episode-switch-next{text-align:center;min-height:68px}}
 '''
-          if '.episode-series-navigation{' not in style:
-              style += additions
-          elif '.sanctuary-artwork-notice small' not in style:
-              style += additions.split('\n.sanctuary-artwork-notice small', 1)[1].join(['\n.sanctuary-artwork-notice small', ''])
-          if style != css.read_text(encoding='utf-8'):
-              css.write_text(style, encoding='utf-8')
+          if ".chapter-status-label" not in style:
+              css.write_text(style + addition, encoding="utf-8")
               changed = True
 
           if not changed:
-              Path('.episode-refinement-complete').write_text('complete\n', encoding='utf-8')
+              Path(".episode-refinements-complete").write_text("complete\n", encoding="utf-8")
           PY
 
-      - name: Commit refined episode pages
+      - name: Commit refinements
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add episode-1.html episode-2.html episode-3.html episode-4.html episode-5.html chronicles-refined.css
-          git diff --cached --quiet || git commit -m "Refine episode production status cards"
+          git diff --cached --quiet || git commit -m "Refine episode journey labels and production status"
           git push
