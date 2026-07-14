@@ -1,9 +1,4 @@
 (() => {
-  const refinedStyles = document.createElement('link');
-  refinedStyles.rel = 'stylesheet';
-  refinedStyles.href = 'chronicles-refined.css?v=20260714-4';
-  document.head.appendChild(refinedStyles);
-
   const titleCorrectionStyles = document.createElement('style');
   titleCorrectionStyles.textContent = `
     .full-page-edition.episode-title-corrected{position:relative}
