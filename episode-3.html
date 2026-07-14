@@ -8,7 +8,7 @@
   <title>Two Lives — Legend of Noera: Chronicles</title>
   <link rel="stylesheet" href="styles.css?v=20260714-1">
   <link rel="stylesheet" href="comic.css?v=20260714-landing-3">
-  <link rel="stylesheet" href="chronicles-refined.css?v=20260714-episode3-1">
+  <link rel="stylesheet" href="chronicles-refined.css?v=20260714-episode3-2">
   <link rel="stylesheet" href="episode-3.css?v=20260714-1">
 </head>
 <body class="comic-page episode-page two-lives-page">
@@ -107,6 +107,17 @@
         <article class="chapter-reader two-lives-placeholder" data-title="Two Lives" hidden><p class="chapter-number">EPISODE III · CHAPTER 8</p><h2>Two Lives</h2><p>Lady Zion understands that she is not leaving one life for another. Both worlds are becoming part of who she is.</p></article>
       </section>
 
+      <section id="episode-three-complete-card" class="episode-finish" hidden>
+        <p class="eyebrow">END OF EPISODE III</p>
+        <div class="episode-completion-status" role="status">
+          <span class="episode-completion-mark" aria-hidden="true">✓</span>
+          <div class="episode-completion-copy"><span>Reading Status</span><strong>Episode III Complete</strong></div>
+        </div>
+        <h2>You have completed Two Lives.</h2>
+        <p>Lady Zion now carries the truth of two worlds within her.</p>
+        <a class="secondary-action" href="comic.html#season-one">Return to Season I</a>
+      </section>
+
       <nav class="episode-three-end-nav" aria-label="Episode navigation">
         <a class="secondary-action" href="episode-2.html">← Episode II</a>
         <a class="secondary-action" href="comic.html#season-one">Season I</a>
@@ -132,6 +143,7 @@
     const previous = document.querySelector('#episode-three-previous');
     const next = document.querySelector('#episode-three-next');
     const announcement = document.querySelector('#episode-three-announcement');
+    const finish = document.querySelector('#episode-three-complete-card');
     const entries = [...document.querySelectorAll('[data-episode-three-reader] .chapter-reader')];
     if (!reader || !select || !entries.length) return;
 
@@ -148,6 +160,7 @@
       select.value = String(safe + 1);
       previous.disabled = safe === 0;
       next.disabled = safe === entries.length - 1;
+      if (finish) finish.hidden = safe !== entries.length - 1;
       const title = entries[safe].dataset.title || `Part ${safe + 1}`;
       announcement.textContent = `Now reading ${title}`;
       document.title = `${title} — Episode III: Two Lives`;
