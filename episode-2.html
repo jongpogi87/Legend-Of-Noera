@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="comic.css?v=20260714-landing-3">
   <link rel="stylesheet" href="chronicles-refined.css?v=20260714-episode2-5">
   <link rel="stylesheet" href="episode-2.css?v=20260714-1">
+  <link rel="stylesheet" href="episode-unified.css?v=20260714-1">
 </head>
 <body class="comic-page episode-page sanctuary-page">
   <a class="skip-link" href="#episode-two-reader">Skip to Episode II</a>
@@ -93,37 +94,37 @@
       <p id="episode-two-announcement" class="visually-hidden" aria-live="polite"></p>
 
       <section data-episode-two-reader>
-        <article class="chapter-reader sanctuary-placeholder" data-title="The Crossing" data-label="EPISODE II · CHAPTER 1">
+        <article class="chapter-reader episode-placeholder sanctuary-placeholder" data-title="The Crossing" data-label="EPISODE II · CHAPTER 1">
           <p class="chapter-number">EPISODE II · CHAPTER 1</p><h2>The Crossing</h2><p>Lady Zion passes from dream into Zionara and discovers that the impossible has become real.</p>
         </article>
-        <article class="chapter-reader sanctuary-placeholder" data-title="Welcome to the Sanctuary" data-label="EPISODE II · CHAPTER 2" hidden>
+        <article class="chapter-reader episode-placeholder sanctuary-placeholder" data-title="Welcome to the Sanctuary" data-label="EPISODE II · CHAPTER 2" hidden>
           <p class="chapter-number">EPISODE II · CHAPTER 2</p><h2>Welcome to the Sanctuary</h2><p>Faithful Stewards receive Lady Zion into a place shaped by generations of service and hope.</p>
         </article>
-        <article class="chapter-reader sanctuary-placeholder" data-title="The Great Tree" data-label="EPISODE II · CHAPTER 3" hidden>
+        <article class="chapter-reader episode-placeholder sanctuary-placeholder" data-title="The Great Tree" data-label="EPISODE II · CHAPTER 3" hidden>
           <p class="chapter-number">EPISODE II · CHAPTER 3</p><h2>The Great Tree</h2><p>Lady Zion encounters an ancient living landmark of the Sanctuary and senses the deeper harmony surrounding it.</p>
         </article>
-        <article class="chapter-reader sanctuary-placeholder" data-title="The Rite" data-label="EPISODE II · CHAPTER 4" hidden>
+        <article class="chapter-reader episode-placeholder sanctuary-placeholder" data-title="The Rite" data-label="EPISODE II · CHAPTER 4" hidden>
           <p class="chapter-number">EPISODE II · CHAPTER 4</p><h2>The Rite</h2><p>A sacred tradition welcomes Lady Zion while asking whether she is ready to receive what the Sanctuary preserves.</p>
         </article>
-        <article class="chapter-reader sanctuary-placeholder is-interlude-card" data-title="The Gatekeeper" data-label="EPISODE II · INTERLUDE" hidden>
+        <article class="chapter-reader episode-placeholder sanctuary-placeholder is-interlude-card" data-title="The Gatekeeper" data-label="EPISODE II · INTERLUDE" hidden>
           <p class="chapter-number">EPISODE II · INTERLUDE</p><h2>The Gatekeeper</h2><p>The Steward who has welcomed generations of Earth-born quietly reminds us that every journey begins with someone faithfully holding the door open.</p>
         </article>
-        <article class="chapter-reader sanctuary-placeholder" data-title="The First Morning" data-label="EPISODE II · CHAPTER 5" hidden>
+        <article class="chapter-reader episode-placeholder sanctuary-placeholder" data-title="The First Morning" data-label="EPISODE II · CHAPTER 5" hidden>
           <p class="chapter-number">EPISODE II · CHAPTER 5</p><h2>The First Morning</h2><p>Lady Zion wakes beneath Zionara’s morning light and begins to understand the rhythms of Sanctuary life.</p>
         </article>
-        <article class="chapter-reader sanctuary-placeholder" data-title="The Garden" data-label="EPISODE II · CHAPTER 6" hidden>
+        <article class="chapter-reader episode-placeholder sanctuary-placeholder" data-title="The Garden" data-label="EPISODE II · CHAPTER 6" hidden>
           <p class="chapter-number">EPISODE II · CHAPTER 6</p><h2>The Garden</h2><p>Within the Sanctuary garden, care for creation becomes a lesson in patience, attention, and belonging.</p>
         </article>
-        <article class="chapter-reader sanctuary-placeholder is-interlude-card" data-title="The Baker’s Dawn" data-label="EPISODE II · INTERLUDE" hidden>
+        <article class="chapter-reader episode-placeholder sanctuary-placeholder is-interlude-card" data-title="The Baker’s Dawn" data-label="EPISODE II · INTERLUDE" hidden>
           <p class="chapter-number">EPISODE II · INTERLUDE</p><h2>The Baker’s Dawn</h2><p>Before sunrise, simple acts of service reveal the quiet joy woven into everyday stewardship.</p>
         </article>
-        <article class="chapter-reader sanctuary-placeholder" data-title="See Before Judging" data-label="EPISODE II · CHAPTER 7" hidden>
+        <article class="chapter-reader episode-placeholder sanctuary-placeholder" data-title="See Before Judging" data-label="EPISODE II · CHAPTER 7" hidden>
           <p class="chapter-number">EPISODE II · CHAPTER 7</p><h2>See Before Judging</h2><p>Lady Zion’s way of noticing others is tested in a place where appearances can still conceal a deeper truth.</p>
         </article>
-        <article class="chapter-reader sanctuary-placeholder" data-title="Forgotten" data-label="EPISODE II · CHAPTER 8" hidden>
+        <article class="chapter-reader episode-placeholder sanctuary-placeholder" data-title="Forgotten" data-label="EPISODE II · CHAPTER 8" hidden>
           <p class="chapter-number">EPISODE II · CHAPTER 8</p><h2>Forgotten</h2><p>The Sanctuary’s welcome cannot hide every wound, and Lady Zion begins to sense what even faithful people have learned not to remember.</p>
         </article>
-        <article class="chapter-reader sanctuary-placeholder is-interlude-card" data-title="The Gardener" data-label="EPISODE II · INTERLUDE" hidden>
+        <article class="chapter-reader episode-placeholder sanctuary-placeholder is-interlude-card" data-title="The Gardener" data-label="EPISODE II · INTERLUDE" hidden>
           <p class="chapter-number">EPISODE II · INTERLUDE</p><h2>The Gardener</h2><p>An elderly Steward tends the Sanctuary gardens, revealing that caring for creation is one of the quietest expressions of the Living Bond.</p>
         </article>
       </section>
@@ -139,7 +140,7 @@
         <a class="secondary-action" href="comic.html#season-one">Return to Season I</a>
       </section>
 
-      <nav class="episode-two-end-nav" aria-label="Episode navigation">
+      <nav class="episode-end-nav episode-two-end-nav" aria-label="Episode navigation">
         <a class="secondary-action" href="episode-1.html">← Episode I</a>
         <a class="secondary-action" href="comic.html#season-one">Season I</a>
         <a class="secondary-action" href="episode-3.html">Episode III →</a>
@@ -195,7 +196,7 @@
 
     entries.forEach((entry, index) => {
       const notice = document.createElement('div');
-      notice.className = 'sanctuary-artwork-notice';
+      notice.className = 'episode-status-card sanctuary-artwork-notice';
       notice.innerHTML = '<span class="chapter-status-label">Chapter Status</span><strong>Coming Soon</strong><p>The story has already been written. Its illustrated comic adaptation is next in the Chronicles.</p>';
       entry.appendChild(notice);
       const nav = document.createElement('nav');
