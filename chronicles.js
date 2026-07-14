@@ -135,12 +135,22 @@
     marker.className = 'chapter-end-marker';
     marker.innerHTML = `<span>❧</span><strong>Chapter ${index + 1} of ${chapters.length}</strong>`;
 
-    const forward = document.createElement('button');
-    forward.type = 'button';
+    const isLastChapter = index === chapters.length - 1;
+    const forward = document.createElement('a');
     forward.className = 'chapter-end-button chapter-end-next';
-    forward.innerHTML = '<span><small>Continue</small>Next</span><span aria-hidden="true">→</span>';
-    forward.disabled = index === chapters.length - 1;
-    forward.addEventListener('click', () => showChapter(index + 1, true, true));
+    if (isLastChapter) {
+      forward.href = '#episode-complete-card';
+      forward.classList.add('is-complete');
+      forward.innerHTML = '<span><small>Completed</small>Episode Complete</span><span aria-hidden="true">✓</span>';
+    } else {
+      forward.href = `episode-1.html?chapter=${index + 2}`;
+      forward.innerHTML = '<span><small>Continue Reading</small>Next Chapter</span><span aria-hidden="true">→</span>';
+      forward.addEventListener('click', (event) => {
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        showChapter(index + 1, true, true);
+      });
+    }
 
     nav.append(back, marker, forward);
     chapter.appendChild(nav);
