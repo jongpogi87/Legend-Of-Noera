@@ -8,3 +8,188 @@
 @media(max-width:640px){.episode-page-main{padding-top:105px}.episode-cover-card{min-height:390px;max-height:460px}.episode-cover-card img{object-position:70% center;transform:scale(1.04)}.episode-cover-card:hover img,.episode-cover-card:focus-visible img{transform:scale(1.07)}.episode-cover{min-height:980px;margin-left:0;margin-right:0}.episode-cover h1{font-size:56px}.episode-cover-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.episode-cover-meta span{min-width:0;padding:11px 8px}.episode-cover-meta strong{font-size:16px}.episode-chapter-list ol{grid-template-columns:1fr}.episode-chapter-list a{min-height:46px}.episode-cover-actions>*{width:100%}.episode-cover.is-condensed{min-height:185px}.episode-cover.is-condensed .episode-cover-copy{padding:25px 20px}.episode-cover.is-condensed .episode-cover-number{margin-top:10px}.chapter-reader{padding:14px 10px 24px}.chapter-heading{padding:4px 6px 8px}.chapter-heading h2{font-size:42px}.chapter-reader.has-mobile-panels .full-page-edition{display:none}.mobile-panel-edition{display:grid;gap:24px;margin-top:10px}.mobile-reader-note{margin:0 4px 2px;padding:13px 15px;border:1px solid rgba(214,184,108,.28);background:rgba(214,184,108,.06);color:#b9cbc7;font:12px/1.6 system-ui,sans-serif;letter-spacing:.04em;text-align:center}.mobile-reader-note strong{display:block;color:#d6b86c;font-size:10px;letter-spacing:.18em;text-transform:uppercase}.comic-panel{width:100%;height:auto;display:block;overflow:hidden;border:1px solid rgba(214,184,108,.34);background:#000;box-shadow:0 14px 40px rgba(0,0,0,.42)}.mobile-panel-end{margin:5px 0 0;padding:28px 15px;text-align:center;border:1px dashed rgba(214,184,108,.32);color:#d6b86c;background:rgba(255,255,255,.025);font:800 11px system-ui,sans-serif;letter-spacing:.18em}.chapter-actions{margin-top:18px}.chapter-end-navigation{grid-template-columns:1fr 1fr;gap:8px;margin-top:24px}.chapter-end-marker{grid-column:1/-1;grid-row:1}.chapter-end-button{width:100%;min-height:58px;padding:10px}.chapter-end-back{grid-column:1}.chapter-end-next{grid-column:2}}
 @media(prefers-reduced-motion:reduce){.auret-glow,.reader-shell,.episode-cover-auret{animation:none}.episode-art img,.episode-chapter-list a{transition:none}}
 .chapter-status-label{display:block!important;margin-bottom:8px;color:#8fa6a2!important;font:800 9px system-ui,sans-serif!important;letter-spacing:.2em;text-transform:uppercase}
+
+/* Chronicle landing episode-card refinement — 2026-07-14 */
+.chronicles-home .coming-episodes{
+  gap:18px;
+  align-items:stretch;
+}
+.chronicles-home .coming-episodes article{
+  --episode-accent:#d6b86c;
+  --episode-glow:rgba(214,184,108,.13);
+  position:relative;
+  min-width:0;
+  min-height:310px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  overflow:hidden;
+  padding:38px;
+  border:1px solid rgba(214,184,108,.24);
+  border-top:2px solid var(--episode-accent);
+  background:
+    radial-gradient(circle at 92% 4%,var(--episode-glow),transparent 30%),
+    linear-gradient(145deg,#0b2024,#08171b 62%,#071316);
+  box-shadow:0 20px 58px rgba(0,0,0,.2);
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.chronicles-home .coming-episodes article:nth-child(1){
+  --episode-accent:#e6bd68;
+  --episode-glow:rgba(230,189,104,.15);
+}
+.chronicles-home .coming-episodes article:nth-child(2){
+  --episode-accent:#79aec4;
+  --episode-glow:rgba(121,174,196,.15);
+}
+.chronicles-home .coming-episodes article:nth-child(3){
+  --episode-accent:#b8ccd3;
+  --episode-glow:rgba(184,204,211,.14);
+}
+.chronicles-home .coming-episodes article:nth-child(4){
+  --episode-accent:#e2ad58;
+  --episode-glow:rgba(226,173,88,.16);
+}
+.chronicles-home .coming-episodes article::before{
+  position:absolute;
+  z-index:0;
+  right:24px;
+  top:8px;
+  color:var(--episode-glow);
+  font:500 clamp(84px,10vw,138px)/1 Georgia,serif;
+  letter-spacing:-.08em;
+  pointer-events:none;
+}
+.chronicles-home .coming-episodes article:nth-child(1)::before{content:"II"}
+.chronicles-home .coming-episodes article:nth-child(2)::before{content:"III"}
+.chronicles-home .coming-episodes article:nth-child(3)::before{content:"IV"}
+.chronicles-home .coming-episodes article:nth-child(4)::before{content:"V"}
+.chronicles-home .coming-episodes article>*{
+  position:relative;
+  z-index:1;
+}
+.chronicles-home .coming-episodes article:hover{
+  transform:translateY(-3px);
+  border-color:var(--episode-accent);
+  box-shadow:0 26px 70px rgba(0,0,0,.3);
+}
+.chronicles-home .coming-episodes p{
+  margin:0;
+  color:var(--episode-accent);
+  font-size:10px;
+  line-height:1.4;
+  font-weight:900;
+  letter-spacing:.28em;
+}
+.chronicles-home .coming-episodes h3{
+  max-width:100%;
+  margin:12px 0 14px;
+  color:#fff8e9;
+  font:500 clamp(38px,4.4vw,54px)/.96 Georgia,serif;
+  letter-spacing:-.025em;
+  text-wrap:balance;
+}
+.chronicles-home .coming-episodes h3 a{
+  overflow-wrap:break-word;
+  word-break:normal;
+}
+.chronicles-home .coming-episodes article>span{
+  display:block;
+  max-width:470px;
+  margin:0 0 28px;
+  color:#b7c9c5;
+  font:italic 17px/1.55 Georgia,serif;
+  text-wrap:pretty;
+}
+.chronicles-home .coming-episodes .episode-read{
+  width:auto;
+  min-width:240px;
+  min-height:56px;
+  justify-content:space-between;
+  margin-top:auto;
+  padding:14px 18px;
+  box-sizing:border-box;
+  color:#071a21;
+  background:linear-gradient(135deg,#ead28d,#d6b86c);
+  border-color:#e8cf86;
+  box-shadow:0 10px 30px rgba(0,0,0,.16);
+}
+.chronicles-home .coming-episodes .episode-read:hover,
+.chronicles-home .coming-episodes .episode-read:focus-visible{
+  color:#06191e;
+  background:#f2da94;
+  border-color:#f2da94;
+}
+.chronicles-home .coming-episodes .episode-read span{
+  color:#5f796f;
+  font-size:17px;
+  transition:transform .2s ease;
+}
+.chronicles-home .coming-episodes .episode-read:hover span,
+.chronicles-home .coming-episodes .episode-read:focus-visible span{
+  transform:translateX(3px);
+}
+
+@media(max-width:850px){
+  .chronicles-home .coming-episodes article{
+    min-height:280px;
+  }
+}
+@media(max-width:560px){
+  .chronicles-home .episodes-section{
+    padding-left:18px;
+    padding-right:18px;
+  }
+  .chronicles-home .coming-episodes{
+    gap:14px;
+    margin-top:18px;
+  }
+  .chronicles-home .coming-episodes article{
+    min-height:0;
+    padding:28px 22px 22px;
+    border-style:solid;
+  }
+  .chronicles-home .coming-episodes article::before{
+    right:18px;
+    top:10px;
+    font-size:84px;
+  }
+  .chronicles-home .coming-episodes h3{
+    margin:10px 0 12px;
+    font-size:clamp(38px,11.5vw,48px);
+    line-height:.98;
+  }
+  .chronicles-home .coming-episodes article>span{
+    width:100%;
+    max-width:none;
+    margin:0 0 22px;
+    color:#b9cbc7;
+    font-size:16px;
+    line-height:1.5;
+  }
+  .chronicles-home .coming-episodes .episode-read{
+    width:100%;
+    min-width:0;
+    min-height:60px;
+    margin-top:0;
+    padding:15px 18px;
+    font-size:11px;
+    letter-spacing:.11em;
+  }
+}
+@media(max-width:390px){
+  .chronicles-home .episodes-section{
+    padding-left:12px;
+    padding-right:12px;
+  }
+  .chronicles-home .coming-episodes article{
+    padding:25px 18px 18px;
+  }
+  .chronicles-home .coming-episodes h3{
+    font-size:37px;
+  }
+  .chronicles-home .coming-episodes .episode-read{
+    padding-left:15px;
+    padding-right:15px;
+  }
+}
+
