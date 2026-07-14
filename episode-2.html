@@ -44,11 +44,11 @@
         <div class="episode-cover-meta" aria-label="Episode information">
           <span><strong>8</strong> Chapters</span>
           <span><strong>3</strong> Interludes</span>
-          <span><strong>Coming</strong> Chapter Art</span>
+          <span><strong>Coming Soon</strong> Status</span>
         </div>
 
         <nav class="episode-chapter-list sanctuary-chapter-list" aria-label="Episode II chapters and interludes">
-          <p>Choose a Chapter</p>
+          <p>Journey Through This Episode</p>
           <ol>
             <li><a href="episode-2.html?chapter=1"><span>01</span>The Crossing</a></li>
             <li><a href="episode-2.html?chapter=2"><span>02</span>Welcome to the Sanctuary</a></li>
@@ -65,7 +65,7 @@
         </nav>
 
         <div class="episode-cover-actions">
-          <button id="episode-two-begin" class="episode-read" type="button">Begin Reading <span>↓</span></button>
+          <button id="episode-two-begin" class="episode-read" type="button">Begin the Journey <span>↓</span></button>
           <a class="secondary-action" href="comic.html#season-one">Back to Season I</a>
         </div>
       </div>
@@ -142,7 +142,7 @@
       <nav class="episode-two-end-nav" aria-label="Episode navigation">
         <a class="secondary-action" href="episode-1.html">← Episode I</a>
         <a class="secondary-action" href="comic.html#season-one">Season I</a>
-        <span class="secondary-action is-disabled" aria-disabled="true">Episode III →</span>
+        <a class="secondary-action" href="episode-3.html">Episode III →</a>
       </nav>
     </section>
   </main>
@@ -196,7 +196,7 @@
     entries.forEach((entry, index) => {
       const notice = document.createElement('div');
       notice.className = 'sanctuary-artwork-notice';
-      notice.innerHTML = '<span>❧</span><strong>Chapter artwork is being prepared.</strong><p>This page is ready for its illustrated panels.</p>';
+      notice.innerHTML = '<span class="chapter-status-label">Chapter Status</span><strong>Coming Soon</strong><p>The story has already been written. Its illustrated comic adaptation is next in the Chronicles.</p>';
       entry.appendChild(notice);
       const nav = document.createElement('nav');
       nav.className = 'chapter-end-navigation';

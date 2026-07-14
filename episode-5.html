@@ -33,7 +33,7 @@
         </div>
         <div class="episode-cover-meta" aria-label="Episode information"><span><strong>8</strong> Chapters</span><span><strong>3</strong> Interludes</span><span><strong>Finale</strong> Season I</span></div>
         <nav class="episode-chapter-list first-step-chapter-list" aria-label="Episode V chapters and interludes">
-          <p>Choose a Chapter</p>
+          <p>Journey Through This Episode</p>
           <ol>
             <li><a href="episode-5.html?chapter=1"><span>01</span>After the Battle</a></li>
             <li><a href="episode-5.html?chapter=2"><span>02</span>The Steward</a></li>
@@ -48,7 +48,7 @@
             <li><a href="episode-5.html?chapter=11"><span>08</span>The Awakening</a></li>
           </ol>
         </nav>
-        <div class="episode-cover-actions"><button id="episode-five-begin" class="episode-read" type="button">Begin Reading <span>↓</span></button><a class="secondary-action" href="comic.html#season-one">Back to Season I</a></div>
+        <div class="episode-cover-actions"><button id="episode-five-begin" class="episode-read" type="button">Begin the Journey <span>↓</span></button><a class="secondary-action" href="comic.html#season-one">Back to Season I</a></div>
       </div>
     </section>
 
@@ -88,7 +88,7 @@
     if(!reader||!select||!entries.length)return;
     const requested=()=>{const value=Number(new URLSearchParams(location.search).get('chapter'));return Number.isInteger(value)&&value>=1&&value<=entries.length?value-1:0};
     const show=(index,update=true,scroll=true)=>{const safe=Math.max(0,Math.min(index,entries.length-1));reader.hidden=false;cover?.classList.add('is-condensed');entries.forEach((entry,i)=>entry.hidden=i!==safe);select.value=String(safe+1);previous.disabled=safe===0;next.disabled=safe===entries.length-1;const title=entries[safe].dataset.title||`Part ${safe+1}`;announcement.textContent=`Now reading ${title}`;document.title=`${title} — Episode V: The First Step`;if(update){const url=new URL(location.href);url.searchParams.set('chapter',String(safe+1));history.replaceState({chapter:safe+1},'',url)}if(scroll)window.scrollTo({top:reader.offsetTop-82,behavior:'smooth'})};
-    entries.forEach((entry,index)=>{const notice=document.createElement('div');notice.className='first-step-artwork-notice';notice.innerHTML='<span>❧</span><strong>Chapter artwork is being prepared.</strong><p>This page is ready for its illustrated panels.</p>';entry.appendChild(notice);const nav=document.createElement('nav');nav.className='chapter-end-navigation';nav.innerHTML=`<button class="chapter-end-button chapter-end-back" type="button" ${index===0?'disabled':''}><span aria-hidden="true">←</span><span><small>Previous</small>Back</span></button><div class="chapter-end-marker"><span>❧</span><strong>Part ${index+1} of ${entries.length}</strong></div><button class="chapter-end-button chapter-end-next" type="button" ${index===entries.length-1?'disabled':''}><span><small>Continue</small>Next</span><span aria-hidden="true">→</span></button>`;nav.querySelector('.chapter-end-back')?.addEventListener('click',()=>show(index-1));nav.querySelector('.chapter-end-next')?.addEventListener('click',()=>show(index+1));entry.appendChild(nav)});
+    entries.forEach((entry,index)=>{const notice=document.createElement('div');notice.className='first-step-artwork-notice';notice.innerHTML = '<span class="chapter-status-label">Chapter Status</span><strong>Season Finale</strong><p>The closing movement of Season I is being carefully developed for its illustrated release.</p>';entry.appendChild(notice);const nav=document.createElement('nav');nav.className='chapter-end-navigation';nav.innerHTML=`<button class="chapter-end-button chapter-end-back" type="button" ${index===0?'disabled':''}><span aria-hidden="true">←</span><span><small>Previous</small>Back</span></button><div class="chapter-end-marker"><span>❧</span><strong>Part ${index+1} of ${entries.length}</strong></div><button class="chapter-end-button chapter-end-next" type="button" ${index===entries.length-1?'disabled':''}><span><small>Continue</small>Next</span><span aria-hidden="true">→</span></button>`;nav.querySelector('.chapter-end-back')?.addEventListener('click',()=>show(index-1));nav.querySelector('.chapter-end-next')?.addEventListener('click',()=>show(index+1));entry.appendChild(nav)});
     begin?.addEventListener('click',()=>show(0));select.addEventListener('change',()=>show(Number(select.value)-1));previous.addEventListener('click',()=>show(Number(select.value)-2));next.addEventListener('click',()=>show(Number(select.value)));addEventListener('popstate',()=>show(requested(),false));if(new URLSearchParams(location.search).has('chapter'))show(requested(),false,false);
   })();
   </script>

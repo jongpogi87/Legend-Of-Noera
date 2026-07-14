@@ -45,11 +45,11 @@
         <div class="episode-cover-meta" aria-label="Episode information">
           <span><strong>8</strong> Chapters</span>
           <span><strong>3</strong> Interludes</span>
-          <span><strong>Coming</strong> Chapter Art</span>
+          <span><strong>In Development</strong> Status</span>
         </div>
 
         <nav class="episode-chapter-list two-lives-chapter-list" aria-label="Episode III chapters and interludes">
-          <p>Choose a Chapter</p>
+          <p>Journey Through This Episode</p>
           <ol>
             <li><a href="episode-3.html?chapter=1"><span>01</span>Yesterday</a></li>
             <li><a href="episode-3.html?chapter=2"><span>02</span>One Week</a></li>
@@ -66,7 +66,7 @@
         </nav>
 
         <div class="episode-cover-actions">
-          <button id="episode-three-begin" class="episode-read" type="button">Begin Reading <span>↓</span></button>
+          <button id="episode-three-begin" class="episode-read" type="button">Begin the Journey <span>↓</span></button>
           <a class="secondary-action" href="comic.html#season-one">Back to Season I</a>
         </div>
       </div>
@@ -121,7 +121,7 @@
       <nav class="episode-three-end-nav" aria-label="Episode navigation">
         <a class="secondary-action" href="episode-2.html">← Episode II</a>
         <a class="secondary-action" href="comic.html#season-one">Season I</a>
-        <span class="secondary-action is-disabled" aria-disabled="true">Episode IV →</span>
+        <a class="secondary-action" href="episode-4.html">Episode IV →</a>
       </nav>
     </section>
   </main>
@@ -175,7 +175,7 @@
     entries.forEach((entry, index) => {
       const notice = document.createElement('div');
       notice.className = 'two-lives-artwork-notice';
-      notice.innerHTML = '<span>❧</span><strong>Chapter artwork is being prepared.</strong><p>This page is ready for its illustrated panels.</p>';
+      notice.innerHTML = '<span class="chapter-status-label">Chapter Status</span><strong>In Development</strong><p>The storyboards and visual direction for this chapter are currently taking shape.</p>';
       entry.appendChild(notice);
       const nav = document.createElement('nav');
       nav.className = 'chapter-end-navigation';
