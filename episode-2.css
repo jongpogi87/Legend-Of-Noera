@@ -354,6 +354,8 @@
   border-color:var(--sanctuary-dawn);
   background:linear-gradient(135deg,rgba(230,189,104,.23),rgba(22,63,53,.82));
 }
+.sanctuary-page .chapter-end-navigation a.chapter-end-button::after{display:none}
+.sanctuary-page .chapter-end-navigation a.chapter-end-button{white-space:normal;text-align:center}
 .sanctuary-page .chapter-end-marker span{color:var(--sanctuary-gold)}
 .sanctuary-page .episode-finish{
   border-style:solid;
