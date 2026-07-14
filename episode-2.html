@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#f0c777">
+  <meta name="theme-color" content="#071f1e">
   <meta name="description" content="Explore Episode II — The Sanctuary from Legend of Noera: Chronicles.">
   <title>The Sanctuary — Legend of Noera: Chronicles</title>
   <link rel="stylesheet" href="styles.css?v=20260714-1">
   <link rel="stylesheet" href="comic.css?v=20260714-landing-3">
   <link rel="stylesheet" href="chronicles-refined.css?v=20260714-episode2-5">
-  <link rel="stylesheet" href="episode-2.css?v=20260714-1">
+  <link rel="stylesheet" href="episode-2.css?v=20260714-2">
   <link rel="stylesheet" href="episode-unified.css?v=20260714-1">
   <link rel="stylesheet" href="episode-navigation.css?v=20260714-5">
 </head>
@@ -38,19 +38,19 @@
         <p class="season-kicker">SEASON I — THE AWAKENING</p>
         <p class="episode-cover-number">EPISODE II</p>
         <h1 id="episode-two-title">The Sanctuary</h1>
-        <blockquote>“A dream becomes a doorway.”</blockquote>
+        <blockquote>“The dream opens. Zionara answers.”</blockquote>
         <div class="episode-cover-synopsis">
-          <p>Lady Zion awakens in a world unlike anything she has ever imagined—a land of ancient sanctuaries, faithful Stewards, and living traditions preserved across generations.</p>
-          <p>Everything is unfamiliar. Yet somehow, it feels as though she has finally come home.</p>
+          <p>Lady Zion crosses the threshold between dream and waking and finds herself in Zionara—a world of ancient sanctuaries, faithful Stewards, and traditions kept alive across generations.</p>
+          <p>Nothing is familiar. Still, the Sanctuary feels less like a place she has discovered than a home she has somehow remembered.</p>
         </div>
         <div class="episode-cover-meta" aria-label="Episode information">
           <span><strong>8</strong> Chapters</span>
           <span><strong>3</strong> Interludes</span>
-          <span><strong>Coming Soon</strong> Status</span>
+          <span><strong>11</strong> Story Moments</span>
         </div>
 
         <nav class="episode-chapter-list sanctuary-chapter-list" aria-label="Episode II chapters and interludes">
-          <p>Journey Through This Episode</p>
+          <p>Paths Through the Sanctuary</p>
           <ol>
             <li><a href="episode-2.html?chapter=1"><span>01</span>The Crossing</a></li>
             <li><a href="episode-2.html?chapter=2"><span>02</span>Welcome to the Sanctuary</a></li>
@@ -67,7 +67,7 @@
         </nav>
 
         <div class="episode-cover-actions">
-          <button id="episode-two-begin" class="episode-read" type="button">Begin the Journey <span>↓</span></button>
+          <button id="episode-two-begin" class="episode-read" type="button">Enter the Sanctuary <span aria-hidden="true">↓</span></button>
           <a class="secondary-action" href="comic.html#season-one">Back to Season I</a>
         </div>
       </div>
@@ -136,9 +136,12 @@
           <span class="episode-completion-mark" aria-hidden="true">✓</span>
           <div class="episode-completion-copy"><span>Reading Status</span><strong>Episode II Complete</strong></div>
         </div>
-        <h2>You have completed The Sanctuary.</h2>
-        <p>Lady Zion's journey through Zionara has only begun.</p>
-        <a class="secondary-action" href="comic.html#season-one">Return to Season I</a>
+        <h2>The Sanctuary remains with you.</h2>
+        <p>Lady Zion has crossed the threshold. Her first steps through Zionara now lead onward.</p>
+        <div class="episode-cover-actions episode-finish-actions">
+          <a class="episode-read" href="episode-3.html">Continue to Episode III <span aria-hidden="true">→</span></a>
+          <a class="secondary-action" href="comic.html#season-one">Return to Season I</a>
+        </div>
       </section>
 
       <nav class="episode-end-nav episode-two-end-nav" aria-label="Episode navigation">
@@ -198,13 +201,16 @@
     entries.forEach((entry, index) => {
       const notice = document.createElement('div');
       notice.className = 'episode-status-card sanctuary-artwork-notice';
-      notice.innerHTML = '<span class="chapter-status-label">Chapter Status</span><strong>Coming Soon</strong><p>The story has already been written. Its illustrated comic adaptation is next in the Chronicles.</p>';
+      notice.innerHTML = '<span class="chapter-status-label">Illustrated Edition</span><strong>Artwork in Progress</strong><p>This story moment is ready. Its illustrated Chronicle page is now being carefully crafted.</p>';
       entry.appendChild(notice);
       const nav = document.createElement('nav');
       nav.className = 'chapter-end-navigation';
-      nav.innerHTML = `<button class="chapter-end-button chapter-end-back" type="button" ${index === 0 ? 'disabled' : ''}><span aria-hidden="true">←</span><span><small>Previous</small>Back</span></button><div class="chapter-end-marker"><span>❧</span><strong>Part ${index + 1} of ${entries.length}</strong></div><button class="chapter-end-button chapter-end-next" type="button" ${index === entries.length - 1 ? 'disabled' : ''}><span><small>Continue</small>Next</span><span aria-hidden="true">→</span></button>`;
+      const forward = index === entries.length - 1
+        ? '<a class="chapter-end-button chapter-end-next is-complete" href="episode-3.html"><span><small>Continue the Journey</small>Episode III</span><span aria-hidden="true">→</span></a>'
+        : '<button class="chapter-end-button chapter-end-next" type="button"><span><small>Continue</small>Next</span><span aria-hidden="true">→</span></button>';
+      nav.innerHTML = `<button class="chapter-end-button chapter-end-back" type="button" ${index === 0 ? 'disabled' : ''}><span aria-hidden="true">←</span><span><small>Previous</small>Back</span></button><div class="chapter-end-marker"><span>❧</span><strong>Part ${index + 1} of ${entries.length}</strong></div>${forward}`;
       nav.querySelector('.chapter-end-back')?.addEventListener('click', () => show(index - 1));
-      nav.querySelector('.chapter-end-next')?.addEventListener('click', () => show(index + 1));
+      if (index < entries.length - 1) nav.querySelector('.chapter-end-next')?.addEventListener('click', () => show(index + 1));
       entry.appendChild(nav);
     });
 
