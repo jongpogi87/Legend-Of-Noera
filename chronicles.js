@@ -4,6 +4,14 @@
   refinedStyles.href = 'chronicles-refined.css?v=20260714-4';
   document.head.appendChild(refinedStyles);
 
+  const titleCorrectionStyles = document.createElement('style');
+  titleCorrectionStyles.textContent = `
+    .full-page-edition.episode-title-corrected{position:relative}
+    .page-episode-title-correction{position:absolute;z-index:3;top:0;left:0;right:0;height:var(--episode-header-height,5%);display:flex;align-items:center;padding:0 2.1%;box-sizing:border-box;background:linear-gradient(90deg,#071419 0%,#0a1b20 60%,#102327 100%);border-bottom:1px solid rgba(214,184,108,.45);color:#d6b86c;font:800 clamp(7px,1.05vw,15px)/1 system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase;pointer-events:none}
+    @media(max-width:640px){.page-episode-title-correction{display:none}}
+  `;
+  document.head.appendChild(titleCorrectionStyles);
+
   const reader = document.querySelector('[data-episode-reader]');
   if (!reader) return;
 
@@ -30,8 +38,22 @@
   ];
 
   panelSets.forEach((set, index) => {
-    if (!set || !chapters[index] || chapters[index].querySelector('.mobile-panel-edition')) return;
+    if (!set || !chapters[index]) return;
     const chapter = chapters[index];
+    const fullPage = chapter.querySelector('.full-page-edition');
+
+    if (fullPage && !fullPage.querySelector('.page-episode-title-correction')) {
+      const firstPanelTop = Number(set.boxes[0].split(' ')[1]);
+      const headerPercent = Math.max(2.6, (firstPanelTop / set.size[1]) * 100);
+      fullPage.classList.add('episode-title-corrected');
+      fullPage.style.setProperty('--episode-header-height', `${headerPercent}%`);
+      const correction = document.createElement('div');
+      correction.className = 'page-episode-title-correction';
+      correction.textContent = 'Episode I — The Girl Who Saw Differently';
+      fullPage.appendChild(correction);
+    }
+
+    if (chapter.querySelector('.mobile-panel-edition')) return;
     chapter.classList.add('has-mobile-panels');
     const mobile = document.createElement('div');
     mobile.className = 'mobile-panel-edition';
@@ -56,7 +78,7 @@
     end.className = 'mobile-panel-end';
     end.textContent = index === chapters.length - 1 ? '❧  END OF EPISODE I' : `❧  END OF CHAPTER ${index + 1}`;
     mobile.appendChild(end);
-    chapter.querySelector('.full-page-edition')?.insertAdjacentElement('afterend', mobile);
+    fullPage?.insertAdjacentElement('afterend', mobile);
   });
 
   if (!chapters.length || !select || !previous || !next || !readerShell) return;
