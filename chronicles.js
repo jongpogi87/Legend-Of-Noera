@@ -1,7 +1,7 @@
 (() => {
   const refinedStyles = document.createElement('link');
   refinedStyles.rel = 'stylesheet';
-  refinedStyles.href = 'chronicles-refined.css?v=20260714-2';
+  refinedStyles.href = 'chronicles-refined.css?v=20260714-4';
   document.head.appendChild(refinedStyles);
 
   const reader = document.querySelector('[data-episode-reader]');
@@ -95,6 +95,34 @@
     }
     if (scroll) window.scrollTo({ top: reader.offsetTop - 90, behavior: 'smooth' });
   };
+
+  chapters.forEach((chapter, index) => {
+    if (chapter.querySelector('.chapter-end-navigation')) return;
+    const nav = document.createElement('nav');
+    nav.className = 'chapter-end-navigation';
+    nav.setAttribute('aria-label', `Chapter ${index + 1} navigation`);
+
+    const back = document.createElement('button');
+    back.type = 'button';
+    back.className = 'chapter-end-button chapter-end-back';
+    back.innerHTML = '<span aria-hidden="true">←</span><span><small>Previous</small>Back</span>';
+    back.disabled = index === 0;
+    back.addEventListener('click', () => showChapter(index - 1, true, true));
+
+    const marker = document.createElement('div');
+    marker.className = 'chapter-end-marker';
+    marker.innerHTML = `<span>❧</span><strong>Chapter ${index + 1} of ${chapters.length}</strong>`;
+
+    const forward = document.createElement('button');
+    forward.type = 'button';
+    forward.className = 'chapter-end-button chapter-end-next';
+    forward.innerHTML = '<span><small>Continue</small>Next</span><span aria-hidden="true">→</span>';
+    forward.disabled = index === chapters.length - 1;
+    forward.addEventListener('click', () => showChapter(index + 1, true, true));
+
+    nav.append(back, marker, forward);
+    chapter.appendChild(nav);
+  });
 
   beginButton?.addEventListener('click', () => showChapter(0, true, true));
   select.addEventListener('change', () => showChapter(Number(select.value) - 1));
