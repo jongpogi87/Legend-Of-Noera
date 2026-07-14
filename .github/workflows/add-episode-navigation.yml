@@ -1,0 +1,98 @@
+name: Add Episode Navigation
+
+on:
+  push:
+    paths:
+      - '.github/workflows/add-episode-navigation.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-navigation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Add episode navigation
+        run: |
+          python <<'PY'
+          from pathlib import Path
+
+          episodes = {
+              1: {"prev": None, "next": (2, "The Sanctuary")},
+              2: {"prev": (1, "The Girl Who Saw Differently"), "next": (3, "Two Lives")},
+              3: {"prev": (2, "The Sanctuary"), "next": (4, "The Calling")},
+              4: {"prev": (3, "Two Lives"), "next": (5, "The First Step")},
+              5: {"prev": (4, "The Calling"), "next": None},
+          }
+
+          action_ids = {
+              1: 'begin-reading',
+              2: 'episode-two-begin',
+              3: 'episode-three-begin',
+              4: 'episode-four-begin',
+              5: 'episode-five-begin',
+          }
+
+          def nav_html(number):
+              info = episodes[number]
+              prev = info['prev']
+              nxt = info['next']
+              left = (f'<a class="episode-switch episode-switch-prev" href="episode-{prev[0]}.html">'
+                      f'<small>Previous Episode</small><strong>← Episode {prev[0]}</strong><span>{prev[1]}</span></a>') if prev else (
+                      '<a class="episode-switch episode-switch-prev" href="comic.html#season-one">'
+                      '<small>Previous</small><strong>← Season I</strong><span>The Awakening</span></a>')
+              right = (f'<a class="episode-switch episode-switch-next" href="episode-{nxt[0]}.html">'
+                       f'<small>Next Episode</small><strong>Episode {nxt[0]} →</strong><span>{nxt[1]}</span></a>') if nxt else (
+                       '<a class="episode-switch episode-switch-next" href="comic.html#season-one">'
+                       '<small>Season Complete</small><strong>Season I ✓</strong><span>Return to The Awakening</span></a>')
+              return ('\n        <nav class="episode-series-navigation" aria-label="Season I episode navigation">\n'
+                      f'          {left}\n'
+                      '          <a class="episode-switch episode-switch-season" href="comic.html#season-one"><small>Chronicles</small><strong>Season I</strong><span>The Awakening</span></a>\n'
+                      f'          {right}\n'
+                      '        </nav>')
+
+          for number in range(1, 6):
+              path = Path(f'episode-{number}.html')
+              text = path.read_text(encoding='utf-8')
+              if 'episode-series-navigation' not in text:
+                  begin_id = action_ids[number]
+                  marker = f'<button id="{begin_id}"'
+                  pos = text.find(marker)
+                  if pos == -1:
+                      raise RuntimeError(f'Begin button not found in {path}')
+                  actions_start = text.rfind('<div class="episode-cover-actions">', 0, pos)
+                  actions_end = text.find('</div>', pos)
+                  if actions_start == -1 or actions_end == -1:
+                      raise RuntimeError(f'Cover actions not found in {path}')
+                  actions_end += len('</div>')
+                  text = text[:actions_end] + nav_html(number) + text[actions_end:]
+
+              # Correct stale or disabled end navigation now that all pages exist.
+              replacements = {
+                  '<span class="secondary-action is-disabled" aria-disabled="true">Episode III →</span>': '<a class="secondary-action" href="episode-3.html">Episode III →</a>',
+                  '<span class="secondary-action is-disabled" aria-disabled="true">Episode IV →</span>': '<a class="secondary-action" href="episode-4.html">Episode IV →</a>',
+                  '<span class="secondary-action is-disabled" aria-disabled="true">Episode V →</span>': '<a class="secondary-action" href="episode-5.html">Episode V →</a>',
+              }
+              for old, new in replacements.items():
+                  text = text.replace(old, new)
+              path.write_text(text, encoding='utf-8')
+
+          css = Path('chronicles-refined.css')
+          style = css.read_text(encoding='utf-8')
+          addition = '''
+.episode-series-navigation{position:relative;z-index:8;max-width:820px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:24px 0 0}.episode-switch{min-height:78px;display:flex;flex-direction:column;justify-content:center;padding:12px 15px;border:1px solid rgba(214,184,108,.3);background:rgba(3,12,15,.65);color:#f5f1e6;text-decoration:none;transition:border-color .2s ease,background .2s ease,transform .2s ease}.episode-switch:link,.episode-switch:visited{color:#f5f1e6;text-decoration:none}.episode-switch small{color:#8fa6a2;font:800 8px system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase}.episode-switch strong{margin:4px 0;color:#efd98f;font:600 14px Georgia,serif}.episode-switch span{color:#b7c8c4;font:12px/1.3 Georgia,serif}.episode-switch:hover,.episode-switch:focus-visible{border-color:#d6b86c;background:rgba(214,184,108,.11);transform:translateY(-1px)}.episode-switch-season{text-align:center}.episode-switch-next{text-align:right}
+@media(max-width:640px){.episode-series-navigation{grid-template-columns:1fr;margin-top:20px}.episode-switch,.episode-switch-next{text-align:center;min-height:68px}}
+'''
+          if '.episode-series-navigation{' not in style:
+              css.write_text(style + addition, encoding='utf-8')
+          PY
+
+      - name: Commit navigation update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add episode-1.html episode-2.html episode-3.html episode-4.html episode-5.html chronicles-refined.css
+          git diff --cached --quiet || git commit -m "Add previous and next episode navigation"
+          git push
