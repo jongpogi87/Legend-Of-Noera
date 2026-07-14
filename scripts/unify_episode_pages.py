@@ -1,5 +1,6 @@
 from pathlib import Path
 
+# One-time formatter for Episodes II–V.
 pages = {
     2: ("sanctuary-placeholder", "sanctuary-artwork-notice", "episode-two-end-nav"),
     3: ("two-lives-placeholder", "two-lives-artwork-notice", "episode-three-end-nav"),
