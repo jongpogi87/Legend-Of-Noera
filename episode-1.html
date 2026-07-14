@@ -7,24 +7,8 @@
   <meta name="description" content="Read Episode I — The First Calling from Legend of Noera: Chronicles.">
   <title>The First Calling — Legend of Noera: Chronicles</title>
   <link rel="stylesheet" href="styles.css?v=20260714-1">
-  <link rel="stylesheet" href="comic.css?v=20260714-season-1">
-  <script src="chronicles.js?v=20260714-1" defer></script>
-  <style>
-    .mobile-panel-edition{display:none}
-    @media(max-width:640px){
-      .chapter-reader{padding:14px 10px 24px}
-      .chapter-heading{padding:4px 6px 8px}
-      .chapter-heading h2{font-size:42px}
-      .chapter-reader.has-mobile-panels .full-page-edition{display:none}
-      .mobile-panel-edition{display:grid;gap:24px;margin-top:10px}
-      .mobile-reader-note{margin:0 4px 2px;padding:13px 15px;border:1px solid rgba(214,184,108,.28);background:rgba(214,184,108,.06);color:#b9cbc7;font:12px/1.6 system-ui,sans-serif;letter-spacing:.04em;text-align:center}
-      .mobile-reader-note strong{display:block;color:#d6b86c;font-size:10px;letter-spacing:.18em;text-transform:uppercase}
-      .comic-panel{width:100%;height:auto;display:block;overflow:hidden;border:1px solid rgba(214,184,108,.34);background:#000;box-shadow:0 14px 40px rgba(0,0,0,.42)}
-      .comic-panel image{width:1331px;height:1181px}
-      .mobile-panel-end{margin:5px 0 0;padding:28px 15px;text-align:center;border:1px dashed rgba(214,184,108,.32);color:#d6b86c;background:rgba(255,255,255,.025);font:800 11px system-ui,sans-serif;letter-spacing:.18em}
-      .chapter-actions{margin-top:18px}
-    }
-  </style>
+  <link rel="stylesheet" href="comic.css?v=20260714-refined-1">
+  <script src="chronicles.js?v=20260714-refined-1" defer></script>
 </head>
 <body class="comic-page episode-page">
   <a class="skip-link" href="#episode-reader">Skip to the episode</a>
@@ -38,97 +22,122 @@
   </header>
 
   <main class="episode-page-main">
-    <section class="episode-page-header">
-      <p class="season-kicker">SEASON I — THE AWAKENING</p>
-      <h1>Episode I — The First Calling</h1>
-      <p>Before Lady Zion understands the Auret, Zionara reaches her through a dream she cannot hold—yet can never fully forget.</p>
-    </section>
-
-    <div class="episode-tools" aria-label="Episode I chapter navigator">
-      <button id="chapter-previous" class="chapter-nav-button" type="button">← Previous</button>
-      <label class="visually-hidden" for="chapter-select">Choose a chapter</label>
-      <select id="chapter-select" class="chapter-picker">
-        <option value="1">Chapter 1 — The Dream</option>
-        <option value="2">Chapter 2 — The First Day</option>
-        <option value="3">Chapter 3 — The New Classroom</option>
-        <option value="4">Chapter 4 — The Quiet Boy</option>
-        <option value="5">Chapter 5 — The Forgotten Drawing</option>
-        <option value="6">Chapter 6 — The Golden Leaf</option>
-        <option value="7">Chapter 7 — Beyond the Stars</option>
-        <option value="8">Chapter 8 — When the Auret Sang</option>
-      </select>
-      <button id="chapter-next" class="chapter-nav-button" type="button">Next →</button>
-    </div>
-    <p id="chapter-position" class="visually-hidden">Chapter 1 of 8</p>
-    <p id="chapter-announcement" class="visually-hidden" aria-live="polite"></p>
-
-    <section id="episode-reader" data-episode-reader>
-      <article class="chapter-reader has-mobile-panels">
-        <div class="chapter-heading"><div><p class="chapter-number">EPISODE I · CHAPTER 1</p><h2>The Dream</h2></div><p>Lady Zion receives her clearest glimpse of Zionara—and awakens with only the feeling that someone, somewhere, is waiting for her.</p></div>
-        <figure class="full-page-edition"><img src="comics/chronicles-episode-1-chapter-1-the-dream.svg" alt="Episode I, Chapter 1: The Dream."></figure>
-        <div class="mobile-panel-edition" aria-label="Phone-friendly edition of Chapter 1">
-          <p class="mobile-reader-note"><strong>Phone Edition</strong>Scroll down and read one panel at a time.</p>
-          <svg class="comic-panel" viewBox="6 47 307 559" role="img" aria-label="A voice calls Lady Zion through a starlit dream."><image href="comics/chronicles-episode-1-chapter-1-the-dream.svg"/></svg>
-          <svg class="comic-panel" viewBox="315 47 350 559" role="img" aria-label="Lady Zion stands before the luminous tree of Zionara."><image href="comics/chronicles-episode-1-chapter-1-the-dream.svg"/></svg>
-          <svg class="comic-panel" viewBox="667 47 331 559" role="img" aria-label="Brief fragments of Zionara appear and vanish."><image href="comics/chronicles-episode-1-chapter-1-the-dream.svg"/></svg>
-          <svg class="comic-panel" viewBox="1000 47 327 559" role="img" aria-label="A gentle ancient Guardian appears in golden light."><image href="comics/chronicles-episode-1-chapter-1-the-dream.svg"/></svg>
-          <svg class="comic-panel" viewBox="6 608 307 539" role="img" aria-label="The Guardian offers Lady Zion a luminous leaf."><image href="comics/chronicles-episode-1-chapter-1-the-dream.svg"/></svg>
-          <svg class="comic-panel" viewBox="315 608 350 539" role="img" aria-label="The dream dissolves as the voice asks her to remember."><image href="comics/chronicles-episode-1-chapter-1-the-dream.svg"/></svg>
-          <svg class="comic-panel" viewBox="667 608 331 539" role="img" aria-label="Lady Zion awakens when her alarm rings."><image href="comics/chronicles-episode-1-chapter-1-the-dream.svg"/></svg>
-          <svg class="comic-panel" viewBox="1000 608 327 539" role="img" aria-label="Lady Zion remembers only the feeling that someone is waiting."><image href="comics/chronicles-episode-1-chapter-1-the-dream.svg"/></svg>
-          <div class="mobile-panel-end">❧ &nbsp; END OF CHAPTER 1</div>
+    <section id="episode-cover" class="episode-cover" aria-labelledby="episode-cover-title">
+      <div class="episode-cover-art" aria-hidden="true">
+        <img src="comics/chronicles-episode-1-chapter-1-the-dream.svg" alt="">
+        <div class="episode-cover-shade"></div>
+      </div>
+      <div class="episode-cover-copy">
+        <p class="season-kicker">SEASON I — THE AWAKENING</p>
+        <p class="episode-cover-number">EPISODE I</p>
+        <h1 id="episode-cover-title">The First Calling</h1>
+        <blockquote>“Every awakening begins with a whisper.”</blockquote>
+        <p class="episode-cover-synopsis">Before Lady Zion understands the Auret, Zionara reaches her through a dream she cannot hold—yet can never fully forget. A quiet act of kindness, a forgotten drawing, and a golden leaf begin to reveal that two distant worlds are still bound together.</p>
+        <div class="episode-cover-meta" aria-label="Episode information">
+          <span><strong>8</strong> Chapters</span>
+          <span><strong>15–20</strong> Minutes</span>
+          <span><strong>Complete</strong> Episode</span>
         </div>
-        <div class="chapter-actions"><a class="full-page" href="comics/chronicles-episode-1-chapter-1-the-dream.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a></div>
-      </article>
-
-      <article class="chapter-reader" hidden>
-        <div class="chapter-heading"><div><p class="chapter-number">EPISODE I · CHAPTER 2</p><h2>The First Day</h2></div><p>On her first day of high school, Lady Zion steadies herself for Grade 7, where an ordinary act of kindness quietly reveals the heart of who she is.</p></div>
-        <figure class="full-page-edition"><img src="comics/chronicles-episode-1-chapter-2-the-first-day.svg" alt="Episode I, Chapter 2: The First Day."></figure>
-        <div class="chapter-actions"><a class="full-page" href="comics/chronicles-episode-1-chapter-2-the-first-day.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a></div>
-      </article>
-
-      <article class="chapter-reader" hidden>
-        <div class="chapter-heading"><div><p class="chapter-number">EPISODE I · CHAPTER 3</p><h2>The New Classroom</h2></div><p>Lady Zion steps into Grade 7–Hope, finds the courage to introduce herself, and notices one quiet classmate whom everyone else has learned not to see.</p></div>
-        <figure class="full-page-edition"><img src="comics/chronicles-episode-1-chapter-3-the-new-classroom.svg" alt="Episode I, Chapter 3: The New Classroom."></figure>
-        <div class="chapter-actions"><a class="full-page" href="comics/chronicles-episode-1-chapter-3-the-new-classroom.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a></div>
-      </article>
-
-      <article class="chapter-reader" hidden>
-        <div class="chapter-heading"><div><p class="chapter-number">EPISODE I · CHAPTER 4</p><h2>The Quiet Boy</h2></div><p>Lady Zion notices Ethan, an overlooked classmate whose drawings protect a private world, and offers the small kindness of truly seeing him.</p></div>
-        <figure class="full-page-edition"><img src="comics/chronicles-episode-1-chapter-4-the-quiet-boy.svg" alt="Episode I, Chapter 4: The Quiet Boy."></figure>
-        <div class="chapter-actions"><a class="full-page" href="comics/chronicles-episode-1-chapter-4-the-quiet-boy.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a></div>
-      </article>
-
-      <article class="chapter-reader" hidden>
-        <div class="chapter-heading"><div><p class="chapter-number">EPISODE I · CHAPTER 5</p><h2>The Forgotten Drawing</h2></div><p>Back home, Lady Zion draws a world she cannot remember and discovers a golden leaf hidden inside her notebook.</p></div>
-        <figure class="full-page-edition"><img src="comics/chronicles-episode-1-chapter-5-the-forgotten-drawing.svg" alt="Episode I, Chapter 5: The Forgotten Drawing."></figure>
-        <div class="chapter-actions"><a class="full-page" href="comics/chronicles-episode-1-chapter-5-the-forgotten-drawing.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a></div>
-      </article>
-
-      <article class="chapter-reader" hidden>
-        <div class="chapter-heading"><div><p class="chapter-number">EPISODE I · CHAPTER 6</p><h2>The Golden Leaf</h2></div><p>The leaf responds to the mysterious symbol and lets Lady Zion feel, for one brief moment, the invisible bond between two distant worlds.</p></div>
-        <figure class="full-page-edition"><img src="comics/chronicles-episode-1-chapter-6-the-golden-leaf-refined.svg" alt="Episode I, Chapter 6: The Golden Leaf."></figure>
-        <div class="chapter-actions"><a class="full-page" href="comics/chronicles-episode-1-chapter-6-the-golden-leaf-refined.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a></div>
-      </article>
-
-      <article class="chapter-reader" hidden>
-        <div class="chapter-heading"><div><p class="chapter-number">EPISODE I · CHAPTER 7</p><h2>Beyond the Stars</h2></div><p>Across the Living Bond, the matching symbol awakens within an ancient sanctuary, and an Elder Steward recognizes the sign he has awaited.</p></div>
-        <figure class="full-page-edition"><img src="comics/chronicles-episode-1-chapter-7-beyond-the-stars.svg" alt="Episode I, Chapter 7: Beyond the Stars."></figure>
-        <div class="chapter-actions"><a class="full-page" href="comics/chronicles-episode-1-chapter-7-beyond-the-stars.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a></div>
-      </article>
-
-      <article class="chapter-reader" hidden>
-        <div class="chapter-heading"><div><p class="chapter-number">EPISODE I · CHAPTER 8</p><h2>When the Auret Sang</h2></div><p>The Elder Steward listens as the invisible Living Bond changes, and Lady Zion begins walking toward a harmony she has never truly forgotten.</p></div>
-        <figure class="full-page-edition"><img src="comics/chronicles-episode-1-chapter-8-when-the-auret-sang.svg" alt="Episode I, Chapter 8: When the Auret Sang."></figure>
-        <div class="chapter-actions"><a class="full-page" href="comics/chronicles-episode-1-chapter-8-when-the-auret-sang.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a></div>
-      </article>
+        <div class="episode-cover-actions">
+          <button id="begin-reading" class="episode-read" type="button">Begin Reading <span>↓</span></button>
+          <a class="secondary-action" href="comic.html#season-one">Back to Season I</a>
+        </div>
+      </div>
     </section>
 
-    <section id="episode-complete-card" class="episode-finish" hidden>
-      <p class="eyebrow">END OF EPISODE I</p>
-      <h2>The First Calling is complete.</h2>
-      <p>Lady Zion's awakening has begun.</p>
-      <a class="secondary-action" href="comic.html#season-one">Return to Season I</a>
+    <section id="reader-shell" class="reader-shell" hidden>
+      <div class="episode-page-header">
+        <p class="season-kicker">SEASON I — THE AWAKENING</p>
+        <h1>Episode I — The First Calling</h1>
+        <p>Choose a chapter or continue through the episode one chapter at a time.</p>
+      </div>
+
+      <div class="episode-tools" aria-label="Episode I chapter navigator">
+        <button id="chapter-previous" class="chapter-nav-button" type="button">← Previous</button>
+        <label class="visually-hidden" for="chapter-select">Choose a chapter</label>
+        <select id="chapter-select" class="chapter-picker">
+          <option value="1">Chapter 1 — The Dream</option>
+          <option value="2">Chapter 2 — The First Day</option>
+          <option value="3">Chapter 3 — The New Classroom</option>
+          <option value="4">Chapter 4 — The Quiet Boy</option>
+          <option value="5">Chapter 5 — The Forgotten Drawing</option>
+          <option value="6">Chapter 6 — The Golden Leaf</option>
+          <option value="7">Chapter 7 — Beyond the Stars</option>
+          <option value="8">Chapter 8 — When the Auret Sang</option>
+        </select>
+        <button id="chapter-next" class="chapter-nav-button" type="button">Next →</button>
+      </div>
+      <p id="chapter-position" class="visually-hidden">Chapter 1 of 8</p>
+      <p id="chapter-announcement" class="visually-hidden" aria-live="polite"></p>
+
+      <section id="episode-reader" data-episode-reader>
+        <article class="chapter-reader has-mobile-panels">
+          <div class="chapter-heading"><div><p class="chapter-number">EPISODE I · CHAPTER 1</p><h2>The Dream</h2></div><p>Lady Zion receives her clearest glimpse of Zionara—and awakens with only the feeling that someone, somewhere, is waiting for her.</p></div>
+          <figure class="full-page-edition"><img src="comics/chronicles-episode-1-chapter-1-the-dream.svg" alt="Episode I, Chapter 1: The Dream."></figure>
+          <div class="mobile-panel-edition" aria-label="Phone-friendly edition of Chapter 1">
+            <p class="mobile-reader-note"><strong>Phone Edition</strong>Scroll down and read one panel at a time.</p>
+            <svg class="comic-panel" viewBox="6 47 307 559" role="img" aria-label="A voice calls Lady Zion through a starlit dream."><image href="comics/chronicles-episode-1-chapter-1-the-dream.svg"/></svg>
+            <svg class="comic-panel" viewBox="315 47 350 559" role="img" aria-label="Lady Zion stands before the luminous tree of Zionara."><image href="comics/chronicles-episode-1-chapter-1-the-dream.svg"/></svg>
+            <svg class="comic-panel" viewBox="667 47 331 559" role="img" aria-label="Brief fragments of Zionara appear and vanish."><image href="comics/chronicles-episode-1-chapter-1-the-dream.svg"/></svg>
+            <svg class="comic-panel" viewBox="1000 47 327 559" role="img" aria-label="A gentle ancient Guardian appears in golden light."><image href="comics/chronicles-episode-1-chapter-1-the-dream.svg"/></svg>
+            <svg class="comic-panel" viewBox="6 608 307 539" role="img" aria-label="The Guardian offers Lady Zion a luminous leaf."><image href="comics/chronicles-episode-1-chapter-1-the-dream.svg"/></svg>
+            <svg class="comic-panel" viewBox="315 608 350 539" role="img" aria-label="The dream dissolves as the voice asks her to remember."><image href="comics/chronicles-episode-1-chapter-1-the-dream.svg"/></svg>
+            <svg class="comic-panel" viewBox="667 608 331 539" role="img" aria-label="Lady Zion awakens when her alarm rings."><image href="comics/chronicles-episode-1-chapter-1-the-dream.svg"/></svg>
+            <svg class="comic-panel" viewBox="1000 608 327 539" role="img" aria-label="Lady Zion remembers only the feeling that someone is waiting."><image href="comics/chronicles-episode-1-chapter-1-the-dream.svg"/></svg>
+            <div class="mobile-panel-end">❧ &nbsp; END OF CHAPTER 1</div>
+          </div>
+          <div class="chapter-actions"><a class="full-page" href="comics/chronicles-episode-1-chapter-1-the-dream.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a></div>
+        </article>
+
+        <article class="chapter-reader" hidden>
+          <div class="chapter-heading"><div><p class="chapter-number">EPISODE I · CHAPTER 2</p><h2>The First Day</h2></div><p>On her first day of high school, Lady Zion steadies herself for Grade 7, where an ordinary act of kindness quietly reveals the heart of who she is.</p></div>
+          <figure class="full-page-edition"><img src="comics/chronicles-episode-1-chapter-2-the-first-day.svg" alt="Episode I, Chapter 2: The First Day."></figure>
+          <div class="chapter-actions"><a class="full-page" href="comics/chronicles-episode-1-chapter-2-the-first-day.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a></div>
+        </article>
+
+        <article class="chapter-reader" hidden>
+          <div class="chapter-heading"><div><p class="chapter-number">EPISODE I · CHAPTER 3</p><h2>The New Classroom</h2></div><p>Lady Zion steps into Grade 7–Hope, finds the courage to introduce herself, and notices one quiet classmate whom everyone else has learned not to see.</p></div>
+          <figure class="full-page-edition"><img src="comics/chronicles-episode-1-chapter-3-the-new-classroom.svg" alt="Episode I, Chapter 3: The New Classroom."></figure>
+          <div class="chapter-actions"><a class="full-page" href="comics/chronicles-episode-1-chapter-3-the-new-classroom.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a></div>
+        </article>
+
+        <article class="chapter-reader" hidden>
+          <div class="chapter-heading"><div><p class="chapter-number">EPISODE I · CHAPTER 4</p><h2>The Quiet Boy</h2></div><p>Lady Zion notices Ethan, an overlooked classmate whose drawings protect a private world, and offers the small kindness of truly seeing him.</p></div>
+          <figure class="full-page-edition"><img src="comics/chronicles-episode-1-chapter-4-the-quiet-boy.svg" alt="Episode I, Chapter 4: The Quiet Boy."></figure>
+          <div class="chapter-actions"><a class="full-page" href="comics/chronicles-episode-1-chapter-4-the-quiet-boy.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a></div>
+        </article>
+
+        <article class="chapter-reader" hidden>
+          <div class="chapter-heading"><div><p class="chapter-number">EPISODE I · CHAPTER 5</p><h2>The Forgotten Drawing</h2></div><p>Back home, Lady Zion draws a world she cannot remember and discovers a golden leaf hidden inside her notebook.</p></div>
+          <figure class="full-page-edition"><img src="comics/chronicles-episode-1-chapter-5-the-forgotten-drawing.svg" alt="Episode I, Chapter 5: The Forgotten Drawing."></figure>
+          <div class="chapter-actions"><a class="full-page" href="comics/chronicles-episode-1-chapter-5-the-forgotten-drawing.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a></div>
+        </article>
+
+        <article class="chapter-reader" hidden>
+          <div class="chapter-heading"><div><p class="chapter-number">EPISODE I · CHAPTER 6</p><h2>The Golden Leaf</h2></div><p>The leaf responds to the mysterious symbol and lets Lady Zion feel, for one brief moment, the invisible bond between two distant worlds.</p></div>
+          <figure class="full-page-edition"><img src="comics/chronicles-episode-1-chapter-6-the-golden-leaf-refined.svg" alt="Episode I, Chapter 6: The Golden Leaf."></figure>
+          <div class="chapter-actions"><a class="full-page" href="comics/chronicles-episode-1-chapter-6-the-golden-leaf-refined.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a></div>
+        </article>
+
+        <article class="chapter-reader" hidden>
+          <div class="chapter-heading"><div><p class="chapter-number">EPISODE I · CHAPTER 7</p><h2>Beyond the Stars</h2></div><p>Across the Living Bond, the matching symbol awakens within an ancient sanctuary, and an Elder Steward recognizes the sign he has awaited.</p></div>
+          <figure class="full-page-edition"><img src="comics/chronicles-episode-1-chapter-7-beyond-the-stars.svg" alt="Episode I, Chapter 7: Beyond the Stars."></figure>
+          <div class="chapter-actions"><a class="full-page" href="comics/chronicles-episode-1-chapter-7-beyond-the-stars.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a></div>
+        </article>
+
+        <article class="chapter-reader" hidden>
+          <div class="chapter-heading"><div><p class="chapter-number">EPISODE I · CHAPTER 8</p><h2>When the Auret Sang</h2></div><p>The Elder Steward listens as the invisible Living Bond changes, and Lady Zion begins walking toward a harmony she has never truly forgotten.</p></div>
+          <figure class="full-page-edition"><img src="comics/chronicles-episode-1-chapter-8-when-the-auret-sang.svg" alt="Episode I, Chapter 8: When the Auret Sang."></figure>
+          <div class="chapter-actions"><a class="full-page" href="comics/chronicles-episode-1-chapter-8-when-the-auret-sang.svg" target="_blank" rel="noopener">Open Full-Resolution Page</a></div>
+        </article>
+      </section>
+
+      <section id="episode-complete-card" class="episode-finish" hidden>
+        <p class="eyebrow">END OF EPISODE I</p>
+        <h2>The First Calling is complete.</h2>
+        <p>Lady Zion's awakening has begun.</p>
+        <a class="secondary-action" href="comic.html#season-one">Return to Season I</a>
+      </section>
     </section>
   </main>
 
