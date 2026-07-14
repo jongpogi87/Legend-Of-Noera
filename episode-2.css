@@ -1,1 +1,421 @@
 .sanctuary-page{--sanctuary-gold:#efc979;--sanctuary-ivory:#f4edd8;--sanctuary-green:#5f8064}.sanctuary-main{background:radial-gradient(circle at 75% 10%,rgba(239,201,121,.16),transparent 25%),linear-gradient(#132b2a,#071a21 70%)}.sanctuary-cover{min-height:1040px;align-items:end;background:linear-gradient(#f4c875 0 20%,#8eb69b 48%,#234a42 72%,#102723);border-color:rgba(239,201,121,.58)}.sanctuary-cover:after{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;background:linear-gradient(90deg,rgba(7,23,25,.96) 0%,rgba(7,23,25,.8) 43%,rgba(7,23,25,.2) 78%),linear-gradient(0deg,rgba(7,23,25,.97),transparent 72%)}.sanctuary-cover-copy{z-index:7;max-width:800px}.sanctuary-sky,.sanctuary-mountains,.sanctuary-water,.sanctuary-light{position:absolute;inset:0}.sanctuary-sky{background:radial-gradient(circle at 74% 20%,rgba(255,251,215,.95),rgba(255,225,148,.68) 7%,transparent 23%),linear-gradient(#f3c570,#b7d1ae 46%,#4f7d6c 76%)}.sanctuary-mountains{top:18%;bottom:auto;height:43%;opacity:.82;background:linear-gradient(145deg,transparent 0 42%,#557564 42% 53%,transparent 53%) 0 0/54% 100%,linear-gradient(215deg,transparent 0 45%,#466a5b 45% 58%,transparent 58%) 100% 0/58% 100%;background-repeat:no-repeat}.sanctuary-arches{position:absolute;left:34%;right:6%;bottom:19%;height:43%;display:flex;align-items:flex-end;gap:3%;padding:0 3%;border-bottom:16px solid rgba(242,232,198,.92);background:linear-gradient(0deg,rgba(245,237,211,.72),rgba(245,237,211,.15));box-shadow:0 -18px 50px rgba(255,238,177,.16)}.sanctuary-arches:before,.sanctuary-arches:after{content:"";position:absolute;bottom:0;width:8%;height:112%;background:linear-gradient(90deg,#d6cba8,#f5edcf,#c0b38f);box-shadow:0 0 18px rgba(255,247,210,.22)}.sanctuary-arches:before{left:0}.sanctuary-arches:after{right:0}.sanctuary-arches span{position:relative;flex:1;height:88%;border:13px solid rgba(243,235,208,.96);border-bottom:0;border-radius:48% 48% 0 0;background:linear-gradient(rgba(55,91,77,.16),rgba(11,40,35,.56));box-shadow:inset 0 0 0 2px rgba(113,96,55,.26)}.sanctuary-tree{position:absolute;right:17%;bottom:24%;width:30%;height:48%;z-index:2}.tree-crown{position:absolute;inset:0 0 25%;border-radius:48% 52% 42% 58%;background:radial-gradient(circle at 35% 30%,#e6cf76 0 3%,transparent 4%),radial-gradient(circle at 68% 25%,#f0db87 0 2.5%,transparent 3.5%),radial-gradient(circle at 50% 48%,#9eae62,#52744e 64%,#2f5542 100%);box-shadow:0 0 75px rgba(238,211,126,.26);filter:drop-shadow(0 24px 28px rgba(0,0,0,.25))}.tree-trunk{position:absolute;left:45%;bottom:0;width:12%;height:42%;border-radius:45% 45% 10% 10%;background:linear-gradient(90deg,#60462d,#ad8552,#6c4c2f)}.sanctuary-water{top:auto;bottom:0;height:28%;background:linear-gradient(170deg,transparent 0 20%,rgba(200,239,221,.42) 21% 32%,rgba(80,145,126,.66) 33% 100%);clip-path:polygon(0 48%,100% 0,100% 100%,0 100%)}.sanctuary-figure{position:absolute;right:66%;bottom:18%;width:42px;height:150px;z-index:4;border-radius:48% 48% 20% 20%;background:linear-gradient(#2b2630 0 16%,#e7d6c5 17% 26%,#475b68 27% 100%);box-shadow:0 22px 28px rgba(0,0,0,.38)}.sanctuary-figure:before{content:"";position:absolute;left:7px;top:-28px;width:28px;height:34px;border-radius:48%;background:#302b33}.sanctuary-light{z-index:3;background:radial-gradient(circle at 73% 30%,rgba(255,242,176,.34),transparent 25%);animation:sanctuary-breathe 7s ease-in-out infinite}@keyframes sanctuary-breathe{0%,100%{opacity:.62}50%{opacity:1}}.sanctuary-cover .episode-cover-number,.sanctuary-cover .episode-chapter-list>p{color:var(--sanctuary-gold)}.sanctuary-cover .episode-cover-meta span{border-color:rgba(239,201,121,.34)}.sanctuary-chapter-list a{background:rgba(13,43,37,.72);border-color:rgba(239,201,121,.3)}.sanctuary-chapter-list .is-interlude a{border-style:dashed;background:rgba(239,201,121,.1);color:#f5e9c5}.sanctuary-chapter-list a small{margin-left:auto;color:#d9c88d;font:800 8px system-ui,sans-serif;letter-spacing:.15em;text-transform:uppercase}.sanctuary-reader{max-width:1240px;margin:0 auto}.sanctuary-placeholder{min-height:650px;display:flex;flex-direction:column;justify-content:center;text-align:center;background:radial-gradient(circle at 50% 35%,rgba(239,201,121,.11),transparent 24%),linear-gradient(145deg,#102b27,#091b1d);border-color:rgba(239,201,121,.34)}.sanctuary-placeholder h2{margin:12px auto 18px;font:500 clamp(50px,8vw,92px)/.95 Georgia,serif}.sanctuary-placeholder>p:not(.chapter-number){max-width:700px;margin:0 auto;color:#b9cbc0;font:18px/1.8 Georgia,serif}.sanctuary-placeholder.is-interlude-card{background:radial-gradient(circle at 50% 35%,rgba(239,201,121,.18),transparent 26%),linear-gradient(145deg,#25392d,#10251f)}.sanctuary-artwork-notice{max-width:620px;margin:55px auto 0;padding:35px 25px;border:1px dashed rgba(239,201,121,.4);background:rgba(255,255,255,.025)}.sanctuary-artwork-notice span{display:block;color:var(--sanctuary-gold);font-size:36px}.sanctuary-artwork-notice strong{display:block;margin:8px 0;color:#f5efd9;font:500 23px Georgia,serif}.sanctuary-artwork-notice p{margin:0;color:#809b90;font:13px system-ui,sans-serif;letter-spacing:.04em}.episode-two-end-nav{max-width:1240px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:26px auto 0}.episode-two-end-nav .is-disabled{opacity:.35;pointer-events:none}@media(max-width:850px){.sanctuary-cover{min-height:1180px}.sanctuary-cover:after{background:linear-gradient(0deg,rgba(7,23,25,.98) 0%,rgba(7,23,25,.86) 72%,rgba(7,23,25,.22) 100%)}.sanctuary-arches{left:8%;right:4%;bottom:20%;height:34%}.sanctuary-tree{right:7%;bottom:31%;width:44%;height:34%}.sanctuary-figure{right:75%;bottom:18%;transform:scale(.78);transform-origin:bottom}.episode-two-end-nav{grid-template-columns:1fr}}@media(max-width:640px){.sanctuary-cover{min-height:1540px}.sanctuary-cover h1{font-size:62px}.sanctuary-arches{bottom:18%;height:28%}.sanctuary-tree{bottom:29%;width:50%;height:29%}.sanctuary-placeholder{min-height:570px;padding:45px 18px}.sanctuary-placeholder h2{font-size:48px}}@media(prefers-reduced-motion:reduce){.sanctuary-light{animation:none}}
+
+/* Episode II sanctuary refinement — 2026-07-14 */
+.sanctuary-page{
+  --sanctuary-night:#041718;
+  --sanctuary-deep:#082522;
+  --sanctuary-jade:#17463d;
+  --sanctuary-moss:#6f9272;
+  --sanctuary-gold:#e6bd68;
+  --sanctuary-dawn:#f4d890;
+  --sanctuary-ivory:#fff8e8;
+  --sanctuary-mist:#c4d5cc;
+  background:var(--sanctuary-night);
+}
+.sanctuary-page header{
+  background:rgba(3,18,19,.94);
+  border-bottom-color:rgba(230,189,104,.24);
+  box-shadow:0 12px 36px rgba(0,0,0,.18);
+}
+.sanctuary-main{
+  position:relative;
+  isolation:isolate;
+  background:
+    radial-gradient(circle at 82% 8%,rgba(230,189,104,.16),transparent 24%),
+    radial-gradient(circle at 12% 42%,rgba(52,112,91,.16),transparent 31%),
+    linear-gradient(160deg,#0b302b 0%,#061b1c 48%,#041416 100%);
+}
+.sanctuary-main::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:0;
+  pointer-events:none;
+  opacity:.2;
+  background:
+    repeating-linear-gradient(118deg,transparent 0 70px,rgba(230,189,104,.08) 71px,transparent 72px),
+    linear-gradient(90deg,transparent,rgba(255,255,255,.025),transparent);
+}
+.sanctuary-main>*{position:relative;z-index:1}
+
+.sanctuary-cover{
+  min-height:1320px;
+  isolation:isolate;
+  border-color:rgba(230,189,104,.62);
+  background:#153c34;
+  box-shadow:0 38px 120px rgba(0,0,0,.62),0 0 0 1px rgba(255,244,207,.04) inset;
+}
+.sanctuary-cover::before{
+  content:"";
+  position:absolute;
+  z-index:6;
+  inset:0;
+  pointer-events:none;
+  opacity:.5;
+  background:
+    linear-gradient(115deg,transparent 0 47%,rgba(255,244,207,.08) 47.1%,transparent 47.35%),
+    repeating-linear-gradient(0deg,transparent 0 6px,rgba(4,23,24,.035) 7px);
+  mix-blend-mode:soft-light;
+}
+.sanctuary-cover::after{
+  z-index:5;
+  background:
+    linear-gradient(90deg,rgba(3,20,20,.985) 0%,rgba(4,24,22,.94) 40%,rgba(5,27,24,.64) 62%,rgba(5,25,23,.13) 84%),
+    linear-gradient(0deg,rgba(3,18,18,.97) 0%,rgba(4,22,21,.36) 49%,rgba(11,34,28,.08) 100%);
+}
+.sanctuary-sky{
+  background:
+    radial-gradient(circle at 78% 16%,rgba(255,253,224,.96) 0 2%,rgba(250,221,147,.76) 7%,transparent 24%),
+    linear-gradient(160deg,#eabd67 0%,#d8c98b 27%,#8fae91 53%,#315e51 78%,#173a34 100%);
+}
+.sanctuary-mountains{
+  top:15%;
+  height:47%;
+  opacity:.66;
+  filter:saturate(.78) contrast(1.05);
+  background:
+    linear-gradient(145deg,transparent 0 41%,#587766 41.2% 55%,transparent 55.2%) 0 0/58% 100%,
+    linear-gradient(215deg,transparent 0 43%,#3d6657 43.2% 59%,transparent 59.2%) 100% 0/62% 100%;
+  background-repeat:no-repeat;
+}
+.sanctuary-arches{
+  left:47%;
+  right:3%;
+  bottom:14%;
+  height:38%;
+  gap:4%;
+  opacity:.84;
+  border-bottom-color:rgba(239,226,188,.88);
+  background:linear-gradient(0deg,rgba(241,230,198,.6),rgba(242,231,198,.08));
+  box-shadow:0 -20px 70px rgba(255,230,154,.13);
+}
+.sanctuary-arches span{
+  border-color:rgba(244,235,205,.9);
+  background:linear-gradient(rgba(54,92,75,.08),rgba(8,37,32,.6));
+}
+.sanctuary-tree{
+  right:5%;
+  bottom:22%;
+  width:31%;
+  height:43%;
+}
+.tree-crown{
+  background:
+    radial-gradient(circle at 35% 30%,#f0d77e 0 2.5%,transparent 3.5%),
+    radial-gradient(circle at 68% 25%,#f8e69a 0 2.2%,transparent 3.2%),
+    radial-gradient(circle at 60% 60%,#8da260,#4c7150 62%,#244a3b 100%);
+  box-shadow:0 0 90px rgba(238,211,126,.24);
+}
+.sanctuary-water{
+  height:25%;
+  opacity:.86;
+  background:linear-gradient(170deg,transparent 0 20%,rgba(205,239,216,.38) 21% 32%,rgba(55,122,105,.72) 33% 100%);
+}
+.sanctuary-light{
+  background:
+    radial-gradient(circle at 76% 20%,rgba(255,244,186,.36),transparent 23%),
+    linear-gradient(116deg,transparent 55%,rgba(255,244,190,.08) 55.2%,transparent 72%);
+}
+.sanctuary-figure{
+  right:67%;
+  bottom:16%;
+  background:linear-gradient(#29232d 0 16%,#e4d1be 17% 26%,#3e5b5d 27% 100%);
+}
+
+.sanctuary-cover-copy{
+  z-index:7;
+  width:min(100%,790px);
+  max-width:790px;
+  padding:clamp(48px,6vw,78px);
+}
+.sanctuary-cover .season-kicker{
+  color:#9fc0ad;
+  letter-spacing:.32em;
+}
+.sanctuary-cover .episode-cover-number{
+  margin-top:22px;
+  color:var(--sanctuary-gold);
+}
+.sanctuary-cover h1{
+  max-width:740px;
+  margin:10px 0 22px;
+  color:var(--sanctuary-ivory);
+  font-size:clamp(60px,7.5vw,98px);
+  line-height:.9;
+  text-wrap:balance;
+  text-shadow:0 12px 42px rgba(0,0,0,.48);
+}
+.sanctuary-cover blockquote{
+  max-width:620px;
+  margin:0 0 26px;
+  padding-left:19px;
+  border-left:1px solid rgba(230,189,104,.78);
+  color:var(--sanctuary-dawn);
+  font-size:clamp(20px,2.3vw,28px);
+  line-height:1.45;
+}
+.sanctuary-cover-synopsis{
+  max-width:650px;
+  color:var(--sanctuary-mist);
+  font-size:17px;
+  line-height:1.78;
+}
+.sanctuary-cover-synopsis p{margin:0}
+.sanctuary-cover-synopsis p+p{
+  margin-top:13px;
+  color:#e1e9e2;
+}
+.sanctuary-cover .episode-cover-meta{
+  max-width:650px;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:9px;
+  margin:30px 0 34px;
+}
+.sanctuary-cover .episode-cover-meta span{
+  min-width:0;
+  min-height:78px;
+  padding:14px 16px;
+  border-color:rgba(230,189,104,.34);
+  border-top-color:rgba(244,216,144,.72);
+  background:linear-gradient(145deg,rgba(5,28,26,.86),rgba(5,24,24,.58));
+  color:#9db5aa;
+  letter-spacing:.13em;
+}
+.sanctuary-cover .episode-cover-meta strong{
+  color:var(--sanctuary-ivory);
+  font-size:21px;
+}
+.sanctuary-chapter-list{
+  max-width:650px;
+  margin:30px 0 32px;
+}
+.sanctuary-cover .sanctuary-chapter-list>p{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:14px;
+  color:var(--sanctuary-gold);
+  letter-spacing:.24em;
+}
+.sanctuary-cover .sanctuary-chapter-list>p::after{
+  content:"";
+  width:72px;
+  height:1px;
+  background:linear-gradient(90deg,rgba(230,189,104,.65),transparent);
+}
+.sanctuary-chapter-list ol{gap:9px}
+.sanctuary-chapter-list a{
+  min-height:54px;
+  border-color:rgba(230,189,104,.25);
+  background:linear-gradient(90deg,rgba(7,38,34,.9),rgba(5,29,28,.65));
+  color:#edf2ea;
+  font-size:14px;
+  letter-spacing:.015em;
+  text-transform:none;
+  box-shadow:0 8px 20px rgba(0,0,0,.09);
+}
+.sanctuary-chapter-list a>span:first-child{
+  border-color:rgba(230,189,104,.4);
+  background:rgba(230,189,104,.09);
+  color:var(--sanctuary-gold);
+}
+.sanctuary-chapter-list a:hover,
+.sanctuary-chapter-list a:focus-visible{
+  border-color:rgba(244,216,144,.82);
+  background:linear-gradient(90deg,rgba(31,72,60,.95),rgba(17,53,47,.82));
+  box-shadow:0 10px 30px rgba(0,0,0,.22);
+}
+.sanctuary-chapter-list .is-interlude a{
+  border-style:solid;
+  border-color:rgba(185,206,150,.32);
+  background:linear-gradient(90deg,rgba(47,70,48,.72),rgba(14,47,39,.7));
+  color:#fff3d4;
+}
+.sanctuary-chapter-list a small{
+  grid-column:2;
+  justify-self:start;
+  margin:3px 0 0;
+  color:#cfdaa9;
+  font-size:8px;
+  letter-spacing:.18em;
+}
+.sanctuary-page .episode-read{
+  color:#09231f;
+  background:linear-gradient(135deg,var(--sanctuary-dawn),var(--sanctuary-gold));
+  border-color:var(--sanctuary-dawn);
+  box-shadow:0 10px 34px rgba(230,189,104,.18);
+}
+.sanctuary-page .episode-read:hover,
+.sanctuary-page .episode-read:focus-visible{
+  background:#ffe7a8;
+  border-color:#ffe7a8;
+}
+.sanctuary-page .secondary-action{
+  border-color:rgba(213,229,220,.32);
+  color:#eff5ef;
+  background:rgba(4,24,23,.28);
+}
+
+.sanctuary-reader{max-width:1240px;margin:0 auto}
+.sanctuary-page .episode-tools{
+  gap:10px;
+  padding:10px;
+  border:1px solid rgba(230,189,104,.18);
+  background:rgba(4,22,22,.52);
+  box-shadow:0 18px 60px rgba(0,0,0,.22);
+}
+.sanctuary-page .chapter-picker,
+.sanctuary-page .chapter-nav-button{
+  border-color:rgba(230,189,104,.28);
+  background:linear-gradient(145deg,#0a2927,#061b1d);
+  color:#f8f3e5;
+}
+.sanctuary-page .chapter-picker:focus,
+.sanctuary-page .chapter-nav-button:focus-visible{
+  outline:2px solid rgba(244,216,144,.88);
+  outline-offset:2px;
+}
+.sanctuary-page .chapter-nav-button:not(:disabled):hover{
+  border-color:var(--sanctuary-gold);
+  background:#123a33;
+}
+.sanctuary-placeholder{
+  min-height:690px;
+  overflow:hidden;
+  border-color:rgba(230,189,104,.42);
+  background:
+    radial-gradient(ellipse at 50% 4%,rgba(244,216,144,.16),transparent 30%),
+    repeating-radial-gradient(ellipse at 50% 118%,transparent 0 98px,rgba(230,189,104,.045) 99px 100px),
+    linear-gradient(150deg,#123c34 0%,#082725 48%,#051a1c 100%);
+  box-shadow:0 30px 95px rgba(0,0,0,.48),0 1px 0 rgba(255,244,209,.06) inset;
+}
+.sanctuary-placeholder::after{
+  content:"❧";
+  position:absolute;
+  right:clamp(18px,4vw,54px);
+  top:clamp(18px,4vw,44px);
+  color:rgba(244,216,144,.22);
+  font:clamp(52px,8vw,96px)/1 Georgia,serif;
+  transform:rotate(8deg);
+}
+.sanctuary-placeholder .chapter-number{
+  color:var(--sanctuary-gold);
+  letter-spacing:.32em;
+}
+.sanctuary-placeholder h2{
+  max-width:900px;
+  color:var(--sanctuary-ivory);
+  text-shadow:0 12px 38px rgba(0,0,0,.32);
+}
+.sanctuary-placeholder>p:not(.chapter-number){
+  max-width:720px;
+  color:#d4e0d9;
+}
+.sanctuary-placeholder.is-interlude-card{
+  border-color:rgba(189,206,151,.45);
+  background:
+    radial-gradient(ellipse at 50% 6%,rgba(224,204,128,.2),transparent 32%),
+    repeating-radial-gradient(ellipse at 50% 118%,transparent 0 98px,rgba(208,221,164,.05) 99px 100px),
+    linear-gradient(150deg,#324936 0%,#17372e 50%,#09231f 100%);
+}
+.sanctuary-page .episode-status-card{
+  width:min(100%,640px);
+  margin-top:52px!important;
+  padding:31px 28px!important;
+  border:1px solid rgba(230,189,104,.42)!important;
+  border-top-color:rgba(244,216,144,.78)!important;
+  background:linear-gradient(145deg,rgba(4,24,23,.72),rgba(6,29,27,.48))!important;
+  box-shadow:0 20px 60px rgba(0,0,0,.18);
+}
+.sanctuary-page .episode-status-card .chapter-status-label{
+  color:#9eb8aa!important;
+}
+.sanctuary-page .episode-status-card strong{
+  color:var(--sanctuary-dawn)!important;
+}
+.sanctuary-page .episode-status-card p{
+  color:#bfd0c7!important;
+}
+.sanctuary-page .chapter-end-navigation{
+  width:min(100%,760px);
+  margin-inline:auto;
+}
+.sanctuary-page .chapter-end-button{
+  border-color:rgba(230,189,104,.32);
+  background:linear-gradient(145deg,rgba(28,64,54,.72),rgba(7,30,29,.8));
+}
+.sanctuary-page .chapter-end-button:hover,
+.sanctuary-page .chapter-end-button:focus-visible{
+  border-color:var(--sanctuary-gold);
+  background:#17453b;
+}
+.sanctuary-page .chapter-end-next.is-complete{
+  border-color:var(--sanctuary-dawn);
+  background:linear-gradient(135deg,rgba(230,189,104,.23),rgba(22,63,53,.82));
+}
+.sanctuary-page .chapter-end-marker span{color:var(--sanctuary-gold)}
+.sanctuary-page .episode-finish{
+  border-style:solid;
+  border-color:rgba(230,189,104,.4);
+  background:
+    radial-gradient(circle at 50% 0,rgba(230,189,104,.13),transparent 35%),
+    rgba(5,27,26,.78);
+}
+.sanctuary-page .episode-completion-status{
+  border-color:rgba(230,189,104,.48);
+  background:rgba(230,189,104,.08);
+}
+.sanctuary-page .episode-completion-mark{
+  background:var(--sanctuary-gold);
+}
+.sanctuary-page .episode-two-end-nav .secondary-action:hover,
+.sanctuary-page .episode-two-end-nav .secondary-action:focus-visible{
+  border-color:var(--sanctuary-gold);
+  background:rgba(230,189,104,.1);
+}
+.sanctuary-page footer{
+  border-top:1px solid rgba(230,189,104,.14);
+  background:#031214;
+}
+
+@media(max-width:850px){
+  .sanctuary-cover{min-height:1380px}
+  .sanctuary-cover::after{
+    background:
+      linear-gradient(0deg,rgba(3,19,19,.99) 0%,rgba(4,24,22,.94) 66%,rgba(5,28,25,.38) 86%,rgba(6,28,24,.12) 100%),
+      linear-gradient(90deg,rgba(3,20,20,.76),rgba(3,20,20,.2));
+  }
+  .sanctuary-cover-copy{padding:56px 38px}
+  .sanctuary-arches{left:34%;right:-4%;bottom:10%;height:34%}
+  .sanctuary-tree{right:-2%;bottom:17%;width:43%;height:38%}
+  .sanctuary-figure{right:74%;bottom:11%}
+}
+@media(max-width:700px){
+  .sanctuary-main{background:linear-gradient(165deg,#0b302b,#051819 62%)}
+  .sanctuary-cover::after{
+    background:linear-gradient(0deg,rgba(3,19,19,.995) 0%,rgba(4,24,22,.96) 74%,rgba(5,26,23,.56) 91%,rgba(6,29,25,.22) 100%);
+  }
+  .sanctuary-cover-copy{padding:38px 20px 32px!important}
+  .sanctuary-cover .episode-cover-meta{grid-template-columns:1fr}
+  .sanctuary-cover .episode-cover-meta span{text-align:left}
+  .sanctuary-arches{left:28%;right:-18%;bottom:3%;height:23%;opacity:.45}
+  .sanctuary-tree{right:-12%;bottom:5%;width:55%;height:25%;opacity:.54}
+  .sanctuary-water{height:16%;opacity:.55}
+  .sanctuary-figure{right:82%;bottom:4%;transform:scale(.62)}
+  .sanctuary-placeholder{min-height:590px}
+  .sanctuary-placeholder::after{opacity:.55}
+  .sanctuary-page .episode-tools{padding:8px}
+  .sanctuary-page .chapter-end-navigation{width:100%}
+}
+@media(max-width:430px){
+  .sanctuary-cover h1{font-size:48px!important}
+  .sanctuary-cover blockquote{padding-left:14px}
+  .sanctuary-cover-synopsis{font-size:15.5px}
+  .sanctuary-chapter-list a{font-size:13.5px}
+  .sanctuary-page .episode-status-card{padding:26px 17px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .sanctuary-page *{scroll-behavior:auto}
+}
+
