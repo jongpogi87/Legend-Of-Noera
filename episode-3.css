@@ -1,1 +1,458 @@
 body.two-lives-page{background:#071117}.two-lives-main{padding-top:118px}.two-lives-cover{position:relative;isolation:isolate;min-height:980px;background:#081319}.two-lives-worlds{position:absolute;inset:0;overflow:hidden}.earth-world,.zionara-world,.world-blend,.auret-thread,.two-lives-figure{position:absolute;inset:0}.earth-world{right:50%;background:linear-gradient(180deg,#8fc8e8 0%,#d9edf5 42%,#b9c8cf 68%,#6d7d84 100%)}.earth-world:before{content:"";position:absolute;left:8%;right:8%;bottom:11%;height:40%;background:linear-gradient(#d9e0e3,#8a979d);clip-path:polygon(0 35%,18% 26%,18% 100%,0 100%,0 35%,26% 35%,26% 100%,45% 100%,45% 18%,62% 18%,62% 100%,76% 100%,76% 30%,100% 30%,100% 100%,0 100%);opacity:.82}.earth-world:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 18%,rgba(255,255,255,.85),transparent 24%),linear-gradient(90deg,rgba(4,13,17,.88),transparent 82%)}.zionara-world{left:50%;background:linear-gradient(180deg,#f7c86e 0%,#9ac88b 43%,#547a61 72%,#1b3329 100%)}.zionara-world:before{content:"";position:absolute;right:6%;left:4%;bottom:9%;height:46%;background:linear-gradient(#f0e4c6,#8e9b75);clip-path:polygon(0 100%,0 46%,12% 46%,12% 18%,26% 18%,26% 52%,40% 52%,40% 8%,56% 8%,56% 60%,70% 60%,70% 28%,84% 28%,84% 50%,100% 50%,100% 100%);opacity:.86}.zionara-world:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 76% 22%,rgba(255,242,183,.95),transparent 23%),linear-gradient(270deg,rgba(4,13,17,.78),transparent 78%)}.world-blend{background:linear-gradient(90deg,transparent 38%,rgba(225,241,234,.28) 50%,transparent 62%),linear-gradient(0deg,rgba(3,10,13,.97) 0%,rgba(3,10,13,.78) 45%,rgba(3,10,13,.18) 100%)}.auret-thread{inset:12% 8% auto;height:46%;border-radius:50%;border-top:2px solid rgba(240,217,145,.72);transform:rotate(-3deg);filter:drop-shadow(0 0 10px rgba(240,217,145,.72));opacity:.82}.auret-thread:after{content:"";position:absolute;inset:-6px 18% auto;height:18px;background:radial-gradient(ellipse,rgba(255,235,166,.75),transparent 68%);filter:blur(7px)}.two-lives-figure{inset:auto auto 8% 50%;width:88px;height:250px;transform:translateX(-50%);background:linear-gradient(90deg,#2c4351 0 50%,#d7e5d4 50%);clip-path:polygon(38% 0,62% 0,68% 18%,82% 32%,74% 100%,26% 100%,18% 32%,32% 18%);filter:drop-shadow(0 12px 24px rgba(0,0,0,.45));opacity:.95}.two-lives-cover-copy{max-width:790px}.two-lives-cover blockquote{color:#f3dda2}.two-lives-chapter-list .is-interlude a{border-color:rgba(229,196,110,.42);background:rgba(229,196,110,.10)}.two-lives-chapter-list .is-interlude small{margin-left:auto;color:#e6c66f;font:800 8px system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase}.two-lives-reader{max-width:1240px;margin:0 auto 80px}.two-lives-placeholder{position:relative;min-height:570px;padding:clamp(42px,7vw,86px);overflow:hidden;border:1px solid rgba(214,184,108,.28);background:linear-gradient(135deg,rgba(63,123,151,.22),rgba(205,164,74,.18)),#0a171c;box-shadow:0 24px 80px rgba(0,0,0,.44)}.two-lives-placeholder:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(137,199,230,.08),transparent 46%,rgba(230,190,96,.08));pointer-events:none}.two-lives-placeholder h2{position:relative;margin:12px 0 16px;color:#fff;font:500 clamp(48px,7vw,82px)/.95 Georgia,serif}.two-lives-placeholder>p{position:relative;max-width:760px;color:#c1d0cc;font:18px/1.75 Georgia,serif}.two-lives-placeholder.is-interlude-card{background:linear-gradient(135deg,rgba(214,184,108,.2),rgba(67,107,96,.2)),#0a171c}.two-lives-artwork-notice{position:relative;max-width:660px;margin:70px auto 10px;padding:44px 28px;text-align:center;border:1px dashed rgba(214,184,108,.38);background:rgba(0,0,0,.18)}.two-lives-artwork-notice span{display:block;color:#d6b86c;font-size:34px}.two-lives-artwork-notice strong{display:block;margin:10px 0;color:#f3edda;font:28px Georgia,serif}.two-lives-artwork-notice p{margin:0;color:#9eb3af}.episode-three-end-nav{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin-top:28px}.episode-three-end-nav>*:last-child{justify-self:end}.is-disabled{opacity:.35;pointer-events:none}@media(max-width:700px){.two-lives-main{padding-top:100px}.two-lives-cover{min-height:1040px}.earth-world{right:0;bottom:50%}.zionara-world{left:0;top:50%}.world-blend{background:linear-gradient(0deg,rgba(3,10,13,.98),rgba(3,10,13,.78) 52%,rgba(3,10,13,.22)),linear-gradient(180deg,transparent 42%,rgba(230,241,236,.24) 50%,transparent 58%)}.auret-thread{inset:18% 2% auto;height:58%;transform:rotate(38deg)}.two-lives-figure{bottom:7%;height:210px}.two-lives-placeholder{min-height:520px;padding:34px 20px}.episode-three-end-nav{grid-template-columns:1fr}.episode-three-end-nav>*{width:100%;justify-self:stretch!important;text-align:center}}
+
+/* Episode III Twin Worlds refinement — 2026-07-14 */
+.two-lives-page{
+  --twin-night:#06151a;
+  --twin-deep:#0a2027;
+  --earth-blue:#79aec4;
+  --earth-mist:#c7dce3;
+  --zionara-amber:#d9ae58;
+  --zionara-dawn:#f2d58d;
+  --bond-ivory:#fff7e7;
+  --bond-mist:#cad7d3;
+  background:var(--twin-night);
+}
+.two-lives-page header{
+  background:rgba(3,16,21,.94);
+  border-bottom-color:rgba(205,183,118,.24);
+  box-shadow:0 12px 36px rgba(0,0,0,.2);
+}
+.two-lives-main{
+  position:relative;
+  isolation:isolate;
+  padding-top:125px;
+  background:
+    radial-gradient(circle at 12% 12%,rgba(91,159,187,.16),transparent 26%),
+    radial-gradient(circle at 88% 10%,rgba(217,174,88,.15),transparent 27%),
+    linear-gradient(150deg,#0b2932 0%,#071b21 46%,#111d1c 100%);
+}
+.two-lives-main::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:0;
+  pointer-events:none;
+  opacity:.18;
+  background:
+    repeating-linear-gradient(62deg,transparent 0 82px,rgba(199,220,227,.06) 83px,transparent 84px),
+    repeating-linear-gradient(118deg,transparent 0 92px,rgba(217,174,88,.055) 93px,transparent 94px);
+}
+.two-lives-main>*{position:relative;z-index:1}
+
+.two-lives-cover{
+  min-height:1320px;
+  isolation:isolate;
+  border-color:rgba(213,190,119,.58);
+  background:#0a1b20;
+  box-shadow:0 38px 120px rgba(0,0,0,.62),0 0 0 1px rgba(255,247,220,.04) inset;
+}
+.two-lives-cover::before{
+  content:"";
+  position:absolute;
+  z-index:6;
+  inset:0;
+  pointer-events:none;
+  opacity:.36;
+  background:
+    linear-gradient(90deg,transparent 0 49.8%,rgba(255,240,190,.28) 50%,transparent 50.25%),
+    repeating-linear-gradient(0deg,transparent 0 6px,rgba(3,16,21,.04) 7px);
+  mix-blend-mode:screen;
+}
+.two-lives-cover::after{
+  content:"";
+  position:absolute;
+  z-index:5;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(90deg,rgba(3,17,22,.985) 0%,rgba(4,20,25,.94) 40%,rgba(6,23,26,.67) 62%,rgba(7,22,21,.18) 85%),
+    linear-gradient(0deg,rgba(3,15,19,.98) 0%,rgba(4,18,21,.34) 48%,rgba(6,22,23,.08) 100%);
+}
+.two-lives-worlds{z-index:0}
+.earth-world{
+  right:50%;
+  background:
+    radial-gradient(circle at 27% 14%,rgba(240,250,255,.88) 0 3%,rgba(163,208,225,.35) 13%,transparent 28%),
+    linear-gradient(168deg,#8fc2d5 0%,#8aaab7 35%,#536e79 66%,#263e49 100%);
+}
+.earth-world::before{
+  left:4%;
+  right:2%;
+  bottom:9%;
+  height:44%;
+  opacity:.74;
+  background:linear-gradient(180deg,#cbd7dc,#758995 64%,#425965);
+}
+.earth-world::after{
+  background:
+    radial-gradient(circle at 22% 18%,rgba(242,251,255,.8),transparent 23%),
+    linear-gradient(90deg,rgba(4,15,20,.78),rgba(4,15,20,.1) 86%);
+}
+.zionara-world{
+  left:50%;
+  background:
+    radial-gradient(circle at 78% 15%,rgba(255,244,198,.96) 0 2.5%,rgba(242,204,118,.5) 10%,transparent 27%),
+    linear-gradient(165deg,#e4b45c 0%,#b6b071 33%,#698461 62%,#29483d 100%);
+}
+.zionara-world::before{
+  right:3%;
+  left:2%;
+  bottom:8%;
+  height:49%;
+  opacity:.8;
+  background:linear-gradient(180deg,#eee0ba,#86966c 64%,#526d53);
+}
+.zionara-world::after{
+  background:
+    radial-gradient(circle at 77% 18%,rgba(255,241,182,.9),transparent 23%),
+    linear-gradient(270deg,rgba(4,14,17,.68),rgba(4,14,17,.05) 84%);
+}
+.world-blend{
+  z-index:2;
+  background:
+    radial-gradient(ellipse at 50% 32%,rgba(246,229,175,.24),transparent 23%),
+    linear-gradient(90deg,transparent 35%,rgba(199,225,220,.17) 49%,rgba(240,211,137,.17) 51%,transparent 65%),
+    linear-gradient(0deg,rgba(3,13,17,.9) 0%,rgba(3,13,17,.5) 40%,transparent 100%);
+}
+.auret-thread{
+  z-index:3;
+  inset:11% 5% auto;
+  height:52%;
+  border-top-color:rgba(245,219,142,.88);
+  filter:drop-shadow(0 0 14px rgba(240,217,145,.76));
+  opacity:.92;
+}
+.auret-thread::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:-8px;
+  width:15px;
+  height:15px;
+  border:1px solid rgba(255,238,177,.9);
+  border-radius:50%;
+  background:#f2d58d;
+  box-shadow:0 0 34px rgba(245,219,142,.78);
+}
+.two-lives-figure{
+  z-index:4;
+  bottom:7%;
+  width:92px;
+  height:260px;
+  background:linear-gradient(90deg,#33576a 0 48%,#f0d18b 52% 100%);
+  filter:drop-shadow(0 16px 28px rgba(0,0,0,.5));
+}
+.two-lives-cover-copy{
+  z-index:7;
+  width:min(100%,790px);
+  max-width:790px;
+  padding:clamp(48px,6vw,78px);
+}
+.two-lives-cover .season-kicker{
+  color:#9ec3d0;
+  letter-spacing:.32em;
+}
+.two-lives-cover .episode-cover-number{
+  margin-top:22px;
+  color:var(--zionara-amber);
+}
+.two-lives-cover h1{
+  max-width:720px;
+  margin:10px 0 22px;
+  color:var(--bond-ivory);
+  font-size:clamp(64px,8vw,102px);
+  line-height:.88;
+  text-wrap:balance;
+  text-shadow:-12px 8px 36px rgba(67,145,179,.18),12px 8px 36px rgba(217,174,88,.16),0 14px 42px rgba(0,0,0,.45);
+}
+.two-lives-cover blockquote{
+  max-width:620px;
+  margin:0 0 26px;
+  padding-left:19px;
+  border-left:1px solid rgba(121,174,196,.78);
+  color:var(--zionara-dawn);
+  font-size:clamp(20px,2.3vw,28px);
+  line-height:1.45;
+}
+.two-lives-cover-synopsis{
+  max-width:650px;
+  color:var(--bond-mist);
+  font-size:17px;
+  line-height:1.78;
+}
+.two-lives-cover-synopsis p{margin:0}
+.two-lives-cover-synopsis p+p{margin-top:13px}
+.two-lives-cover-synopsis p:last-child{
+  color:#ece5cc;
+  font-style:italic;
+}
+.two-lives-cover .episode-cover-meta{
+  max-width:650px;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:9px;
+  margin:30px 0 34px;
+}
+.two-lives-cover .episode-cover-meta span{
+  min-width:0;
+  min-height:78px;
+  padding:14px 16px;
+  border-color:rgba(200,210,190,.25);
+  background:linear-gradient(145deg,rgba(5,24,29,.86),rgba(6,24,25,.58));
+  color:#9fb4b4;
+  letter-spacing:.13em;
+}
+.two-lives-cover .episode-cover-meta span:nth-child(1){border-top-color:rgba(121,174,196,.78)}
+.two-lives-cover .episode-cover-meta span:nth-child(2){border-top-color:rgba(217,174,88,.78)}
+.two-lives-cover .episode-cover-meta span:nth-child(3){border-top-color:rgba(202,211,186,.62)}
+.two-lives-cover .episode-cover-meta strong{
+  color:var(--bond-ivory);
+  font-size:21px;
+}
+.two-lives-chapter-list{
+  max-width:650px;
+  margin:30px 0 32px;
+}
+.two-lives-cover .two-lives-chapter-list>p{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:14px;
+  color:#d9bd79;
+  letter-spacing:.22em;
+}
+.two-lives-cover .two-lives-chapter-list>p::after{
+  content:"";
+  width:72px;
+  height:1px;
+  background:linear-gradient(90deg,rgba(121,174,196,.65),rgba(217,174,88,.55),transparent);
+}
+.two-lives-chapter-list ol{gap:9px}
+.two-lives-chapter-list a{
+  min-height:54px;
+  border-color:rgba(121,174,196,.28);
+  background:linear-gradient(90deg,rgba(8,38,48,.9),rgba(10,31,34,.68));
+  color:#edf3f0;
+  font-size:14px;
+  letter-spacing:.015em;
+  text-transform:none;
+  box-shadow:0 8px 20px rgba(0,0,0,.1);
+}
+.two-lives-chapter-list a>span:first-child{
+  border-color:rgba(121,174,196,.48);
+  background:rgba(121,174,196,.1);
+  color:#a9cddd;
+}
+.two-lives-chapter-list a:hover,
+.two-lives-chapter-list a:focus-visible{
+  border-color:rgba(205,220,218,.78);
+  background:linear-gradient(90deg,rgba(25,67,81,.95),rgba(63,61,40,.78));
+  box-shadow:0 10px 30px rgba(0,0,0,.22);
+}
+.two-lives-chapter-list .is-interlude a{
+  border-style:solid;
+  border-color:rgba(217,174,88,.4);
+  background:linear-gradient(90deg,rgba(58,64,48,.78),rgba(40,45,35,.7));
+  color:#fff0c9;
+}
+.two-lives-chapter-list .is-interlude a>span:first-child{
+  border-color:rgba(217,174,88,.52);
+  background:rgba(217,174,88,.1);
+  color:var(--zionara-dawn);
+}
+.two-lives-chapter-list .is-interlude small{
+  grid-column:2;
+  justify-self:start;
+  margin:3px 0 0;
+  color:#dfc57e;
+  font-size:8px;
+  letter-spacing:.18em;
+}
+.two-lives-page .episode-read{
+  color:#092029;
+  background:linear-gradient(135deg,#b8d7e1,var(--zionara-dawn) 58%,var(--zionara-amber));
+  border-color:#e9d394;
+  box-shadow:0 10px 34px rgba(188,196,151,.18);
+}
+.two-lives-page .episode-read:hover,
+.two-lives-page .episode-read:focus-visible{
+  background:#fff0bd;
+  border-color:#fff0bd;
+}
+.two-lives-page .secondary-action{
+  border-color:rgba(211,226,224,.32);
+  color:#eff5f2;
+  background:rgba(4,22,26,.3);
+}
+
+.two-lives-reader{max-width:1240px;margin:0 auto 80px}
+.two-lives-page .episode-tools{
+  gap:10px;
+  padding:10px;
+  border:1px solid rgba(202,194,140,.2);
+  background:linear-gradient(90deg,rgba(7,32,40,.64),rgba(26,30,26,.58));
+  box-shadow:0 18px 60px rgba(0,0,0,.22);
+}
+.two-lives-page .chapter-picker,
+.two-lives-page .chapter-nav-button{
+  border-color:rgba(201,194,143,.28);
+  background:linear-gradient(110deg,#0b2b35,#131f1f);
+  color:#f8f3e7;
+}
+.two-lives-page .chapter-picker:focus,
+.two-lives-page .chapter-nav-button:focus-visible{
+  outline:2px solid rgba(235,211,148,.9);
+  outline-offset:2px;
+}
+.two-lives-page .chapter-nav-button:not(:disabled):hover{
+  border-color:var(--zionara-amber);
+  background:#18363a;
+}
+.two-lives-placeholder{
+  min-height:690px;
+  overflow:hidden;
+  border-color:rgba(205,193,132,.4);
+  background:
+    radial-gradient(circle at 13% 20%,rgba(121,174,196,.16),transparent 30%),
+    radial-gradient(circle at 87% 80%,rgba(217,174,88,.14),transparent 31%),
+    repeating-radial-gradient(ellipse at 50% 110%,transparent 0 108px,rgba(219,211,164,.04) 109px 110px),
+    linear-gradient(125deg,#113541 0%,#0b252b 48%,#2c2e21 100%);
+  box-shadow:0 30px 95px rgba(0,0,0,.48),0 1px 0 rgba(255,247,222,.05) inset;
+}
+.two-lives-placeholder::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(90deg,transparent 49.8%,rgba(244,219,150,.2) 50%,transparent 50.25%),
+    linear-gradient(120deg,rgba(121,174,196,.08),transparent 42%,rgba(217,174,88,.07));
+}
+.two-lives-placeholder::after{
+  content:"❧";
+  position:absolute;
+  right:clamp(18px,4vw,54px);
+  top:clamp(18px,4vw,44px);
+  color:rgba(241,215,144,.2);
+  font:clamp(52px,8vw,96px)/1 Georgia,serif;
+  transform:rotate(8deg);
+}
+.two-lives-placeholder .chapter-number{
+  color:#d9bd79;
+  letter-spacing:.32em;
+}
+.two-lives-placeholder h2{
+  max-width:900px;
+  color:var(--bond-ivory);
+  text-shadow:-8px 6px 30px rgba(76,152,184,.16),8px 6px 30px rgba(217,174,88,.14),0 12px 38px rgba(0,0,0,.32);
+}
+.two-lives-placeholder>p:not(.chapter-number){
+  max-width:720px;
+  color:#d5e0dd;
+}
+.two-lives-placeholder.is-interlude-card{
+  border-color:rgba(217,174,88,.44);
+  background:
+    radial-gradient(circle at 16% 18%,rgba(121,174,196,.12),transparent 28%),
+    radial-gradient(circle at 84% 76%,rgba(217,174,88,.2),transparent 31%),
+    repeating-radial-gradient(ellipse at 50% 110%,transparent 0 108px,rgba(235,215,153,.05) 109px 110px),
+    linear-gradient(125deg,#163541 0%,#17302d 48%,#3c3420 100%);
+}
+.two-lives-page .episode-status-card{
+  width:min(100%,640px);
+  margin-top:52px!important;
+  padding:31px 28px!important;
+  border:1px solid rgba(205,195,140,.42)!important;
+  border-top-color:rgba(230,205,132,.78)!important;
+  background:linear-gradient(110deg,rgba(7,32,40,.74),rgba(34,34,25,.6))!important;
+  box-shadow:0 20px 60px rgba(0,0,0,.19);
+}
+.two-lives-page .episode-status-card .chapter-status-label{color:#a9c5c9!important}
+.two-lives-page .episode-status-card strong{color:var(--zionara-dawn)!important}
+.two-lives-page .episode-status-card p{color:#c2d1ce!important}
+.two-lives-page .chapter-end-navigation{
+  width:min(100%,760px);
+  margin-inline:auto;
+}
+.two-lives-page .chapter-end-button{
+  border-color:rgba(202,194,140,.32);
+  background:linear-gradient(110deg,rgba(25,62,72,.76),rgba(45,42,28,.76));
+}
+.two-lives-page .chapter-end-button:hover,
+.two-lives-page .chapter-end-button:focus-visible{
+  border-color:var(--zionara-amber);
+  background:linear-gradient(110deg,#214c59,#51472b);
+}
+.two-lives-page .chapter-end-next.is-complete{
+  border-color:var(--zionara-dawn);
+  background:linear-gradient(110deg,rgba(66,111,123,.62),rgba(122,94,43,.7));
+}
+.two-lives-page .chapter-end-navigation a.chapter-end-button::after{display:none}
+.two-lives-page .chapter-end-navigation a.chapter-end-button{white-space:normal;text-align:center}
+.two-lives-page .chapter-end-marker span{color:var(--zionara-amber)}
+.two-lives-page .episode-finish{
+  border-style:solid;
+  border-color:rgba(208,195,131,.42);
+  background:
+    radial-gradient(circle at 15% 0,rgba(121,174,196,.12),transparent 32%),
+    radial-gradient(circle at 85% 0,rgba(217,174,88,.12),transparent 32%),
+    rgba(7,26,29,.8);
+}
+.two-lives-page .episode-completion-status{
+  border-color:rgba(211,195,126,.48);
+  background:linear-gradient(90deg,rgba(121,174,196,.08),rgba(217,174,88,.08));
+}
+.two-lives-page .episode-completion-mark{
+  color:#0a2227;
+  background:linear-gradient(135deg,#aed0dd,var(--zionara-amber));
+}
+.two-lives-page .episode-three-end-nav .secondary-action:hover,
+.two-lives-page .episode-three-end-nav .secondary-action:focus-visible{
+  border-color:var(--zionara-amber);
+  background:rgba(209,184,111,.1);
+}
+.two-lives-page footer{
+  border-top:1px solid rgba(210,190,126,.14);
+  background:#031216;
+}
+
+@media(max-width:850px){
+  .two-lives-cover{min-height:1380px}
+  .two-lives-cover::after{
+    background:
+      linear-gradient(0deg,rgba(3,17,21,.99) 0%,rgba(4,20,24,.94) 66%,rgba(5,23,25,.42) 87%,rgba(6,23,22,.12) 100%),
+      linear-gradient(90deg,rgba(5,24,30,.38),rgba(25,25,18,.28));
+  }
+  .two-lives-cover-copy{padding:56px 38px}
+}
+@media(max-width:700px){
+  .two-lives-main{padding-top:100px;background:linear-gradient(165deg,#0b2a34,#071a1f 52%,#181d18)}
+  .two-lives-cover::after{
+    background:
+      linear-gradient(0deg,rgba(3,17,21,.995) 0%,rgba(4,20,24,.96) 74%,rgba(6,24,24,.58) 91%,rgba(6,25,24,.24) 100%);
+  }
+  .two-lives-cover-copy{padding:38px 20px 32px!important}
+  .two-lives-cover .episode-cover-meta{grid-template-columns:1fr}
+  .two-lives-cover .episode-cover-meta span{text-align:left}
+  .earth-world{right:0;bottom:50%;opacity:.7}
+  .zionara-world{left:0;top:50%;opacity:.7}
+  .world-blend{
+    background:
+      linear-gradient(0deg,rgba(3,15,19,.92),rgba(3,16,20,.6) 52%,rgba(3,16,20,.2)),
+      linear-gradient(180deg,transparent 42%,rgba(231,219,169,.2) 50%,transparent 58%);
+  }
+  .auret-thread{inset:16% 0 auto;height:61%;transform:rotate(36deg);opacity:.62}
+  .two-lives-figure{bottom:4%;height:205px;opacity:.55}
+  .two-lives-placeholder{min-height:590px}
+  .two-lives-placeholder::after{opacity:.52}
+  .two-lives-page .episode-tools{padding:8px}
+  .two-lives-page .chapter-end-navigation{width:100%}
+}
+@media(max-width:430px){
+  .two-lives-cover h1{font-size:52px!important}
+  .two-lives-cover blockquote{padding-left:14px}
+  .two-lives-cover-synopsis{font-size:15.5px}
+  .two-lives-chapter-list a{font-size:15px}
+  .two-lives-page .episode-status-card{padding:26px 17px!important}
+}
+
