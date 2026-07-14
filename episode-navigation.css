@@ -3,6 +3,7 @@
 .episode-chapter-list {
   width: 100%;
   max-width: 780px;
+  container-type: inline-size;
 }
 
 .episode-chapter-list ol {
@@ -50,6 +51,12 @@
   justify-self: start;
   white-space: normal;
   line-height: 1.2;
+}
+
+@container (max-width: 650px) {
+  .episode-chapter-list ol {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .episode-tools {
