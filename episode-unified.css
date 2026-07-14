@@ -1,4 +1,5 @@
 .episode-placeholder{position:relative;min-height:580px;display:flex!important;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:clamp(42px,7vw,86px)!important;border:1px solid rgba(214,184,108,.28);box-shadow:0 24px 80px rgba(0,0,0,.42)}
+.episode-placeholder[hidden]{display:none!important}
 .episode-placeholder .chapter-number{margin:0 0 10px}
 .episode-placeholder h2{position:relative;margin:8px auto 18px!important;color:#fff6e3;font:500 clamp(48px,7vw,82px)/.96 Georgia,serif!important;letter-spacing:-.025em}
 .episode-placeholder>p:not(.chapter-number){position:relative;max-width:720px;margin:0 auto!important;color:#c2d0cc;font:18px/1.75 Georgia,serif!important}
